@@ -1,0 +1,317 @@
+Pascal is for building pyramids -- imposing, breathtaking, static
+structures built by armies pushing heavy blocks into place. Lisp is for
+building organisms -- imposing, breathtaking, dynamic structures built
+by squads fitting fluctuating myriads of simpler organisms into place.
+	--Alan J. Perlis, SICP Introduction
+%
+The discretionary exportable functionality entrusted to the individual
+Lisp programmer is more than an order of magnitude greater than that to
+be found within Pascal enterprises. Lisp programs inflate libraries with
+functions whose utility transcends the application that produced them.
+	--Alan J. Perlis, SICP Introduction
+%
+Lisp has such a simple syntax and semantics that parsing can be treated
+as an elementary task. Thus parsing technology plays almost no role in
+Lisp programs, and the construction of language processors is rarely an
+impediment to the rate of growth and change of large Lisp systems.
+	--Alan J. Perlis, SICP Introduction
+%
+But in our enthusiasm, we could not resist a radical overhaul of the
+system, in which all of its major weaknesses have been exposed,
+analyzed, and replaced with new weaknesses.
+	-- Bruce Leverett, "Register Allocation in Optimizing  Compilers"
+%
+Central in the final design was the goal to be comprehensive while being
+simple and minimising changes... Simplicity generally overruled maximum
+convenience for the programmer as a design goal. Thus, support for more
+convenient interface specifications is the domain of system-independent
+tools that generate code following the present specification.
+	-- The Haskell 98 Foreign Function Interface 1.0
+	   An Addendum to the Haskell 98 Report
+%
+Abuse of the Continuation monad can produce code that is impossible to
+understand and maintain.
+	-- Jeff Newbern, _All About Monads_
+	   http://www.haskell.org/all_about_monads/html/index.html
+%
+Those who would give up essential type safety, to purchase a little
+temporary liberty, deserve neither liberty nor type safety.
+	-- Don Stewart <dons@galois.com>
+%
+Though OOP came from many motivations, two were central. The large scale
+one was to find a better module scheme for complex systems involving
+hiding of details, and the small scale one was to find a more flexible
+version of assignment, and then try to eliminate it altogether.
+...doing encapsulation right is a commitment not just to abstraction of
+state, but to eliminate state-oriented metaphors from programming.
+	--Alan Kay, The Early History of Smalltalk
+%
+On October 11, 1963, my suggestion was to pass on a request of our
+customers to relax the ALGOL 60 rule of compulsory declaration of
+variable names and adopt some reasonable default convention such
+as that of FORTRAN. I was astonished by the polite but firm rejection
+of this seemingly innocent suggestion: It was pointed out that the
+redundancy of ALGOL 60 was the best protection against programming
+and coding errors which could be extremely expensive to detect in
+a running program and even more expensive not to. The story of the
+Mariner space rocket to Venus, lost because of the lack of compulsory
+declarations in FORTRAN, was not to be published until later. I
+was eventually persuaded of the need to design programming notations
+so as to maximize the number of errors which cannot be made, or if
+made, can be reliably detected at compile time. Perhaps this would
+make the text of programs longer.  Never mind! Wouldn't you be
+delighted if your Fairy Godmother offered to wave her wand over
+your program to remove all its errors and only made the condition
+that you should write out and key in your whole program three times!
+The way to shorten programs is to use procedures, not to omit vital
+declarative information.
+	--C.A.R. Hoare, The Emperor's Old Clothes
+%
+So, learning Python and Haskell has demoralised me and encouraged
+me to write code that is bizarre and difficult to understand...
+	--Luke Plant,
+	  Why learning Haskell/Python makes you a worse programmer
+	  http://lukeplant.me.uk/blog.php?id=1107301645
+%
+In software development, questions about the less able programmer
+really come down to trying to substitute a process for intelligence,
+aptitude, and experience. Apparently, a lot of people think that if we
+force people to create enough UML diagrams (or whatever), have enough
+reviews, and otherwise follow a detailed process, that eventually
+they will figure out what they are doing and code it correctly. There
+is no evidence that such approaches have worked in the past, and I
+see no reason to believe they will work in the future.
+	--Jack W. Reeves, _What Is Software Design: 13 Years Later_
+	  http://www.developerdotstar.com/mag/articles/reeves_13yearslater.html
+%
+Those who would give up essential laziness for a little ephemeral performance,
+deserve neither laziness nor performance.
+	--Baughn, on #haskell
+%
+Nothing can be done with these implementations, beyond extermination.
+	--RFC 1982
+%
+Generally when I get a thought about morphisms, I lie down until it goes away...
+	--Norman Ramsey
+	  comment on http://stackoverflow.com/questions/832450#832790
+%
+We should forget about small efficiencies, say about 97% of the time:
+premature optimization is the root of all evil
+	--C.A.R. Hoare
+%
+Walking on water and developing software from a specification are easy
+if both are frozen.
+	--Edward V Berard
+%
+It always takes longer than you expect, even when you take into account
+Hofstadter's Law.
+	-- Hofstadter's Law
+%
+Some people, when confronted with a problem, think "I know, I'll
+use regular expressions." Now they have two problems
+	--Jamie Zawinski
+%
+Debugging is twice as hard as writing the code in the first place.
+Therefore, if you write the code as cleverly as possible, you are,
+by definition, not smart enough to debug it.
+	--Brian Kernighan
+%
+Measuring programming progress by lines of code is like measuring aircraft
+building progress by weight.
+	--Bill Gates
+%
+PHP is a minor evil perpetrated and created by incompetent amateurs,
+whereas Perl is a great and insidious evil, perpetrated by skilled but
+perverted professionals.
+	--Jon Ribbens
+%
+On two occasions I have been asked, "Pray, Mr. Babbage, if you put into
+the machine wrong figures, will the right answers come out?" I am not
+able rightly to apprehend the kind of confusion of ideas that could
+provoke such a question.
+	--Charles Babbage
+%
+Always code as if the guy who ends up maintaining your code will be a
+violent psychopath who knows where you live.
+	--Rick Osborne
+%
+Programming today is a race between software engineers striving to build
+bigger and better idiot-proof programs, and the Universe trying to produce
+bigger and better idiots. So far, the Universe is winning.
+	--Rich Cook
+%
+I don't care if it works on your machine! We are not shipping your
+machine!
+	--Ovidiu Platon
+%
+I have always wished for my computer to be as easy to use as my telephone;
+my wish has come true because I can no longer figure out how to use my
+telephone.
+	--Bjarne Stroustrup
+%
+A computer lets you make more mistakes faster than any other invention
+in human history, with the possible exceptions of handguns and tequila.
+	--Mitch Ratcliffe
+%
+In theory, theory and practice are the same. In practice, they're not.
+	--Yoggi Berra
+%
+Two things are infinite: the universe and human stupidity; and I'm not
+sure about the universe.
+	--Albert Einstein
+%
+Perl - The only language that looks the same before and after RSA encryption.
+	--Keith Bostic
+%
+I love deadlines. I like the whooshing sound they make as they fly by.
+	--Douglas Adams
+%
+Saying that Java is good because it works on all platforms is like saying
+anal sex is good because it works on all genders.
+%
+XML is like violence - if it doesn't solve your problems, you are not
+using enough of it.
+	--Unknown
+%
+Einstein argued that there must be simplified explanations of nature,
+because God is not capricious or arbitrary. No such faith comforts the
+software engineer.
+	--Fred Brooks
+%
+Greenspun's Tenth Rule of Programming:
+Any sufficiently complicated C or Fortran program contains an ad hoc
+informally-specified bug-ridden slow implementation of half of Common
+Lisp.
+	--Philip Greenspun
+%
+Should array indices start at 0 or 1? My compromise of 0.5 was rejected
+without, I thought, proper consideration.
+	--Stan Kelly-Bootle
+%
+You should name a variable using the same care with which you name a
+first-born child.
+	--James O. Coplien
+%
+There are two ways of constructing a software design; one way is to
+make it so simple that there are _obviously_ no deficiencies, and the
+other way is to make it so complicated that there are no _obvious_
+deficiencies. The first method is far more difficult.
+	--C.A.R. Hoare, The Emperor's Old Clothes
+%
+    I really hate this damn machine
+    I wish that they would sell it
+    It never does quite what I want
+    But only what I tell it.
+%
+...and then it occurred to me that a computer is a stupid machine with
+the ability to do incredibly smart things, while computer programmers
+are smart people with the ability to do incredibly stupid things. They
+are, in short, a perfect match.
+	--Bill Bryson
+%
+There are many ways of trying to understand programs. People often rely
+too much on one way, which is called "debugging" and consists of running
+a partly-understood program to see if it does what you expected. Another
+way, which ML advocates, is to install some means of understanding in
+the very programs themselves.
+	--Robin Milner, Foreword to _The Little MLer_
+%
+Use (set! x ...) for (let ((x ...)) ...) only if there is at least one
+(lambda ... between it and the (let ...), or if the new value for x is a
+function that refers to x.
+	--The Seventeenth Commandment, _The Seasoned Schemer_
+%
+Lisp is an excellent laboratory for language experimentation for two
+reasons. First, one can choose a very small subset, with only a dozen
+primitives or so, that is still recognizably a member of the class
+of Lisp-like languages. It is very easy to bootstrap such a small
+language, with variations of choice, on a new platform. If it looks
+promising, one can flesh out the long laundry list of amenities later.
+Second, it is particularly easy--the work of an hour or less--to
+bootstrap such a new dialect within an existing Lisp implementation.
+Even if the host implementation differs in fundamental ways from the
+new dialect, it can provide primitive operations such as arithmetic
+and I/O as well as being a programming language that is just plain
+convenient for writing language interpreters. If you can live with
+the generic, list-structure-oriented syntax, you can have a field day
+reprogramming the semantics. After you get that right there is time
+enough to re-engineer it and, if you must, slap a parser on the front.
+	--Guy Steele and Richard Gabriel, "The Evolution of Lisp"
+%
+The problem with object-oriented languages is they've got all this
+implicit environment that they carry around with them. You wanted a
+banana but what you got was a gorilla holding the banana and the entire
+jungle.
+	--Joe Armstrong, interviewed by Peter Seibel in _Coders at Work_
+%
+If you have referentially transparent code, if you have pure
+functions--all the data comes in its input arguments and everything goes
+out and leaves no state behind--it's incredibly reusable.
+	--Joe Armstrong, interviewed by Peter Seibel in _Coders at Work_
+%
+I have never met anyone who can do Scheme, Haskell, and C pointers who
+can't pick up Java in two days, and create better Java code than people
+with five years of experience in Java, but try explaining that to the
+average HR drone.
+        -- Joel Spolsky
+           http://www.joelonsoftware.com/articles/ThePerilsofJavaSchools.html
+%
+We were on a mission from God to explain why laziness was fantastic for
+the world....
+    -- Simon Peyton Jones on the birth of Haskell
+       http://www.infoq.com/interviews/armstrong-peyton-jones-erlang-haskell
+%
+The language design was extremely pragmatic. No attempt was made to
+hide the hardware peculiarities from the user; in fact, every attempt
+was made to give programmers access and control of all of the Illiac
+hardware so they could construct an efficient programs.
+  -- Bryan Carpenter, _The Development of Data-Parallel Programming_
+     http://www.hpjava.org/talks/beijing/hpf/introduction/introduction.html
+%
+The ILLIAC IV was one of the most infamous supercomputers ever.
+  -- Wikipedia, first line of http://en.wikipedia.org/wiki/ILLIAC_IV
+%
+Ironically, while Git is implemented mostly in C it uses a largely
+purely functional model (everything but references is immutable),
+whereas darcs initially chose a mutable data model, which was part of
+the issues that plagued version 1. Git (at it's core) is much more pure
+than darcs.
+  -- nothingmuch, http://www.blogger.com/profile/03975438115490089158
+     from http://blog.woobling.org/2009/11/functional-programming-and-unreasonable.html
+%
+All problems in computer science can be solved by another level of
+indirection....
+    -- David Wheeler
+%
+If you were plowing a field, which would you rather use: Two strong oxen
+or 1024 chickens?
+    -- Seymour Cray
+%
+I'm personally convinced that there will be no savior architecture or
+savior language that makes parallel processing simple or easy. I've
+lived through a good four decades of trying to find such a thing, with
+significant funding available, and nothing's emerged.
+    -- Gregory Pfister
+       http://perilsofparallel.blogspot.com/2009/09/hpc-next-twenty-years.html
+%
+There are only two hard things in Computer Science: cache invalidation
+and naming things.
+    -- Phil Karlton
+%
+In Clojure I find that I'm constantly struggling with something to do
+with the impedance mismatch between the Clojure code and the Java code.
+A large part of this is due to my lack of experience in Clojure but... I
+can code in either language but it is the mixture of the two that seems
+to be the source of my troubles.
+  -- Tim Daly, http://article.gmane.org/gmane.comp.java.clojure.user/34272
+%
+Kent, what's the simplest thing that could possibly work?
+    --Ward Cunningham, http://www.artima.com/intv/simplest.html
+%
+All programmers are optimists.
+    -- Frederick P. Brooks, Jr.
+%
+[I]f you don't use a web browser with scripting disabled for all
+untrusted sites, you are some random black hat hacker's bitch.)
+   -- Charles Stross, "Where We Went Wrong"
+   http://www.antipope.org/charlie/blog-static/2010/08/where-we-went-wrong.html

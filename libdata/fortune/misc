@@ -1,0 +1,205 @@
+An organization gets what it rewards.
+                              - Perry Metzger
+%
+Clearly you lack pessimism.
+		-- pjd_, on #haskell
+%
+"Predictably, BSD proponent Tito De Raat pooh-poohed the announcement,
+saying simply that "If Linux wants to be serious about raising the bar
+to adoption, they'll soon come around to my way of doing things."
+			http://www.linux.com/feature/131066
+%
+Dr. Evil: The details of my life are quite inconsequential.
+Therapist (Carrie Fisher): Oh no, please, please, let's hear about your
+childhood.
+Dr Evil: Very well, where do I begin? My father was a relentlessly
+self-improving boulangerie owner from Belgium with low grade narcolepsy
+and a penchant for buggery. My mother was a fifteen year old French
+prostitute named Chloe with webbed feet. My father would womanize,
+he would drink, he would make outrageous claims like he invented the
+question mark. Some times he would accuse chestnuts of being lazy, the
+sort of general malaise that only the genius possess and the insane
+lament. My childhood was typical, summers in Rangoon, luge lessons. In
+the spring we'd make meat helmets. When I was insolent I was placed in
+a burlap bag and beaten with reeds, pretty standard really. At the age
+of 12 I received my first scribe. At the age of fourteen, a Zoroastrian
+named Vilma ritualistically shaved my testicles. There really is nothing
+like a shorn scrotum, it's breathtaking, I suggest you try it.
+Therapist: You know, we have to stop.
+%
+Most Japanese companies do not want people with an interest in their
+subjects, only those with an appetite for doing assigned work.
+			--Stephen J. Turnbull
+%
+Building libgmp.a was just too hard work. Other people shouldn't get it for
+free.
+    --Bruno Haible, <9310121228.AA07494@ma2s2.mathematik.uni-karlsruhe.de>,
+      on why one should use the GPL for libgmp.
+%
+If you don't spend energy getting what you want,
+        You'll have to spend it dealing with what you get.
+                                      - Unknown (via David Maxwell)
+%
+It is commonly the case with technologies that you can get the best
+insight about how they work by watching them fail.
+    --Neil Stephenson, "In the Beginning was the Command Line"
+%
+Windows 95 and MacOS are products, contrived by engineers in the service
+of specific companies. Unix, by contrast, is not so much a product as it
+is a painstakingly compiled oral history of the hacker subculture. It is
+our Gilgamesh epic.
+    --Neil Stephenson, "In the Beginning was the Command Line"
+%
+[T]he richer tourists at Disney World wear t-shirts printed with the
+names of famous designers, because the designs themselves can be
+bootlegged easily and with impunity. The only way to make clothing that
+cannot be legally bootlegged is to print copyrighted and trademarked
+words on it; once you have taken that step the clothing itself doesn't
+really matter, and so a t-shirt is as good as anything else. T-shirts
+with expensive words on them are now the insignia of the upper class.
+T-shirts with cheap words, or no words at all, are for the commoners.
+    --Neil Stephenson, "In the Beginning was the Command Line"
+%
+Verify this by shaking the computer and listening for rattling sounds.
+    --IBM's _ThinkPad Computer Maintenance Manual_ for the T42, page 5
+      ftp://ftp.software.ibm.com/pc/pccbbs/mobiles_pdf/39t6192_01.pdf
+%
+It's not just the product, which will be as popular as a Zune running Vista.
+  -- dgerard comment on
+     http://www.pcpro.co.uk/news/245859/qa-microsoft-defends-return-to-drm.html
+%
+Information Wants To Be Free. Information also wants to be expensive.
+Information wants to be free because it has become so cheap to
+distribute, copy, and recombine---too cheap to meter. It wants to be
+expensive because it can be immeasurably valuable to the recipient. That
+tension will not go away. It leads to endless wrenching debate about
+price, copyright, 'intellectual property', the moral rightness of casual
+distribution, because each round of new devices makes the tension worse,
+not better.
+    --Stewart Brand, _The Media Lab: Inventing the Future at MIT_
+%
+Engineers are aesthetes. They want technological symmetry. The smartest
+engineers at Data General wanted to build beautiful machines. West was
+different. He had another motive. He was pissed.
+    --Tracy Kidder
+%
+As far as the laws of mathematics refer to reality, they are not
+certain; and as far as they are certain, they do not refer to reality.
+    --Albert Einstein
+%
+To spell out a concrete example, consider a 3-manifold M with positive
+Betti number. One would like to show that M admits a map to the 2-sphere
+which is "non-trivial", i.e. non-homotopic to the constant map. By a
+general nonsense argument, there is a map
+
+    f: M -> K(Z,2)
+
+to the Eilenberg-MacLane space, corresponding to a non-trivial element
+in H2(M). Since K(Z,2) is complex projective space and the latter admits
+a skeleton structure with no cells in odd dimensions, we can apply the
+cellular approximation theorem to conclude that the map f can be pushed
+down to the 2-skeleton, which happens to be the 2-sphere.
+
+    --Wikipedia "General Abstract Nonsense" entry
+%
+Functor allows only applying pure functions on effectual.
+Applicative allows lifting into effectual and combining* effectual values.
+Monad adds selection of effectuals according to their internal values.
+    -- sinelaw, on #haskell, after Peaker
+* Note: 'combining' means 'sequencing' here, of course....
+%
+It is a profoundly erroneous truism, repeated by all copy-books and by
+eminent people when they are making speeches, that we should cultivate the
+habit of thinking of what we are doing. The precise opposite is the case.
+Civilization advances by extending the number of important operations which
+we can perform without thinking about them. Operations of thought are like
+cavalry charges in a battle--they are strictly limited in number, they
+require fresh horses, and must only be made at decisive moments.
+	--Alfred North Whitehead, _An Introduction to Mathematics_ (1911)
+%
+Ubuntu, an ancient African word meaning "I can't configure Debian".
+	--ricky_clarkson, on #haskell
+%
+it's satans mvc framework.
+	-- nevyn, discussing Ruby on Rails (Freenode #git)
+%
+Spammers have demonstrated a tendency to be strong early-adopters of
+authentication techniques, in the (apparently valid) expectation that
+receivers will confuse validation with reputation.
+	-- Dave CROCKER <dhc@dcrocker.net>, on zorch
+%
+Mind you, I've tried going over to the dark side. But every time I used
+emacs for more than a week I began getting shooting pains in my wrists.
+So I stopped doing that, and they went away.
+    -- Charles Stross, a vi user, from
+       http://www.antipope.org/charlie/blog-static/2010/01/writing-tools.html
+%
+I really am amused by this turn of discussion, because advocates of
+copyleft are in precisely the same position.  Their *amoral*,
+objective analysis of human behavior is that some humans will try to
+restrict the software freedom of others, and the vast majority of
+those others will see no profit in resisting.  Therefore, a free
+software license that *deliberately restricts* licensees' freedom is
+carefully designed, a profoundly moral act.
+
+In fact, even in the presence of copyright or patent, an individual
+always has the right to choose only software under a free license, at
+the cost of giving up proprietary software, thus preserving his own
+freedom.  Therefore copyleft, restricting the freedom to bargain away
+the "four freedoms" in return for something else of value, can be
+justified morally *only* by reference to the software "ecosystem", ie,
+emergent effects of your use of non-free software on my freedom.
+    -- Stephen J. Turnbull
+       http://lists.gnu.org/archive/html/emacs-devel/2010-02/msg00042.html
+%
+It is madness to try to apply "should" to the facts.
+    -- Stephen J. Turnbull
+       http://lists.gnu.org/archive/html/emacs-devel/2010-02/msg00073.html
+%
+MySQL: waxing the dolphin.
+%
+I am, admittedly, much more radical on this issue than most: I believe in
+patrolling the wall between church and state with armed guards and rabid
+attack dogs, with air support available to deal with mass incursions.
+ -- C.E. Petit
+    http://scrivenerserror.blogspot.com/2010_01_01_scrivenerserror_archive.html 
+%
+Scratch the surface of most cynics and you find a frustrated idealist--someone
+who made the mistake of converting his ideals into expectations.
+    -- Peter Senge
+%
+Any comfortable American who is cynical of progress--or the competent decency
+of modern civilization--hasn't pondered how life was for our ancestors. Any
+day that cossacks haven't burned your home should start out a happy one,
+overflowing with optimism.
+    -- M.N. Plano
+%
+And the generous creature's sacrifice was fed by our communion.
+    -- Henry James, _The Death of the Lion_
+%
+Here it is, 2009, and I'm typing SQL statements into my telephone. This
+is not quite the future I'd imagined.
+    -- Tim Bray (on Twitter)
+%
+Peak value: the values the vendor guarantees you cannot exceed
+    -- Jack Dongarra
+%
+Memory is like an orgasm: It's better when you don't have to fake it.
+    -- Seymour Cray, on virtual memory
+%
+It is difficult to get a man to understand something when his salary
+depends upon his not understanding it.
+    -- Upton Sinclair
+%
+The best you can hope for in this life is that your delusions are benign
+and your compulsions have utility. 
+    -- Scott Adams <http://www.dilbert.com/blog/entry/crazy_or_disciplined/>
+%
+Kierkegaard presents his pseudonymous authorship as a dialectical
+progression of existential stages. The first is the aesthetic...stage
+of existence [which] is characterized by the following: immersion
+in sensuous experience; valorization of possibility over actuality;
+egotism; fragmentation of the subject of experience; nihilistic wielding
+of irony and scepticism; and flight from boredom.
+    -- Entry on Søren Kierkegaard
+       The Stanford Encyclopedia of Philosophy
