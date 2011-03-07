@@ -315,3 +315,7 @@ All programmers are optimists.
 untrusted sites, you are some random black hat hacker's bitch.)
    -- Charles Stross, "Where We Went Wrong"
    http://www.antipope.org/charlie/blog-static/2010/08/where-we-went-wrong.html
+%
+Haskell manages to achieve type inference without predicativity but
+with a few complications.
+   -- http://en.wikipedia.org/wiki/Parametric_polymorphism
