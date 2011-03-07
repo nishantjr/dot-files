@@ -319,3 +319,6 @@ untrusted sites, you are some random black hat hacker's bitch.)
 Haskell manages to achieve type inference without predicativity but
 with a few complications.
    -- http://en.wikipedia.org/wiki/Parametric_polymorphism
+%
+There are only two hard problems in computing science:
+cache invalidation, naming things, and off-by-one errors.
