@@ -1,0 +1,7 @@
+#! /bin/bash
+# Link to files in the home folder
+cd src
+for file in *
+do
+    ln -sf "$file" ~/."$file"
+done
