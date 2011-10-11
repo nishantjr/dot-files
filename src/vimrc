@@ -16,3 +16,6 @@ set hlsearch            " Switch syntax highlighting on, when the terminal has c
 
 filetype plugin indent on
 set autoindent		" always set autoindenting on
+
+set backupdir=~/vimtmp,.
+set directory=~/vimtmp,.
