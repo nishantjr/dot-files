@@ -1,7 +1,8 @@
 #! /bin/bash
 # Link to files in the home folder
+BASE=$(pwd)
 cd src
 for file in *
 do
-    ln -sf "$file" ~/."$file"
+    ln -sf "${BASE}/src/$file" ~/."$file"
 done
