@@ -1,0 +1,5 @@
+[user]
+	email = nishant.rodrigues@teletronics-india.com
+	name = Nishant Rodrigues
+[color "diff"]
+	whitespace = red reverse
