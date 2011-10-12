@@ -3,3 +3,5 @@
 	name = Nishant Rodrigues
 [color "diff"]
 	whitespace = red reverse
+[color]
+	ui = auto
