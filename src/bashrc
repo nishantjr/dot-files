@@ -1,5 +1,13 @@
 [[ $- != *i* ]] && return
 
+function japanese () {
+    mplayer ~/projects/japanese/1-$1.mp3
+}
+
+function journal () {
+    vim ~/personal/journal/$(date +%F)
+}
+
 alias ls='ls --color=auto'
 export PS1='[\u@\h \W]\$ '
 export EDITOR='vim'
