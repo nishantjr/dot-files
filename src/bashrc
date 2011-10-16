@@ -11,6 +11,6 @@ function journal () {
 alias ls='ls --color=auto'
 export PS1='[\u@\h \W]\$ '
 export EDITOR='vim'
-export PATH="/usr/lib/colorgcc/bin:$PATH"
+export PATH="${HOME}/usr/bin:/usr/lib/colorgcc/bin:$PATH"
 
 cat ~/todo
