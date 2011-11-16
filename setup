@@ -1,8 +1,8 @@
 #! /bin/bash
 # Link to files in the home folder
 BASE=$(pwd)
-cd src
+cd dot-files
 for file in *
 do
-    ln -sf "${BASE}/src/$file" ~/."$file"
+    ln -sf "${BASE}/dot-files/$file" ~/."$file"
 done
