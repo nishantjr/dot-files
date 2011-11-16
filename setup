@@ -1,8 +1,10 @@
 #! /bin/bash
 # Link to files in the home folder
-BASE=$(pwd)
+BASE=$(cd ${0%/*} && pwd -P)
 cd dot-files
 for file in *
 do
     ln -sf "${BASE}/dot-files/$file" ~/."$file"
 done
+
+"${BASE}/desktop_env/setup"
