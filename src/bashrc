@@ -23,7 +23,7 @@ alias    rm='rm -iv'
 export    PS1='[\u@\h \W]\$ '
 export EDITOR='vim'
 
-export PATH="~/usr/bin:$PATH"
+export PATH="${HOME}/usr/bin:$PATH"
 export PATH="/usr/lib/colorgcc/bin:$PATH"
 
 cat ~/todo
