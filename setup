@@ -15,9 +15,11 @@ require "pkg-config gtk+-2.0" "gtk+2 (dev)"
 require "pkg-config webkit-1.0" "webkit (dev)"
 
 BASE=$(cd ${0%/*} && pwd -P)
-for dir in dwm dmenu tabbed
+INSTALL=$HOME/usr
+for pgm in dwm dmenu tabbed
 do
-        pwd
-        cd "$BASE/$dir"
-        make -s install PREFIX="$HOME/usr" 
+    cd "$BASE/$pgm"
+    make
+    rm "$INSTALL/$pgm" || true
+    make -s install "PREFIX=$INSTALL"
 done
