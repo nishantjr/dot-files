@@ -8,9 +8,22 @@ function journal () {
     vim ~/personal/journal/$(date +%F)
 }
 
-alias ls='ls --color=auto'
-export PS1='[\u@\h \W]\$ '
+HISTCONTROL=ignoredups:ignorespace
+shopt -s histappend
+
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
+
+alias    ls='ls --color=auto'
+alias  grep='grep --color=auto'
+alias egrep='grep --color=auto'
+alias    rm='rm -iv'
+
+export    PS1='[\u@\h \W]\$ '
 export EDITOR='vim'
-export PATH="${HOME}/usr/bin:/usr/lib/colorgcc/bin:$PATH"
+
+export PATH="~/usr/bin:$PATH"
+export PATH="/usr/lib/colorgcc/bin:$PATH"
 
 cat ~/todo
