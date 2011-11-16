@@ -19,5 +19,5 @@ for dir in dwm dmenu tabbed
 do
         pwd
         cd "$BASE/$dir"
-        make install PREFIX="$HOME/usr" 
+        make -s install PREFIX="$HOME/usr" 
 done
