@@ -1,0 +1,23 @@
+#!/bin/bash -e
+
+#require $command $package
+function require() {
+    command=$1; package=$2
+    $command || {
+        echo "package '$package' not installed."
+        exit 1
+    }
+}
+
+require "pkg-config x11" "x11 (dev)"
+require "pkg-config xinerama" "xinerama (dev)"
+require "pkg-config gtk+-2.0" "gtk+2 (dev)"
+require "pkg-config webkit-1.0" "webkit (dev)"
+
+BASE=$(cd ${0%/*} && pwd -P)
+for dir in dwm dmenu tabbed
+do
+        pwd
+        cd "$BASE/$dir"
+        make install PREFIX="$HOME/usr" 
+done
