@@ -1,4 +1,12 @@
 #! /bin/bash
 PATH=~/usr/bin:$PATH
 
-ck-launch-session dwm
+firefox &
+skype &
+tabbed xterm -into &
+tabbed xterm -into &
+
+while true
+do
+    dwm
+done
