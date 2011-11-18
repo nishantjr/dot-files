@@ -3,8 +3,8 @@ PATH=~/usr/bin:$PATH
 
 firefox &
 skype &
-tabbed xterm -into &
-tabbed xterm -into &
+xterm&
+xterm&
 
 while true
 do
