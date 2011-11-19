@@ -37,10 +37,10 @@ static const Layout layouts[] = {
 /* key definitions */
 #define MODKEY Mod1Mask
 #define TAGKEYS(KEY,TAG) \
-	{ 0,                            KEY,      view,           {.ui = 1 << TAG} }, \
-	{ ControlMask,                  KEY,      toggleview,     {.ui = 1 << TAG} }, \
-	{ ShiftMask,                    KEY,      tag,            {.ui = 1 << TAG} }, \
-	{ ControlMask|ShiftMask,        KEY,      toggletag,      {.ui = 1 << TAG} },
+	{ MODKEY,                         KEY,      view,           {.ui = 1 << TAG} }, \
+	{ MODKEY|ControlMask,            KEY,      toggleview,     {.ui = 1 << TAG} }, \
+	{ MODKEY|ShiftMask,               KEY,      tag,            {.ui = 1 << TAG} }, \
+	{ MODKEY|ControlMask|ShiftMask,   KEY,      toggletag,      {.ui = 1 << TAG} },
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
@@ -71,15 +71,15 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	TAGKEYS(                        XK_F1,                      0)
-	TAGKEYS(                        XK_F2,                      1)
-	TAGKEYS(                        XK_F3,                      2)
-	TAGKEYS(                        XK_F4,                      3)
-	TAGKEYS(                        XK_F5,                      4)
-	TAGKEYS(                        XK_F6,                      5)
-	TAGKEYS(                        XK_F7,                      6)
-	TAGKEYS(                        XK_F8,                      7)
-	TAGKEYS(                        XK_F9,                      8)
+	TAGKEYS(                        XK_1,                      0)
+	TAGKEYS(                        XK_2,                      1)
+	TAGKEYS(                        XK_3,                      2)
+	TAGKEYS(                        XK_4,                      3)
+	TAGKEYS(                        XK_5,                      4)
+	TAGKEYS(                        XK_6,                      5)
+	TAGKEYS(                        XK_7,                      6)
+	TAGKEYS(                        XK_8,                      7)
+	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 };
 
