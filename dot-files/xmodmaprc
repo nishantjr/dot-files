@@ -1,0 +1,35 @@
+!--------------------------------------------------
+! Generic changes
+
+! Caps lock/ctrl flip
+remove Lock = Caps_Lock
+remove Control = Control_L
+!keycode 37 = Caps_Lock
+keycode 66 = Control_L
+add Lock = Caps_Lock
+add Control = Control_L
+
+! Reverse ESC and backquote/tilde
+keycode 9 = quoteleft asciitilde
+keycode 49 = Escape
+
+! Right-ctrl -> compose XXX wrong keycode, not actually used anyway?
+keycode 109 =        Multi_key
+
+!--------------------------------------------------
+! Japanese mappings
+
+! NetBSD/Ubuntu 8.04
+keycode 133 = grave yen
+! Ubuntu 8.10
+keycode 132 = grave yen
+
+! NetBSD/Ubuntu 8.04
+keycode 211 = underscore asciitilde
+! Ubuntu 8.10
+keycode 97 = underscore asciitilde
+
+! muhenkan key backs up a page in Mozilla
+keycode 131 = Muhenkan Muhenkan Muhenkan
+keycode 129 = Henkan Mae_Koho Zen_Koho
+keycode 208 = Hiragana Katakana Romaji
