@@ -1,6 +1,8 @@
 #! /bin/bash
 PATH=~/usr/bin:$PATH
 
+xmodmap .xmodmaprc
+
 #Annoying beep from xterm and elsewhere(?)
 xset b off
 
