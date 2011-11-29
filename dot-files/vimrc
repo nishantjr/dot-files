@@ -309,28 +309,6 @@ let mapleader = "g"
 
 let Tlist_Ctags_Cmd = "/usr/pkg/bin/exctags"
 
-" ===== StarlingCopyrightCheck ======================================
-
-map z. :call DisplayError("Try using zz instead.")<CR>
-
-function! DisplayError(s)
-    echohl ErrorMsg
-    echo a:s
-    echohl None
-endfunction
-
-function StarlingCopyrightCheck()
-    let s:year = strftime("%Y")
-    let s:cmatch = search("Copyright.*Starling Software", "n")
-    let s:ymatch = search("Copyright.*" . s:year . ".*Starling Software", "n")
-    if s:cmatch > 0 && s:ymatch == 0
-	echohl ErrorMsg
-	echo "Warning: Starling copyright notice without current year (" .  s:year . ")."
-	echohl None
-    endif
-endfunction
-"autocmd  BufEnter * call StarlingCopyrightCheck()
-
 " ===== Inline substitutions =========================================
 function FilterUnnamedBuffer(command)
     # .. send unnamed buffer as stdin to command....
