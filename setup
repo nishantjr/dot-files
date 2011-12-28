@@ -6,5 +6,3 @@ for file in *
 do
     ln -sf "${BASE}/dot-files/$file" ~/."$file"
 done
-
-"${BASE}/desktop_env/setup"
