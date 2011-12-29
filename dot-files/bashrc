@@ -1,13 +1,5 @@
 [[ $- != *i* ]] && return
 
-function japanese () {
-    mplayer ~/projects/japanese/audiobook/1-$1.mp3
-}
-
-function journal () {
-    vim ~/personal/journal/$(date +%F)
-}
-
 HISTCONTROL=ignoredups:ignorespace
 shopt -s histappend
 
