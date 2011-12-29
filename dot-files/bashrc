@@ -19,5 +19,3 @@ export EDITOR='vim'
 
 export PATH="${HOME}/usr/bin:$PATH"
 export PATH="/usr/lib/colorgcc/bin:$PATH"
-
-cat ~/todo
