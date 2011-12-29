@@ -9,7 +9,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-alias    ls='ls --color=auto'
+alias    ls='ls   --color=auto'
 alias  grep='grep --color=auto'
 alias egrep='grep --color=auto'
 alias    rm='rm -iv'
