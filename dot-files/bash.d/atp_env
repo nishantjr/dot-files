@@ -1,0 +1,23 @@
+#!/bin/bash
+
+function env() {
+    export PATH=tmp/bin:$PATH
+}
+
+function atp() {
+    cd ~/checkouts/atp-dev/
+    env
+}
+
+# Usage: cert name
+function cert() {
+    local name=$1; shift
+    local path=./build/test-data/pki
+    echo -ca $path/ifs-ca.crt -cert $path/$name.crt -pkey $path/$name.pem
+}
+
+# Usage: rel binary
+function rel() {
+    local binary=$1; shift
+    ./release/bin/$binary $*
+}
