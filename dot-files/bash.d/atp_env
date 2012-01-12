@@ -15,9 +15,3 @@ function cert() {
     local path=./build/test-data/pki
     echo -ca $path/ifs-ca.crt -cert $path/$name.crt -pkey $path/$name.pem
 }
-
-# Usage: rel binary
-function rel() {
-    local binary=$1; shift
-    ./release/bin/$binary $*
-}
