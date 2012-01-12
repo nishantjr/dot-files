@@ -15,3 +15,28 @@ function cert() {
     local path=./build/test-data/pki
     echo -ca $path/ifs-ca.crt -cert $path/$name.crt -pkey $path/$name.pem
 }
+
+function newfile() {
+    [ _$1 == _ ] && {
+        echo >&2 "Usage: $0 filename [desc] [char]"
+        return 1
+    }
+    local filename=$1
+    local name=$(basename $filename)
+    local desc=$2
+    local c=$3
+    [ _$c == _ ] && c='*'
+
+    exec 1>$filename
+    echo " $c Filename: $name"
+    echo " $c Description: $desc"
+    echo " $c Author: Nishant Rodrigues <nishant.rodrigues@infinetfs.com>"
+    echo " $c Company: Infinet Financial Systems Ltd."
+    echo " $c Created: $(date +%F)"
+    echo " $c Version: 1.0"
+    echo " $c Compiler: gcc"
+    echo " $c"
+    echo " $c Copyright 2011 by Infinet Financial Systems Ltd. All Rights Reserved."
+    exec 1>/dev/stdout
+}
+
