@@ -27,7 +27,7 @@ function newfile() {
     local c=$3
     [ _$c == _ ] && c='*'
 
-    exec 1>$filename
+    exec 3>&1; exec 1>$filename
     echo " $c Filename: $name"
     echo " $c Description: $desc"
     echo " $c Author: Nishant Rodrigues <nishant.rodrigues@infinetfs.com>"
@@ -37,6 +37,6 @@ function newfile() {
     echo " $c Compiler: gcc"
     echo " $c"
     echo " $c Copyright 2011 by Infinet Financial Systems Ltd. All Rights Reserved."
-    exec 1>/dev/stdout
+    exec 1>&3
 }
 
