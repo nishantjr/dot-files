@@ -12,7 +12,6 @@ fi
 alias    ls='ls   --color=auto'
 alias  grep='grep --color=auto'
 alias egrep='grep --color=auto'
-alias    rm='rm -iv'
 
 export    PS1='[\u@\h \W]\$ '
 export EDITOR='vim'
