@@ -1,0 +1,5 @@
+#! /bin/bash
+
+function graph() {
+    git log --oneline --graph --all --decorate
+}
