@@ -1,11 +1,12 @@
 #!/bin/bash
+[ "$ATP_PATH"_ = _ ] && export ATP_PATH=~/checkouts/atp/dev/
 
 function env() {
     export PATH=tmp/bin:$PATH
 }
 
 function atp() {
-    cd ~/checkouts/atp-dev/
+    cd $ATP_PATH
     env
 }
 
@@ -17,7 +18,7 @@ function cert() {
 }
 
 function newfile() {
-    [ _$1 == _ ] && {
+    [ _$1 = _ ] && {
         echo >&2 "Usage: $0 filename [desc] [char]"
         return 1
     }
