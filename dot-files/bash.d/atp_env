@@ -1,12 +1,12 @@
 #!/bin/bash
-[ "$ATP_PATH"_ = _ ] && export ATP_PATH=~/checkouts/atp/dev/
+[ "$ATP_DIR"_ = _ ] && export ATP_DIR=~/checkouts/atp/dev
 
 function env() {
     export PATH=tmp/bin:$PATH
 }
 
 function atp() {
-    cd $ATP_PATH
+    cd $ATP_DIR
     env
 }
 
