@@ -267,3 +267,28 @@ job is to define and enforce it.
 %
 10. The life plan has to come before the business plan.
     -- Norm Brodsky
+%
+The resulting type and value of an instance of use of the new value
+notation is determined by the value (and the type of the value) finally
+assigned to the distinguished local reference identified by the keyword
+VALUE, according to the processing of the macrodefinition for the new
+type notation followed by that for the new value notation.
+    -- ISO 8824:1988, Annex A
+%
+I was to learn later in life that we tend to meet any new situation by
+reorganizing: and a wonderful method it can be for creating the illusion
+of progress, while producing confusion, inefficiency and demoralization
+    -- Petronius Arbiter, ~60 A.D
+%
+Although everyone has their own interpretation, a good practical
+definition is "Nonrepudiation is anything which fails to go away when
+you stop believing in it". Put another way, if you can convince a user
+that it isn't worth trying to repudiate a signature then you have
+nonrepudiation. This can take the form of having them sign a legal
+agreement saying they won't try to repudiate any of their signatures,
+giving them a smart card and convincing them that it's so secure that
+any attempt to repudiate a signature generated with it would be futile,
+threatening to kill their kids, or any other method which has the
+desired effect.
+    -- Peter Gutmann, _X.509 Style Guide_
+       http://www.cs.auckland.ac.nz/~pgut001/pubs/x509guide.txt
