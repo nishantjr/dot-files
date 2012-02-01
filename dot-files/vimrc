@@ -1,5 +1,9 @@
 " ===== Settings ======================================================
 
+set nobackup
+set nowritebackup
+set noswapfile
+
 " nvi and vim
 set autoindent
 set shiftwidth=4
