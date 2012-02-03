@@ -330,3 +330,6 @@ Knox:   Forgive me for asking a crass and naive question--but what is the
 Turing: The possibilities are boundless.
     -- Breaking the Code
        http://www.turing.org.uk/turing/scrapbook/btc.html
+%
+...there's no standard for implemetations to be non-compliant with...
+    -- Peter Gutmann, _X.509 Style Guide_
