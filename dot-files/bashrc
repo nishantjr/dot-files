@@ -17,7 +17,6 @@ export    PS1='[\u@\h \W]\$ '
 export EDITOR='vim'
 
 export PATH="${HOME}/usr/bin:$PATH"
-export PATH="/usr/lib/colorgcc/bin:$PATH"
 
 for file in ~/.bash.d/*; do
     source $file
