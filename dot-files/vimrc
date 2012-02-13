@@ -38,6 +38,8 @@ if has('win32')
     set guifont=lucida_console
 endif
 
+set clipboard=unnamed
+
 set fileformats=unix
 set encoding=utf-8
 set fileencodings=ascii,utf-8,euc-jp,sjis,cp932,latin1
