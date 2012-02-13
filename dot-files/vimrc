@@ -22,7 +22,6 @@ set ignorecase
 set smartcase
 set splitbelow
 set noequalalways
-set noswapfile
 set tags=./tags;
 set noicon
 set notitle
@@ -35,6 +34,9 @@ set ruler
 
 " GUI
 set guifont=Droid\ Sans\ Mono\ 10
+if has('win32')
+    set guifont=lucida_console
+endif
 
 set fileformats=unix
 set encoding=utf-8
@@ -44,11 +46,7 @@ set formatoptions=""
 
 " Bash considers !! commands to be non-interactive shells,
 " so ensure that we get our shell functions (though not aliases).
-let $BASH_ENV=$HOME . "/.shrc"
-
-if has('win32')
-    set guifont=lucida_console
-endif
+let $BASH_ENV=$HOME . "/.bashrc"
 
 filetype plugin off
 syntax off
