@@ -6,5 +6,4 @@ xmodmap .xmodmaprc
 #Annoying beep from xterm and elsewhere(?)
 xset b off
 
-tint2 &
 openbox
