@@ -1,4 +1,4 @@
 #! /bin/bash
 
 tint2 &
-
+gnome-settings-daemon &
