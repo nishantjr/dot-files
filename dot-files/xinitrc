@@ -6,12 +6,5 @@ xmodmap .xmodmaprc
 #Annoying beep from xterm and elsewhere(?)
 xset b off
 
-firefox &
-skype &
-xterm&
-xterm&
-
-while true
-do
-    dwm
-done
+tint2 &
+openbox
