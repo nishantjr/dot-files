@@ -4,10 +4,9 @@
 
 # Background definitions
 # ID 1
-rounded = 7
-border_width = 2
+rounded = 0
+border_width = 0
 background_color = #000000 60
-border_color = #FFFFFF 16
 
 # ID 2
 rounded = 5
@@ -24,11 +23,11 @@ border_color = #FFFFFF 68
 # Panel
 panel_monitor = all
 panel_position = bottom center horizontal
-panel_size = 94% 30
+panel_size = 100% 30
 panel_margin = 0 0
-panel_padding = 7 0 7
+panel_padding = 2 0
 panel_dock = 0
-wm_menu = 0
+wm_menu = 1
 panel_layer = top
 panel_background_id = 1
 
@@ -65,7 +64,7 @@ task_urgent_icon_asb = 100 0 0
 task_iconified_icon_asb = 70 0 0
 
 # Fonts
-task_font = sans 7
+task_font = sans 8
 task_font_color = #FFFFFF 68
 task_active_font_color = #FFFFFF 83
 task_urgent_font_color = #FFFFFF 83
@@ -83,7 +82,7 @@ systray_icon_asb = 70 0 0
 # Clock
 time1_format = %H:%M
 time1_font = sans 8
-time2_format = %A %d %B
+time2_format = %A %d
 time2_font = sans 6
 clock_font_color = #FFFFFF 74
 clock_padding = 1 0
@@ -114,5 +113,3 @@ bat2_font = sans 6
 battery_font_color = #FFFFFF 74
 battery_padding = 1 0
 battery_background_id = 0
-
-# End of config
