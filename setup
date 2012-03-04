@@ -2,9 +2,7 @@
 # Link to files in the home folder
 BASE=$(cd ${0%/*} && pwd -P)
 
-cd "${BASE}/dot-files"
-
-for file in $(find . -type f)
+for file in $(find src -type f)
 do
     target=~/."${file#./}"
     source=#{$file
@@ -15,5 +13,5 @@ do
     }
 
     mkdir -p $(dirname $target)
-    ln -sf "${BASE}/dot-files/$file" $target
+    ln -sf "${BASE}/src/$file" $target
 done
