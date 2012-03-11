@@ -2,10 +2,9 @@
 # Link to files in the home folder
 BASE=$(cd ${0%/*} && pwd -P)
 
-for file in $(find src -type f)
+for file in $(cd src; find . -type f)
 do
     target=~/."${file#./}"
-    source=#{$file
 
     ( [ -L $target ] || [ ! -f $target ] ) || {
         echo "'$target' exists and is not a link, skipping";
