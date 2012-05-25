@@ -1,4 +1,3 @@
-[[ $- != *i* ]] && return
 
 HISTCONTROL=ignoredups:ignorespace
 shopt -s histappend
