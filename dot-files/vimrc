@@ -120,18 +120,6 @@ map qA :qa!
 " qw - window commands
 noremap qw <C-W>
 
-" remap internal formatting command
-noremap g* gq
-" par on curent para, current para w/ params, and quote to mark a w/ params
-map ** {!}par}
-map *h {!}par h1<CR>}	" let first line hang at own indent
-map *d {jj!}par<CR>}	" ignore first line of paragraph (definition)
-map *  {!}par 
-map *a :'a,.!par 
-map *s :1,/^--This line, and those below, will be ignored--$/-1!par<CR>
-" Note: the vim "gq{movement}" internal command can also be used to format;
-" maybe should start using this?
-
 " ===== g commands
 
 " g[67] - insert separation comment
