@@ -50,8 +50,8 @@ set formatoptions=""
 " so ensure that we get our shell functions (though not aliases).
 let $BASH_ENV=$HOME . "/.bashrc"
 
-filetype plugin off
-syntax off
+filetype plugin on
+syntax on
 
 " ===== Colors ========================================================
 " Available ctermfg colours, in DarkFoo and LightFoo versions:
