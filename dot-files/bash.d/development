@@ -1,0 +1,9 @@
+
+# Core dumps
+export CFLAGS='-g -O0'
+ulimit -c unlimited
+
+[ -d /usr/lib/ccache ] && {
+    export PATH=/usr/lib/ccache:$PATH
+    export CCACHE_COMPRESS=1
+}
