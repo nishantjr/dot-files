@@ -252,14 +252,11 @@
     </keybind>
 
     <!-- Keybindings for running applications -->
-    <keybind key="W-e">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>Konqueror</name>
-        </startupnotify>
-        <command>kfmclient openProfile filemanagement</command>
-      </action>
+    <keybind key="C-m">
+      <action name="Execute"> <command>x-terminal-emulator</command> </action>
+    </keybind>
+    <keybind key="C-n">
+      <action name="Execute"> <command>chromium-browser</command> </action>
     </keybind>
 
   </keyboard>

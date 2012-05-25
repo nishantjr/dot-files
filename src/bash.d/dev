@@ -1,5 +1,11 @@
 #! /bin/bash
 
+# setup ccache if it is installed
+[ -x /usr/lib/ccache/cc ] && {
+    export PATH=/usr/lib/ccache:$PATH
+    export CCACHE_COMPRESS=1
+}
+
 # Written by curt
 mbase() {
     local range_to=false
