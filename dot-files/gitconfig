@@ -4,3 +4,6 @@
 [color]
 	ui = auto
 	whitespace = red reverse
+
+[push]
+	default = tracking	; current branch only to tracked upstream branch
