@@ -8,3 +8,13 @@ function line() {
     for i in {1..5}; do echo; done;
     echo "==============================================="
 }
+
+function loop {
+    local count=$1; shift
+    for i in $(seq 1 $count); do
+        $* || {
+            echo "Failed on run $i" >&2
+            break;
+        }
+    done
+}
