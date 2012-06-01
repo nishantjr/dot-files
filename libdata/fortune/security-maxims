@@ -57,3 +57,32 @@ discussing the implications of various paranoid delusions.
 Anyone who selects a public CA on a factor other than price fails to
 understand the trust models that underlie today's use of CAs
     -- Lucky Green
+%
+We were somewhere in San Francisco on the edge of the 56th IETF when the drugs
+began to take hold.  I remember saying something like "I feel a bit
+lightheaded; maybe you should take notes...."  And suddenly there was a
+terrible roar all around us and the sky was full of what looked like huge
+OIDs, all swooping and screeching and diving around the RFC, which was about a
+hundred pages long.  And a voice was screaming: "Holy Jesus!  Where are these
+goddamn business cases?"
+
+Then it was quiet again.  My attorney had taken his shirt off and was pouring
+beer into his mouth, to facilitate the PKI standards-creation process.  "What
+the hell are you yelling about?" he muttered, staring up at the neon lights
+with his eyes closed and covered with wraparound Spanish sunglasses.  "Never
+mind," I said.  "It's your turn to figure out the interop requirements."  I hit
+the brakes and dropped the Great Pile of Paperwork at the side of the room.
+No point mentioning those OIDs, I thought.  The poor bastard will see them
+soon enough.
+
+We had two bags of X.509 standards, seventy-five pages of PKIX mailing list
+printouts, five sheets of high-powered constraints, a saltshaker half-full of
+vendor hype, and a whole galaxy of requirements, restrictions, promises,
+threats...  Also, a quart of OSI, a quart of LDAP, a case of XML, a pint of
+raw X.500, and two dozen PGPs.  Not that we needed all that for the trip, but
+once you get into a serious PKI RFC binge, the tendency is to push it as far
+as you can.  The only thing that really worried me was the X.500.  There is
+nothing in the world more helpless and irresponsible and depraved than a man
+in the depths of an X.500 binge, and I knew we'd get into that rotten stuff
+pretty soon.
+    -- Peter Gutmann, http://www.cs.auckland.ac.nz/~pgut001/misc/minutes.txt
