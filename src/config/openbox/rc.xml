@@ -252,11 +252,13 @@
     </keybind>
 
     <!-- Keybindings for running applications -->
-    <keybind key="C-m">
-      <action name="Execute"> <command>x-terminal-emulator</command> </action>
+    <keybind key="A-F1">
+        <action name="execute">
+            <execute>gnome-panel-control --main-menu</execute></action>
     </keybind>
-    <keybind key="C-n">
-      <action name="Execute"> <command>chromium-browser</command> </action>
+    <keybind key="A-F2">
+        <action name="execute">
+            <execute>gnome-panel-control --run-dialog</execute></action>
     </keybind>
 
   </keyboard>
