@@ -610,6 +610,9 @@
   </menu>
 
   <applications>
+    <application name="gnome-terminal">
+        <maximized>Vertical</maximized>
+    </application>
 
 <!-- Example
   <application name="the window's _OB_APP_NAME property (see obxprop)"
