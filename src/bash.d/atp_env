@@ -41,4 +41,4 @@ function newfile() {
     exec 1>&3
 }
 
-function list-tests () { grep 'def .*test_' Test; }
+function list-tests () { grep 'def .*test_' Test | sort; }
