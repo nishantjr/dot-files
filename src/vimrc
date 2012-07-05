@@ -1,7 +1,6 @@
 " ===== Settings ======================================================
-
-set dir=~/.tmp/vim/swap//,/var/tmp/vim/swap//
-set undodir=~/.tmp/vim/undo//
+silent !mkdir -p ~/.cache/vim/swap
+set dir=~/.cache/vim/swap//,/var/tmp/vim/swap//
 set nobackup
 
 " nvi and vim
