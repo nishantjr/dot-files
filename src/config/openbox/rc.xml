@@ -249,6 +249,19 @@
             <execute>gnome-panel-control --run-dialog</execute></action>
     </keybind>
 
+    <keybind key="A-1">
+        <action name="execute">
+            <execute>gnome-terminal</execute></action>
+    </keybind>
+    <keybind key="A-2">
+        <action name="execute">
+            <execute>chromium-browser</execute></action>
+    </keybind>
+
+    <keybind key="C-A-Delete">
+      <action name="Reconfigure"/>
+    </keybind>
+
   </keyboard>
 
   <mouse>
