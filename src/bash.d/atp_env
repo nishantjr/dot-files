@@ -1,44 +1,28 @@
 #!/bin/bash
 [ "$ATP_DIR"_ = _ ] && export ATP_DIR=~/checkouts/atp/dev
 
-function env() {
-    export PATH=tmp/bin:$PATH
-}
-
-function atp() {
+function atp()         {
     cd $ATP_DIR
-    env
-}
 
-# Usage: cert name
-function cert() {
-    local name=$1; shift
-    local path=./build/test-data/pki
-    echo -ca $path/ifs-ca.crt -cert $path/$name.crt -pkey $path/$name.pem
-}
-
-function newfile() {
-    [ _$1 = _ ] && {
-        echo >&2 "Usage: $0 filename [desc] [char]"
-        return 1
+    function list-tests() {
+        sed -n 's/def \(\w*test_\w*\)/\1/gp' Test | sort
     }
-    local filename=$1
-    local name=$(basename $filename)
-    local desc=$2
-    local c=$3
-    [ _$c == _ ] && c='*'
 
-    exec 3>&1; exec 1>$filename
-    echo " $c Filename: $name"
-    echo " $c Description: $desc"
-    echo " $c Author: Nishant Rodrigues <nishant.rodrigues@infinetfs.com>"
-    echo " $c Company: Infinet Financial Systems Ltd."
-    echo " $c Created: $(date +%F)"
-    echo " $c Version: 1.0"
-    echo " $c Compiler: gcc"
-    echo " $c"
-    echo " $c Copyright 2011 by Infinet Financial Systems Ltd. All Rights Reserved."
-    exec 1>&3
+    function run-test() {
+        line
+        pgrep atp; pkill atp
+        rm -f -v core
+        line
+        ./Test $*
+    }
+
+    function slow-test() {
+        local tests=
+        [ x$1 != x ] && tests=$(list-tests | grep -v FAILING | grep -A 1000 $1)
+        [ x$1 != x ] || tests=$(list-tests | grep -v FAILING)
+        for test in $tests
+        do
+            ./Test -f -vv $test || break
+        done
+    }
 }
-
-function list-tests () { grep 'def .*test_' Test | sort; }

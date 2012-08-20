@@ -5,16 +5,31 @@ function re() {
 }
 
 function line() {
+    local i
     for i in {1..5}; do echo; done;
-    echo "==============================================="
+    [ x"$*" != x"" ] && echo "==== " $*
+    echo "================================================="
 }
 
 function loop {
     local count=$1; shift
     for i in $(seq 1 $count); do
+        line Run $i
         $* || {
             echo "Failed on run $i" >&2
             break;
         }
     done
+}
+
+function vw {
+    $* 2>&1 | view -
+}
+
+
+function music {
+    local playlist=/tmp/playlist
+    local music_dir=~/media/music
+    find $music_dir -type f -fprint $playlist
+    mplayer -shuffle -playlist $playlist
 }
