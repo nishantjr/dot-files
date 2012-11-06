@@ -344,3 +344,6 @@ because it was so easy to implement. This has led to innumerable errors,
 vulnerabilities, and system crashes, which have probably caused a
 billion dollars of pain and damage in the last forty years.
     -- C.A.R. Hoare, 2009
+%
+To iterate is human, to recurse divine.
+    - L Peter Deutsch
