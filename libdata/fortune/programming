@@ -346,4 +346,188 @@ billion dollars of pain and damage in the last forty years.
     -- C.A.R. Hoare, 2009
 %
 To iterate is human, to recurse divine.
-    - L Peter Deutsch
+    -- L Peter Deutsch
+%
+They have computers, and they may have other weapons of mass destruction.
+    --Janet Reno
+%
+If the automobile had followed the same development cycle as the
+computer, a Rolls-Royce would today cost $100, get a million miles per
+gallon, and explode once a year, killing everyone inside.
+    --Robert X. Cringely
+%
+I’ve noticed lately that the paranoid fear of computers becoming
+intelligent and taking over the world has almost entirely disappeared
+from the common culture. Near as I can tell, this coincides with the
+release of MS-DOS.
+    --Larry DeLuca
+%
+Most software today is very much like an Egyptian pyramid with millions
+of bricks piled on top of each other, with no structural integrity, but
+just done by brute force and thousands of slaves.
+    --Alan Kay
+%
+I’ve finally learned what ‘upward compatible’ means. It means we
+get to keep all our old mistakes.
+    --Dennie van Tassel
+%
+There are two major products that come out of Berkeley: LSD and UNIX.
+We don’t believe this to be a coincidence.
+    --Jeremy S. Anderson
+%
+19 Jan 2038 at 3:14:07 AM
+    --End of the word according to Unix–2^32 seconds after January 1, 1970
+%
+Every operating system out there is about equal… We all suck.
+    --Microsoft senior vice president Brian Valentine describing
+      the state of the art in OS security, 2003
+%
+Microsoft has a new version out, Windows XP, which according to everybody
+is the ‘most reliable Windows ever.‘  To me, this is like saying
+that asparagus is ‘the most articulate vegetable ever.‘
+    --Dave Barry
+%
+The most amazing achievement of the computer software industry is its
+continuing cancellation of the steady and staggering gains made by the
+computer hardware industry.
+    --Henry Petroski
+%
+It has been said that the great scientific disciplines are examples of
+giants standing on the shoulders of other giants.  It has also been said
+that the software industry is an example of midgets standing on the toes
+of other midgets.
+    --Alan Cooper
+%
+Controlling complexity is the essence of computer programming.
+    --Brian Kernigan
+%
+Complexity kills.  It sucks the life out of developers, it makes products
+difficult to plan, build and test, it introduces security challenges,
+and it causes end-user and administrator frustration.
+    --Ray Ozzie
+%
+The function of good software is to make the complex appear to be simple.
+    --Grady Booch
+%
+Any fool can use a computer.  Many do.
+    --Ted Nelson
+%
+There are only two industries that refer to their customers as ‘users’.
+    --Edward Tufte
+%
+Most of you are familiar with the virtues of a programmer.  There are
+three, of course: laziness, impatience, and hubris.
+    --Larry Wall
+%
+The trouble with programmers is that you can never tell what a programmer
+is doing until it’s too late.
+    --Seymour Cray
+%
+That’s the thing about people who think they hate computers.  What they
+really hate is lousy programmers.
+    --Larry Niven
+%
+Computer science education cannot make anybody an expert programmer
+any more than studying brushes and pigment can make somebody an expert
+painter.
+    --Eric Raymond
+%
+A hacker on a roll may be able to produce–in a period of a few
+months–something that a small development group (say, 7-8 people)
+would have a hard time getting together over a year.  IBM used to report
+that certain programmers might be as much as 100 times as productive as
+other workers, or more.
+    --Peter Seebach
+%
+The best programmers are not marginally better than merely good ones.
+They are an order-of-magnitude better, measured by whatever standard:
+conceptual creativity, speed, ingenuity of design, or problem-solving
+ability.
+    --Randall E. Stross
+%
+A great lathe operator commands several times the wage of an average
+lathe operator, but a great writer of software code is worth 10,000
+times the price of an average software writer.
+    --Bill Gates
+%
+Don’t worry if it doesn’t work right.  If everything did, you’d
+be out of a job.
+    --Mosher’s Law of Software Engineering
+%
+Writing code has a place in the human hierarchy worth somewhere above
+grave robbing and beneath managing.
+    --Gerald Weinberg
+%
+First, solve the problem. Then, write the code.
+    --John Johnson
+%
+Optimism is an occupational hazard of programming; feedback is the treatment.
+    --Kent Beck
+%
+The best thing about a boolean is even if you are wrong, you are only
+off by a bit.
+    --Anonymous
+%
+There are only two kinds of programming languages: those people always
+bitch about and those nobody uses.
+    --Bjarne Stroustrup
+%
+I think Microsoft named .Net so it wouldn’t show up in a Unix directory
+listing.
+    --Oktal
+%
+There is no programming language–no matter how structured–that will
+prevent programmers from making bad programs.
+    --Larry Flon
+%
+Computer language design is just like a stroll in the park.  Jurassic
+Park, that is.
+    --Larry Wall
+%
+Fifty years of programming language research, and we end up with C++?
+    --Richard A. O’Keefe
+%
+One of the main causes of the fall of the Roman Empire was
+that–-lacking zero-–they had no way to indicate successful
+termination of their C programs.
+    --Robert Firth
+%
+Java
+%
+Java is, in many ways, C++–.
+    --Michael Feldman
+%
+If Java had true garbage collection, most programs would delete themselves
+upon execution.
+    --Robert Sewell
+%
+The only people who have anything to fear from free software are those
+whose products are worth even less.
+    --David Emery
+%
+Good code is its own best documentation.
+    --Steve McConnell
+%
+Any code of your own that you haven’t looked at for six or more months
+might as well have been written by someone else.
+    --Eagleson’s Law
+%
+The first 90% of the code accounts for the first 90% of the development
+time.  The remaining 10% of the code accounts for the other 90% of the
+development time.
+    --Tom Cargill
+%
+As soon as we started programming, we found to our surprise that it
+wasn’t as easy to get programs right as we had thought.  Debugging had
+to be discovered.  I can remember the exact instant when I realized that
+a large part of my life from then on was going to be spent in finding
+mistakes in my own programs.
+    --Maurice Wilkes discovers debugging, 1949
+%
+Programming is like sex: one mistake and you’re providing support for
+a lifetime.
+    --Michael Sinz
+%
+You can either have software quality or you can have pointer arithmetic,
+but you cannot have both at the same time.
+    --Bertrand Meyer
