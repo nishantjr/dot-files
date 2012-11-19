@@ -118,6 +118,13 @@ map qA :qa!
 
 " qw - window commands
 noremap qw <C-W>
+"
+" ===== s/S commands
+" By default s and S are synonyms for cl and cc.
+
+" s/S - save and save all
+map s :w<CR>
+map S :wa<CR>
 
 " ===== g commands
 
@@ -179,10 +186,6 @@ map gr :resize
 
 " gR Run entire file in ruby.
 map gR :w !ruby
-
-" gs - save
-map gs :w
-map gS :wa
 
 " esc-s: spell mode
 map <ESC>s :setlocal spell spelllang=en_us<CR>
