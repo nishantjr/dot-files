@@ -33,3 +33,7 @@ function music {
     find $music_dir -type f -fprint $playlist
     mplayer -shuffle -playlist $playlist
 }
+
+function term-title {
+    echo -ne "\033]0;" $* "\007"
+}
