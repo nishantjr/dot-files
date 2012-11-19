@@ -27,7 +27,7 @@ set notitle
 set wildmode=longest,list
 set viminfo+=%
 set matchpairs=(:),{:},[:],<:>
-set iskeyword=@,-,48-57,_,192-255
+set iskeyword=@,48-57,_,192-255
 
 set ruler
 
