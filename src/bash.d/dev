@@ -24,3 +24,8 @@ mbase() {
 function graph() {
     git log --oneline --graph --all --decorate
 }
+
+function cpp-color() {
+    local command=$*
+    $* 2>&1 | egrep  'from here\|error\|^'
+}
