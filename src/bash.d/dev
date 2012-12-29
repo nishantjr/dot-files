@@ -28,4 +28,5 @@ function graph() {
 function cpp-color() {
     local command=$*
     $* 2>&1 | egrep  'from here\|error\|^'
+    return ${PIPESTATUS[0]}
 }
