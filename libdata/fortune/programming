@@ -531,3 +531,8 @@ a lifetime.
 You can either have software quality or you can have pointer arithmetic,
 but you cannot have both at the same time.
     --Bertrand Meyer
+%
+Guy Steele leads a small team of researchers in Burlington, Massachusetts,
+who are taking on an enormous challenge--create a programming language
+better than Java.
+	- Sun.Com (via paulgraham.com)
