@@ -1,5 +1,5 @@
 #!/bin/bash
-[ "$ATP_DIR"_ = _ ] && export ATP_DIR=~/checkouts/atp/dev
+[ "$ATP_DIR"_ = _ ] && export ATP_DIR=~/checkouts/atp
 
 function atp()         {
     cd $ATP_DIR
