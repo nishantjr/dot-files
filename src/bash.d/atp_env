@@ -7,22 +7,4 @@ function atp()         {
     function list-tests() {
         sed -n 's/def \(\w*test_\w*\)/\1/gp' Test ftest/* | sort
     }
-
-    function run-test() {
-        line
-        pgrep atp; pkill atp
-        rm -f -v core
-        line
-        ./Test $*
-    }
-
-    function slow-test() {
-        local tests=
-        [ x$1 != x ] && tests=$(list-tests | grep -v FAILING | grep -A 1000 $1)
-        [ x$1 != x ] || tests=$(list-tests | grep -v FAILING)
-        for test in $tests
-        do
-            ./Test -f -vv $test || break
-        done
-    }
 }
