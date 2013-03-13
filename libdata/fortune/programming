@@ -536,3 +536,8 @@ Guy Steele leads a small team of researchers in Burlington, Massachusetts,
 who are taking on an enormous challenge--create a programming language
 better than Java.
 	- Sun.Com (via paulgraham.com)
+%
+Programmers may be disheartened to learn that their programs are not
+like automobiles, but are mathematical expressions.
+    --Leslie Lamport, How to Tell a Program from an Automobile
+      http://research.microsoft.com/en-us/um/people/lamport/pubs/pubs.html
