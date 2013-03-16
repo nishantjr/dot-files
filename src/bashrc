@@ -10,7 +10,9 @@ alias    ls='ls   --color=auto'
 alias  grep='grep --color=auto'
 alias egrep='grep --color=auto'
 
-export    PS1='[\u@\h \W]\$ '
+PS1='\$ '
+PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
+
 export EDITOR='vim'
 
 for file in ~/.bash.d/*; do
