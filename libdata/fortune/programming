@@ -541,3 +541,9 @@ Programmers may be disheartened to learn that their programs are not
 like automobiles, but are mathematical expressions.
     --Leslie Lamport, How to Tell a Program from an Automobile
       http://research.microsoft.com/en-us/um/people/lamport/pubs/pubs.html
+%
+It’s really surprising how often my program just works as long as it
+type-checks – it’s contrary to all my intuition about programming,
+but there it is.
+    --"bill a", on Haskell; comment on
+      http://www.alsonkemp.com/haskell/reflections-on-leaving-haskell/
