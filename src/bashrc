@@ -11,7 +11,12 @@ alias  grep='grep --color=auto'
 alias egrep='grep --color=auto'
 
 PS1='\$ '
-PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
+
+function prompt_() {
+    echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"
+}
+
+PROMPT_COMMAND=prompt_
 
 export EDITOR='vim'
 
