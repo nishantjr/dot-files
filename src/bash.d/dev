@@ -27,6 +27,6 @@ function graph() {
 
 function cpp-color() {
     local command=$*
-    $* 2>&1 | egrep  'from here\|error\|^'
+    $* 2>&1 | egrep  'from here\|error\|undefined reference\|^'
     return ${PIPESTATUS[0]}
 }
