@@ -1,9 +1,7 @@
-#! /bin/bash
-PATH=~/usr/bin:$PATH
+#!/bin/bash
 
-xmodmap .xmodmaprc
-
-#Annoying beep from xterm and elsewhere(?)
-xset b off
-
-openbox-session
+setxkbmap us
+xmodmap .Xmodmap
+xfdesktop &
+xfce4-panel &
+exec openbox
