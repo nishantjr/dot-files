@@ -1,8 +1,8 @@
 #!/bin/bash
-[ "$ATP_DIR"_ = _ ] && export ATP_DIR=~/checkouts/atp
+[ "$ATP_DIR"_ = _ ] && export ATP_DIR=~/co/atp
 
 function atp()         {
-    cd $ATP_DIR
+    cd "$ATP_DIR/$1"
 
     function list-tests() {
         sed -n 's/def \(\w*test_\w*\)/\1/gp' Test ftest/* | sort
