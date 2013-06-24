@@ -1,5 +1,5 @@
 [user]
-	email = nishant.rodrigues@teletronics-india.com
+	email = nishant.rodrigues@infinetfs.com
 	name = Nishant Rodrigues
 [color]
 	ui = auto
@@ -7,3 +7,6 @@
 
 [push]
 	default = tracking	; current branch only to tracked upstream branch
+
+[alias]
+	graph = log --oneline --graph --color --decorate
