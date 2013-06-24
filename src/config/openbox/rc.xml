@@ -169,18 +169,19 @@
     </keybind>
 
 
-    <!-- Moving to edges, maximizing -->
+    <!-- Maximaization -->
     <keybind key="W-j">
-        <action name="ToggleMaximize"> <direction>vertical</direction> </action>
+        <action name="GrowToEdge"> <direction>north</direction> </action>
     </keybind>
-    <keybind key="W-k"> <action name="ToggleMaximize"/> </keybind>
+    <keybind key="W-k">
+        <action name="GrowToEdge"> <direction>south</direction> </action>
+    </keybind>
+
     <keybind key="W-h">
-        <action name="Maximize">  <direction>vertical</direction> </action>
-        <action name="MoveToEdge"> <direction>west</direction> </action>
+        <action name="GrowToEdge"> <direction>west</direction> </action>
     </keybind>
     <keybind key="W-l">
-        <action name="Maximize"> <direction>vertical</direction> </action>
-        <action name="MoveToEdge"> <direction>east</direction> </action>
+        <action name="GrowToEdge"> <direction>east</direction> </action>
     </keybind>
 
     <!-- window switching -->
