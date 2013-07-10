@@ -1,7 +1,7 @@
 1. One man's constant is another man's variable.
 %
-2. Functions delay binding: data structures induce binding. Moral:
-   Structure data late in the programming process.
+2. Functions delay binding: data structures induce binding.
+   Moral: Structure data late in the programming process.
 %
 3. Syntactic sugar causes cancer of the semi-colons.
 %
