@@ -14,6 +14,7 @@
   </item>
   <!-- This requires the presence of the 'menu' package to work -->
   <menu id="/Debian" />
+  <menu id="wallpaper" label="Background" execute="~/.config/openbox/scripts/menu-background.py" />
   <separator />
   <menu id="client-list-menu" />
   <separator />
