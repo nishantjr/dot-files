@@ -25,7 +25,7 @@ mbase() {
 }
 
 function graph() {
-    git log --oneline --graph --all --decorate
+    git graph
 }
 
 function cpp-color() {
