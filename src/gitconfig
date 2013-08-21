@@ -10,3 +10,4 @@
 
 [alias]
 	graph = log --oneline --graph --color --decorate
+	st = status --short
