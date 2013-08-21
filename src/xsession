@@ -1,7 +1,14 @@
 #!/bin/bash
 
-setxkbmap us
-xmodmap .Xmodmap
-xfdesktop &
+eval `gnome-keyring-daemon`     # Passwords
+
+setxkbmap us                    # Layout
+xmodmap .Xmodmap                # Disable Caps lock etc.
+
+gnome-settings-daemon &         # Themes etc
+gnome-volume-manager &          # auto-mount drives
+
 xfce4-panel &
+nm-applet &                     # Network Manager applet
+
 exec openbox
