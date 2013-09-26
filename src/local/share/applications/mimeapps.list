@@ -6,6 +6,7 @@ x-scheme-handler/https=chromium-browser.desktop
 x-scheme-handler/about=chromium-browser.desktop
 x-scheme-handler/unknown=chromium-browser.desktop
 x-scheme-handler/mailto=thunderbird.desktop
+x-scheme-handler/magnet=transmission-gtk.desktop
 
 [Added Associations]
 x-scheme-handler/mailto=thunderbird.desktop;
