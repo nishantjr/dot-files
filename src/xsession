@@ -1,6 +1,7 @@
 #!/bin/bash
-
+echo `dbus-launch --sh-syntax`
 eval `gnome-keyring-daemon`     # Passwords
+eval `cat ~/.fehbg`             # Background
 
 setxkbmap us                    # Layout
 xmodmap .Xmodmap                # Disable Caps lock etc.
