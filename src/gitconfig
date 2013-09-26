@@ -9,5 +9,5 @@
 	default = tracking	; current branch only to tracked upstream branch
 
 [alias]
-	graph = log --oneline --graph --color --decorate
+	graph = log --oneline --graph --color --decorate origin/master HEAD
 	st = status --short
