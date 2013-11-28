@@ -6,6 +6,9 @@
     export CCACHE_COMPRESS=1
 }
 
+# Core dumps.
+ulimit -c unlimited
+
 # Written by curt
 mbase() {
     local range_to=false
