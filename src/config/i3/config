@@ -25,10 +25,10 @@ bindsym Mod1+Shift+q kill
 bindsym Mod1+d exec dmenu_run
 
 # change focus
-bindsym Mod1+j focus left
-bindsym Mod1+k focus down
-bindsym Mod1+l focus up
-bindsym Mod1+semicolon focus right
+bindsym Mod1+h focus left
+bindsym Mod1+j focus down
+bindsym Mod1+k focus up
+bindsym Mod1+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym Mod1+Left focus left
@@ -37,10 +37,10 @@ bindsym Mod1+Up focus up
 bindsym Mod1+Right focus right
 
 # move focused window
-bindsym Mod1+Shift+j move left
-bindsym Mod1+Shift+k move down
-bindsym Mod1+Shift+l move up
-bindsym Mod1+Shift+semicolon move right
+bindsym Mod1+Shift+h move left
+bindsym Mod1+Shift+j move down
+bindsym Mod1+Shift+k move up
+bindsym Mod1+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym Mod1+Shift+Left move left
@@ -49,7 +49,7 @@ bindsym Mod1+Shift+Up move up
 bindsym Mod1+Shift+Right move right
 
 # split in horizontal orientation
-bindsym Mod1+h split h
+bindsym Mod1+b split h
 
 # split in vertical orientation
 bindsym Mod1+v split v
