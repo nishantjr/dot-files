@@ -13,13 +13,18 @@ function line() {
 
 function loop {
     local count=$1; shift
+    local no_break=false
+    local failures=''
+    [ "_$1" = "_--no-break" ] && no_break=true && shift
     for i in $(seq 1 $count); do
         line Run $i
         $* || {
-            echo "Failed on run $i" >&2
-            break;
+            failures="$failures\nFailed on on run $i\n"
+            $no_break || break;
         }
     done
+
+    [ "_$failures" == "_" ] || { echo -e $failures >&2; return 1; }
 }
 
 function vw {
