@@ -150,3 +150,6 @@ bindsym Mod4+r mode "resize"
 bar {
         status_command i3status
 }
+
+exec gnome-sound-applet
+exec nm-applet
