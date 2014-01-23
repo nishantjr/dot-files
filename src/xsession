@@ -1,5 +1,6 @@
 #!/bin/bash
-echo `dbus-launch --sh-syntax`
+eval `ssh-agent`
+eval `dbus-launch --sh-syntax`
 eval `gnome-keyring-daemon`     # Passwords
 eval `cat ~/.fehbg`             # Background
 
