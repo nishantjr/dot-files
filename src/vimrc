@@ -1,24 +1,19 @@
-" ===== Settings ======================================================
+" Set up cache.
 silent !mkdir -p ~/.cache/vim/swap
 set dir=~/.cache/vim/swap//,/var/tmp/vim/swap//
 set nobackup
 
-" nvi and vim
 set autoindent
 set shiftwidth=4
 set noexrc
 set nowarn
 set cedit=
 
-" vim-only
 set display+=lastline
 set display+=uhex
 set modeline
-"set expandtab
 set hidden
-set hlsearch
-set ignorecase
-set smartcase
+set hlsearch ignorecase smartcase
 set splitbelow
 set noequalalways
 set tags=./tags;
@@ -28,20 +23,10 @@ set wildmode=longest,list
 set viminfo+=%
 set matchpairs=(:),{:},[:],<:>
 set iskeyword=@,48-57,_,192-255
-
 set ruler
-
-" GUI
-set guifont=Droid\ Sans\ Mono\ 10
-if has('win32')
-    set guifont=lucida_console
-endif
-
 set clipboard=unnamed
-
 set fileformats=unix
-set encoding=utf-8
-set fileencodings=ascii,utf-8,euc-jp,sjis,cp932,latin1
+set encoding=utf-8 fileencoding=utf-8 termencoding=utf-8
 
 set formatoptions=""
 
@@ -82,15 +67,6 @@ highlight SpellCap	ctermfg=none ctermbg=none
 highlight SpellRare	ctermfg=none ctermbg=none
 highlight SpellLocal	ctermfg=none ctermbg=none
 
-if &term == "kterm"
-    set highlight=sb,Sb,lu
-endif
-
-" ===== Graphical Environment =========================================
-
-set guicursor=a:blinkon0
-
-" ===== Key Mappings ==================================================
 
 " ^N/^P - move to next/previous file
 map  :next
@@ -99,14 +75,10 @@ map  :previous
 " ^W - instant move to next window
 map  
 
-" Q - record
-noremap Q q
-
 " Make 'q' do nothing, so that when it prefixes a non-mapped key,
 " it just does what that key does. Ideally it should swallow the
 " next char, but I don't know how to do that.
 map q :<CR>
-
 " qq - quit
 " qQ - force quit
 " qa - force quit all
@@ -116,9 +88,6 @@ map qQ :q!
 map qa :qa
 map qA :qa!
 
-" qw - window commands
-noremap qw <C-W>
-"
 " ===== s/S commands
 " By default s and S are synonyms for cl and cc.
 
@@ -126,82 +95,27 @@ noremap qw <C-W>
 map s :w<CR>
 map S :wa<CR>
 
-" ===== g commands
-
-" g[67] - insert separation comment
-map g7 O<ESC>70i-<ESC>0
-map g6 O<ESC>4i <ESC>60A#<ESC>0
-
-
-" ga - autoindent
-map ga :setlocal invai<CR>:setlocal ai?<CR>
-
-" gb - byte/word/line count
-" vim uses g^G
-map gb g
-
 " gd - enable dos mode, and reload file
 map gd :set fileformats=unix,dos:e
-
-" ge - file encoding change/view
-map ge :set fileencoding=UTF-8
-map gE :set fileencoding
-
-" gF/gf fail/unfail a ruby test
-map gF :s/def test_/def FAILING_test_/
-map gf :s/def FAILING_test_/def test_/
 
 " gg - show ascii/unicode value of char under cursor
 noremap gg ga
 
-" gi - save and Install
-map gi :wall:!run-install-upwards
-
-" gl - line wrapping; gL - word wrapping; g^L - word processor mode
-map gl :setlocal invwrap<CR>:setlocal wrap?<CR>
-map gL :setlocal invlbr<CR>:setlocal lbr?<CR>
-map g<C-L> :setlocal wrap lbr spell spelllang=en_us<CR>:echo "Word Processor mode."<CR>
-
-" gm - Maximize this window
-map gm :resize +999
-
-" gM - turn off matchpairs (for speed)
-map gM :set matchpairs=
-
-" gn - turn off search highlighting
-map gn :nohlsearch
+" Word processing mode
+map gW :setlocal wrap lbr spell spelllang=en_us<CR>:echo "Word Processor mode."<CR>
 
 " go - sort (order) this paragraph
 map go {!}sort
 
-" gP - toggle paste
-map gP :setlocal invpaste<CR>:setlocal paste?<CR>
-
-" gQ - quote e-mail at bottom
-"      (moves signature up to top, goes into append mode)
-map gQ d/^-- $Gop{{
-
-" gr resize
-map gr :resize 
-
-" gR Run entire file in ruby.
-map gR :w !ruby
-
 " esc-s: spell mode
-map <ESC>s :setlocal spell spelllang=en_us<CR>
-
-" gt - tabstop-related functions
-map gt      :set ts=
-map g4      :set ts=4<CR>
-map gT      :set expandtab<CR>
-map g<C-T>  :set shiftwidth=
+map gs :setlocal spell spelllang=en_us<CR>
 
 """""" gv - Version Control commands """""""""""""""""""""""
 
 command Scratch :new | :set buftype=nofile bufhidden=delete
 
 " gvd - diff current file
-map gvd :Scratch<CR>:r!dif #<CR>:runtime syntax/diff.vim<CR>
+map gvd :Scratch<CR>:r!git diff #<CR>:runtime syntax/diff.vim<CR>
 
 " gvD - diff all files from current dir down
 map gvD :Scratch<CR>:r!dif<CR>:runtime syntax/diff.vim<CR>
@@ -212,51 +126,13 @@ map gvb :Scratch<CR>:r!blame #<CR>
 " gvl - log current file
 map gvl :Scratch<CR>:r!log #<CR>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" gw/gW - search forward/back for word nearest cursor
-noremap gw *
-noremap gW #
-
-" gN next error
-map gN :cnext
-
-" gX mark current file executable
-map gX :!chmod +x %
-
-" gZ run named-checkzone
-map gZ :!named-checkzone 
-
-
-" ===== Expansions/Abbreviations ==========================================
-
-" functions for use with ^r= to insert things
-function It()
-    strftime("%H:%M")
-endfunction
-
 " ^I - insert (really append) stuff
 map <TAB>d	a<CR><CR><ESC>k!!i-date<CR>kJJ		" date (YYYY-MM-DD)
 map <TAB>t	a<CR><CR><ESC>k!!i-time<CR>kJJ		" date and time
 map <TAB>T	a<CR><CR><ESC>k!!date +\%H:\%M<CR>kJJ	" time only
 map <TAB><C-T>	a<CR><CR><ESC>k!!date +\%H:\%M<CR>kJJ	" time only
 
-" general code
-iabbr FA FAILING
-iabbr TC Test::Unit::TestCase
-iabbr rsep $stderr.puts(
-
-" SQL
-iabbr CTB CREATE TABLE
-iabbr NN  NOT NULL
-iabbr PKY PRIMARY KEY
-iabbr REF REFERENCES
-iabbr DEF DEFAULT
-
-" English
-"abbr sb substitution
-abbr coop coöp
-abbr cooperation coöperation
+" TODO: Checkout iabbr and abbr
 
 " ===== Tab Settings ==================================================
 
@@ -269,46 +145,6 @@ function ExpandTabCheck()
     endif
 endfunction
 autocmd BufEnter * call ExpandTabCheck()
-
-" ===== Haskell mode ==================================================
-
-autocmd! BufNewFile,BufReadPre,FileReadPre  *.hs    so ~/.vim/haskell.vim
-autocmd! BufNewFile,BufReadPre,FileReadPre  *.hsc   so ~/.vim/haskell.vim
-autocmd! BufNewFile,BufReadPre,FileReadPre  *.lhs   so ~/.vim/haskell.vim
-autocmd! BufNewFile,BufReadPre,FileReadPre  *.cabal so ~/.vim/haskell.vim
-autocmd! BufNewFile,BufReadPre,FileReadPre  *.erl   so ~/.vim/haskell.vim
-
-" ===== Encrypted file editing  =======================================
-
-" Edit gpg-encrypted ascii-armoured files
-autocmd! BufReadPre,FileReadPre      *.asc  set bin
-autocmd  BufReadPost,FileReadPost    *.asc  '[,']!gpg -q -d
-autocmd  BufReadPost,FileReadPost    *.asc  set nobin
-autocmd! BufWritePre,FileWritePre    *.asc  set bin
-autocmd  BufWritePre,FileWritePre    *.asc  '[,']!gpg -e
-autocmd  BufWritePost,FileWritePost  *.asc  undo
-autocmd  BufWritePost,FileWritePost  *.asc  set nobin
-
-" ===== Explorer settings =============================================
-
-let g:explDetailedList=1
-let g:explDateFormat="%Y-%b-%d %H:%M"
-
-" ===== Buffer explorer plugin =====
-
-"let loaded_bufexplorer = 1
-let mapleader = "g"
-
-" ===== Taglist Plugin ==============================================
-
-let Tlist_Ctags_Cmd = "/usr/pkg/bin/exctags"
-
-" ===== Inline substitutions =========================================
-function FilterUnnamedBuffer(command)
-    # .. send unnamed buffer as stdin to command....
-endfunction
-
-:map gc y:silent call setreg('@', system("echo -n $(calc " . shellescape(@@) . ")"))<CR>:normal! gvp<CR>
 
 " ===== Special Characters ===========================================
 
