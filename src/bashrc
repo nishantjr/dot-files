@@ -1,3 +1,4 @@
+PATH=$HOME/bin:$PATH
 
 HISTCONTROL=ignoredups:ignorespace
 shopt -s histappend
