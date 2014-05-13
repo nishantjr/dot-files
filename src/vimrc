@@ -1,13 +1,22 @@
-" Set up cache.
+" Set up swap so that it's not in git's way
 silent !mkdir -p ~/.cache/vim/swap
 set dir=~/.cache/vim/swap//,/var/tmp/vim/swap//
 set nobackup
+
+" information stored in viminfo
+set viminfo=
+set viminfo+='0   " No marks remembered
+set viminfo+=<0   " No registers
 
 set autoindent
 set shiftwidth=4
 set noexrc
 set nowarn
 set cedit=
+
+set textwidth=80
+set colorcolumn=+1
+highlight ColorColumn ctermbg=7
 
 set display+=lastline
 set display+=uhex
@@ -20,7 +29,6 @@ set tags=./tags;
 set noicon
 set notitle
 set wildmode=longest,list
-set viminfo+=%
 set matchpairs=(:),{:},[:],<:>
 set iskeyword=@,48-57,_,192-255
 set ruler
