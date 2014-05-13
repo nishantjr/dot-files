@@ -11,3 +11,4 @@
 [alias]
 	graph = log --oneline --graph --color --decorate origin/master HEAD
 	st = status --short
+	vi = !vi $(git status --short | cut -d\\  -f 3)
