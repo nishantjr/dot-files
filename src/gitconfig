@@ -9,6 +9,6 @@
 	default = tracking	; current branch only to tracked upstream branch
 
 [alias]
-	graph = log --oneline --graph --color --decorate origin/master HEAD
+	graph = log --oneline --graph --color --decorate
 	st = status --short
 	vi = !vi $(git status --short | cut -d\\  -f 3)
