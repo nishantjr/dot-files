@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+function try() {
+    type $1 2>/dev/null && exec $1
+}
+
+try chromium
+try chromium-browser
+try firefox

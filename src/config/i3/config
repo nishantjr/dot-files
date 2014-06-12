@@ -16,7 +16,7 @@ floating_modifier Mod4
 
 # start a terminal
 bindsym Mod4+Return exec i3-sensible-terminal
-bindsym F1 exec chromium
+bindsym F1 exec njr-browser
 
 # kill focused window
 bindsym Mod4+Shift+q kill
