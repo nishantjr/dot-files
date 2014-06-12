@@ -2,9 +2,9 @@
 # Link to files in the home folder
 BASE=$(cd ${0%/*} && pwd -P)
 
-for file in $(cd src; find . -type f)
-do
-    target=~/."${file#./}"
+function link() {
+    local source=$1
+    local target=$2
 
     ( [ -L $target ] || [ ! -f $target ] ) || {
         echo "'$target' exists and is not a link, skipping";
@@ -12,5 +12,20 @@ do
     }
 
     mkdir -p $(dirname $target)
-    ln -sf "${BASE}/src/$file" $target
+    ln --symbolic --force --no-target-directory \
+        "${BASE}/$source" $target
+}
+
+# Copy dot-files
+for SRC in $(find src -type f)
+do
+    TARGET="$HOME/.${SRC#src/}"
+    link $SRC $TARGET
+done
+
+# Copy scripts to ~/bin/
+for SRC in $(find bin -type f)
+do
+    TARGET="$HOME/$SRC"
+    link $SRC $TARGET
 done
