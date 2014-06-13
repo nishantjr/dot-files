@@ -1,0 +1,3 @@
+--extra=+f
+--langdef=file
+--langmap=c:.c.ct,C++:.hpp.cpp.cpt.ipp,php:.php.ctp,file:.css.js
