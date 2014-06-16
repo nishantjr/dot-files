@@ -1,4 +1,8 @@
 PATH=$HOME/bin:$PATH
+(type ruby && type gem) >/dev/null 2>&1 && \
+    PATH=`ruby -rubygems -e "puts Gem.user_dir"`/bin:$PATH
+
+[[ $- != *i* ]] && return
 
 HISTCONTROL=ignoredups:ignorespace
 shopt -s histappend
