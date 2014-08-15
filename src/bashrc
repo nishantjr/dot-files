@@ -17,11 +17,11 @@ alias egrep='grep --color=auto'
 
 PS1='\$ '
 
-function prompt_() {
+function set_term_title() {
     echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"
 }
 
-PROMPT_COMMAND=prompt_
+[ "_$TERM" = "_xterm" ] && PROMPT_COMMAND=set_term_title
 
 export EDITOR='vim'
 
