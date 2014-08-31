@@ -1,4 +1,4 @@
-PATH=$HOME/bin:$PATH
+PATH=$HOME/.local/bin:$PATH
 (type ruby && type gem) >/dev/null 2>&1 && \
     PATH=`ruby -rubygems -e "puts Gem.user_dir"`/bin:$PATH
 
