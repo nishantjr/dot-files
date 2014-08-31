@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+. ~/.local/lib/utils.bash
+
+bash_enable_exit_on_error
+check_binary "dmenu"
+check_binary "amixer"
+
+function set_volume() {
+    amixer sset Master "$1"%
+}
+
+dmenu_command "Volume" print_percent_intervals set_volume

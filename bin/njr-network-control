@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+. ~/.local/lib/utils.bash
+bash_enable_exit_on_error
+
+check_binary "nmcli_dmenu"
+exec nmcli_dmenu

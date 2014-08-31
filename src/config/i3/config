@@ -14,10 +14,6 @@ font pango:DejaVu Sans Mono 10
 # use Mouse+Mod4 to drag floating windows to their wanted position
 floating_modifier Mod4
 
-# start a terminal
-bindsym Mod4+Return exec i3-sensible-terminal
-bindsym F1 exec njr-browser
-
 # kill focused window
 bindsym Mod4+Shift+q kill
 
@@ -145,12 +141,25 @@ mode "resize" {
 
 bindsym Mod4+r mode "resize"
 
+
+mode "Bindings disabled" {
+    bindsym F12 mode "default"
+}
+
+# Function keys.
+bindsym F1 exec njr-browser
+bindsym F2 exec i3-sensible-terminal
+bindsym F9 exec njr-volume-control
+bindsym F10 exec njr-backlight-control
+bindsym F11 exec njr-network-control
+bindsym F12 mode "Bindings disabled"
+
+# Media keys
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
 bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
 bindsym XF86AudioMute exec amixer -q set Master toggle
 bindsym XF86MonBrightnessDown exec xbacklight -steps 1 -dec 10
 bindsym XF86MonBrightnessUp exec xbacklight -steps 1 -inc 10
-
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)

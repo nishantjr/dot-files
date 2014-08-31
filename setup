@@ -24,7 +24,7 @@ do
 done
 
 # Copy scripts to ~/bin/
-for SRC in $(find bin -type f)
+for SRC in $(find bin lib -type f)
 do
     TARGET="$HOME/.local/$SRC"
     link $SRC $TARGET
