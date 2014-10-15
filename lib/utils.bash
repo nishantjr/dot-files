@@ -6,7 +6,7 @@ function graphical_fail() {
 function check_binary() {
     local bin=$1
     type $bin >/dev/null 2>&1 && return
-    graphical-fail "'$bin' is not installed."
+    graphical_fail "'$bin' is not installed."
     exit 1
 }
 
