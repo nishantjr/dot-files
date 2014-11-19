@@ -1,9 +1,20 @@
 [user]
 	email = nishant.rodrigues@infinetfs.com
 	name = Nishant Rodrigues
+
 [color]
 	ui = auto
 	whitespace = red reverse
+
+[color.diff]
+        ; plain = normal        ; context text
+        meta = green            ; meta-information
+        frag = yellow           ; hunk header
+        old = red               ; removed lines
+        new = blue              ; added lines
+        ; commit = normal       ; commit headers
+        ; whitespace = normal   ; whitespace errors
+
 
 [push]
 	default = tracking	; current branch only to tracked upstream branch
