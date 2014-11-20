@@ -30,3 +30,7 @@ do
     link $SRC $TARGET
 done
 
+vi_target=$HOME/.local/bin/vi
+vi_exe=/usr/bin/vim
+[ -L "$vi_target" ] && rm "$vi_target"
+[ -e "$vi_exe" ]    && ln -s "$vi_exe" "$vi_target"
