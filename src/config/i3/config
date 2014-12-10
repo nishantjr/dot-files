@@ -136,3 +136,5 @@ exec gnome-settings-daemon
 exec gnome-sound-applet
 exec gnome-panel
 exec nm-applet
+
+fake-outputs 1080x960+0+0,1080x960+0+960,1080x960+1080+0,1080x960+1080+960
