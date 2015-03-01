@@ -5,21 +5,21 @@ general {
 
 order += "disk /"
 order += "disk /home"
-order += "wireless wlan0"
+order += "wireless wlp3s0"
 order += "ethernet eth0"
 order += "battery 0"
 order += "load"
 order += "time"
 
-wireless wlan0 {
-    format_up = "W: (%quality at %essid) %ip"
-    format_down = "No WiFi"
+wireless wlp3s0 {
+    format_up = " %quality %essid (%ip)"
+    format_down = ""
 }
 
 ethernet eth0 {
     # if you use %speed, i3status requires root privileges
     format_up = "E: %ip"
-    format_down = "No LAN"
+    format_down = ""
 }
 
 battery 0 {
