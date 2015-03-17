@@ -55,7 +55,7 @@ highlight Pmenu ctermbg=NONE ctermfg=4
 highlight PmenuSel ctermbg=NONE ctermfg=4 cterm=reverse
 
 " syntax
-highlight Comment ctermfg=Blue
+highlight Comment ctermfg=Gray
 highlight Constant ctermfg=DarkBlue
 highlight Special ctermfg=Black
 highlight Identifier ctermfg=DarkBlue
