@@ -22,4 +22,4 @@
 [alias]
 	graph = log --oneline --graph --color --decorate
 	st = status --short
-	vi = !vi $(git status --short | cut -d\\  -f 3)
+	vi = !vi $(find $(git status --short | cut -b 4-) -type f)
