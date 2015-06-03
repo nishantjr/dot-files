@@ -28,3 +28,5 @@ export EDITOR='vim'
 for file in ~/.bash.d/*; do
     source $file
 done
+
+alias dev='sudo systemd-nspawn --directory /var/lib/container/trusty --bind=/home/njr/ --share-system --user njr'
