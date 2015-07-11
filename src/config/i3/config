@@ -9,7 +9,7 @@
 # layout, use the i3-config-wizard
 #
 
-font pango:DejaVu Sans Mono 10
+font xft:DejaVu Sans Mono, Icons 8
 
 # use Mouse+Mod4 to drag floating windows to their wanted position
 floating_modifier Mod4
