@@ -29,3 +29,4 @@ do
     TARGET="$HOME/.local/$SRC"
     link $SRC $TARGET
 done
+

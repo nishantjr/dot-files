@@ -1,14 +1,3 @@
-# i3 config file (v4)
-#
-# Please see http://i3wm.org/docs/userguide.html for a complete reference!
-#
-# This config file uses keycodes (bindsym) and was written for the QWERTY
-# layout.
-#
-# To get a config file with the same key positions, but for your current
-# layout, use the i3-config-wizard
-#
-
 font xft:DejaVu Sans Mono, Icons 8
 
 # use Mouse+Mod4 to drag floating windows to their wanted position
@@ -44,10 +33,8 @@ bindsym Mod4+Shift+Down move down
 bindsym Mod4+Shift+Up move up
 bindsym Mod4+Shift+Right move right
 
-# split in horizontal orientation
+# split
 bindsym Mod4+b split h
-
-# split in vertical orientation
 bindsym Mod4+v split v
 
 # enter fullscreen mode for the focused container
@@ -94,21 +81,11 @@ bindsym Mod4+Shift+8 move workspace 8
 bindsym Mod4+Shift+9 move workspace 9
 bindsym Mod4+Shift+0 move workspace 10
 
-# reload the configuration file
 bindsym Mod4+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym Mod4+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym Mod4+Shift+e exit
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # They resize the border in the direction you pressed, e.g.
-        # when pressing left, the window is resized so that it has
-        # more space on its left
-
         bindsym j               resize shrink left 10 px or 10 ppt
         bindsym Shift+j         resize grow   left 10 px or 10 ppt
 
@@ -138,36 +115,14 @@ mode "resize" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-
 bindsym Mod4+r mode "resize"
 
-
-mode "Bindings disabled" {
-    bindsym F12 mode "default"
-}
-
-# Function keys.
-bindsym F1 exec njr-browser
-bindsym F2 exec i3-sensible-terminal
-bindsym F9 exec njr-volume-control
-bindsym F10 exec njr-backlight-control
-bindsym F11 exec njr-network-control
-bindsym F12 mode "Bindings disabled"
-
-# Media keys
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
-bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
-bindsym XF86AudioMute exec amixer -q set Master toggle
-bindsym XF86MonBrightnessDown exec xbacklight -steps 1 -dec 10
-bindsym XF86MonBrightnessUp exec xbacklight -steps 1 -inc 10
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-        status_command i3status
-}
 for_window [window_role="pop-up"] floating enable
+bar {
+    status_command i3status
+}
 
+# startup applications
 exec gnome-settings-daemon
 exec gnome-sound-applet
 exec gnome-panel
