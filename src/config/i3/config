@@ -6,8 +6,10 @@ floating_modifier Mod4
 # kill focused window
 bindsym Mod4+Shift+q kill
 
-# start dmenu (a program launcher)
+# Launchers and menus.
 bindsym Mod4+d exec dmenu_run
+bindsym Mod4+Return exec dmenu-common-apps
+bindsym Mod4+Delete exec dmenu-power-menu
 
 # change focus
 bindsym Mod4+h focus left

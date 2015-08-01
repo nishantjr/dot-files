@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+exec $(dmenu <<END
+urxvt
+chromium
+dolphin
+END
+)
