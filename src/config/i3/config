@@ -12,6 +12,7 @@ bar {
 
 # use Mouse+Mod4 to drag floating windows to their wanted position
 floating_modifier Mod4
+focus_follows_mouse no
 
 # kill focused window
 bindsym Mod4+Shift+q kill
