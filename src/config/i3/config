@@ -1,4 +1,12 @@
 font xft:DejaVu Sans Mono, Icons 8
+focus_follows_mouse no
+
+# pop-up windows float.
+for_window [window_role="pop-up"] floating enable
+bar {
+    tray_output none
+    status_command i3status
+}
 
 # use Mouse+Mod4 to drag floating windows to their wanted position
 floating_modifier Mod4
@@ -118,12 +126,6 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 bindsym Mod4+r mode "resize"
-
-for_window [window_role="pop-up"] floating enable
-bar {
-    tray_output none
-    status_command i3status
-}
 
 # startup applications
 exec gnome-settings-daemon
