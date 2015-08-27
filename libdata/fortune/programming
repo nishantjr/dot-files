@@ -547,3 +547,16 @@ type-checks – it’s contrary to all my intuition about programming,
 but there it is.
     --"bill a", on Haskell; comment on
       http://www.alsonkemp.com/haskell/reflections-on-leaving-haskell/
+%
+Functor allows only applying pure functions on effectual.
+Applicative allows lifting into effectual and combining* effectual values.
+Monad adds selection of effectuals according to their internal values.
+    -- sinelaw, on #haskell, after Peaker
+* Note: 'combining' means 'sequencing' here, of course....
+%
+The resulting type and value of an instance of use of the new value
+notation is determined by the value (and the type of the value) finally
+assigned to the distinguished local reference identified by the keyword
+VALUE, according to the processing of the macrodefinition for the new
+type notation followed by that for the new value notation.
+    -- ISO 8824:1988 (Specification of ASN.1), Annex A

@@ -1,7 +1,7 @@
 
 all: check-strfile \
     perlis-epigrams.dat dijkstra.dat programming.dat \
-    security-maxims.dat misc.dat
+    security-maxims.dat math.dat misc.dat
 
 check-strfile:
 	@type strfile >/dev/null 2>&1 || \

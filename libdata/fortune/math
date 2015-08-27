@@ -1,0 +1,43 @@
+As far as the laws of mathematics refer to reality, they are not
+certain; and as far as they are certain, they do not refer to reality.
+    --Albert Einstein
+%
+To spell out a concrete example, consider a 3-manifold M with positive
+Betti number. One would like to show that M admits a map to the 2-sphere
+which is "non-trivial", i.e. non-homotopic to the constant map. By a
+general nonsense argument, there is a map
+
+    f: M -> K(Z,2)
+
+to the Eilenberg-MacLane space, corresponding to a non-trivial element
+in H2(M). Since K(Z,2) is complex projective space and the latter admits
+a skeleton structure with no cells in odd dimensions, we can apply the
+cellular approximation theorem to conclude that the map f can be pushed
+down to the 2-skeleton, which happens to be the 2-sphere.
+
+    --Wikipedia "General Abstract Nonsense" entry
+%
+It is a profoundly erroneous truism, repeated by all copy-books and by
+eminent people when they are making speeches, that we should cultivate the
+habit of thinking of what we are doing. The precise opposite is the case.
+Civilization advances by extending the number of important operations which
+we can perform without thinking about them. Operations of thought are like
+cavalry charges in a battle--they are strictly limited in number, they
+require fresh horses, and must only be made at decisive moments.
+	--Alfred North Whitehead, _An Introduction to Mathematics_ (1911)
+%
+Although everyone has their own interpretation, a good practical
+definition is "Nonrepudiation is anything which fails to go away when
+you stop believing in it". Put another way, if you can convince a user
+that it isn't worth trying to repudiate a signature then you have
+nonrepudiation. This can take the form of having them sign a legal
+agreement saying they won't try to repudiate any of their signatures,
+giving them a smart card and convincing them that it's so secure that
+any attempt to repudiate a signature generated with it would be futile,
+threatening to kill their kids, or any other method which has the
+desired effect.
+    -- Peter Gutmann, _X.509 Style Guide_
+       http://www.cs.auckland.ac.nz/~pgut001/pubs/x509guide.txt
+%
+Isomorphisms, automorphisms, and endomorphisms are special types
+of homomorphisms.
