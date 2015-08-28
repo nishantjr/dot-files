@@ -19,5 +19,8 @@ programming.dat: programming
 security-maxims.dat: security-maxims
 	strfile security-maxims
 
+math.dat: math
+	strfile math
+
 misc.dat: misc
 	strfile misc
