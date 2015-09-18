@@ -49,7 +49,6 @@ while read path; do CHECKOUTS="$CHECKOUTS${CHECKOUTS:+:}$path"; done << ___
     $HOME/Dropbox/play/*
 ___
 
-
 logs () { git log --stat "$@"; }
 loga()          { local gitver=$(git --version | sed -e s/[^0-9]*//);
                   dpkg --compare-versions $gitver ge 1.7.1 \
@@ -82,3 +81,11 @@ logba()         {
 difc()          { dif --cached "$@"; }
 difw()          { dif --word-diff "$@"; }
 difwc()         { dif --word-diff=color "$@"; }
+
+function git-tar() {
+    local name=$1
+    [ "_$name" = _ ] && { echo >&2 "Usage: git-tar <name>" && return; }
+    local version=$(git describe --always --dirty)
+    git archive --format=tar --prefix="$name-$version/" HEAD \
+        | gzip > "$name-$version.tar.gz"
+}
