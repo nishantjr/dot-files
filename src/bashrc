@@ -15,7 +15,7 @@ alias    ls='ls   --color=auto'
 alias  grep='grep --color=auto'
 alias egrep='grep --color=auto'
 
-PS1='\$ '
+PS1='\u@\h\$ '
 
 function set_term_title() {
     echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"
