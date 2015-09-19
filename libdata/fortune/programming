@@ -560,3 +560,6 @@ assigned to the distinguished local reference identified by the keyword
 VALUE, according to the processing of the macrodefinition for the new
 type notation followed by that for the new value notation.
     -- ISO 8824:1988 (Specification of ASN.1), Annex A
+%
+You're either a functional programmer or a dysfunctional programmer.
+    -- cjs 2015-09-19
