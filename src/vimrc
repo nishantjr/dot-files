@@ -1,3 +1,4 @@
+"
 " Set up swap so that it's not in git's way
 silent !mkdir -p ~/.cache/vim/swap
 set dir=~/.cache/vim/swap//,/var/tmp/vim/swap//
@@ -43,7 +44,7 @@ set formatoptions=""
 let $BASH_ENV=$HOME . "/.bashrc"
 
 filetype plugin on
-syntax on
+syntax off
 
 " ===== Colors ========================================================
 " Available ctermfg colours, in DarkFoo and LightFoo versions:

@@ -79,3 +79,6 @@ logba()         {
         else        logb    --branches='*' "$@";
         fi
 }
+difc()          { dif --cached "$@"; }
+difw()          { dif --word-diff "$@"; }
+difwc()         { dif --word-diff=color "$@"; }
