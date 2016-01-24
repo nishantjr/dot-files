@@ -33,3 +33,39 @@ for file in ~/.bash.d/*; do
 done
 
 alias dev='sudo systemd-nspawn --directory /var/lib/container/trusty --bind=/home/njr/ --share-system --user njr'
+
+alias lf='ls -CF'
+alias ll='ls -l'
+alias st='git st'
+alias commit='git commit'
+alias sp=line
+
+logs () { git log --stat "$@"; }
+loga()          { local gitver=$(git --version | sed -e s/[^0-9]*//);
+                  dpkg --compare-versions $gitver ge 1.7.1 \
+                      && local decopt="--decorate=no"
+                  git log --pretty=oneline --abbrev-commit $decopt "$@";
+                }
+logp()          { git log --stat -p "$@"; }
+pl()            { clear; logp -1 "$@"; }
+logw()          { logp --word-diff=color "$@"; }
+logb()          { # log showing branch graph
+    local color
+    local pager="less -R"
+
+    # "no chop" option
+    if [ _"$1" = _-c ]; then shift; else pager="$pager -S"; fi
+
+    if tty -s <&1
+        then color="--color=always";
+        else color="--color=never";  pager=cat
+        fi
+    git log --graph --decorate=short --pretty=oneline --abbrev-commit \
+        $color "$@" | $pager
+}
+logba()         {
+    if [ _"$1" = _-c ]
+        then shift; logb -c --branches='*' "$@";
+        else        logb    --branches='*' "$@";
+        fi
+}
