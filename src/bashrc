@@ -40,6 +40,16 @@ alias st='git st'
 alias commit='git commit'
 alias sp=line
 
+c() { cd "$(find-co-dir -c "$@")"; xtitle $XTITLE; }
+export CHECKOUTS
+while read path; do CHECKOUTS="$CHECKOUTS${CHECKOUTS:+:}$path"; done << ___
+    $HOME/co/client/*/*
+    $HOME/co/github/*/*
+    $HOME/co/*/*
+    $HOME/Dropbox/play/*
+___
+
+
 logs () { git log --stat "$@"; }
 loga()          { local gitver=$(git --version | sed -e s/[^0-9]*//);
                   dpkg --compare-versions $gitver ge 1.7.1 \
