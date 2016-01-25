@@ -29,7 +29,7 @@ function graph() {
 }
 
 function cpp-color() {
-    local command=$*
-    $* 2>&1 | egrep  'from here\|error\|undefined reference\|^'
+    line $*
+    $* 2>&1 | grep --color=always 'from here\|error\|undefined reference\|^'
     return ${PIPESTATUS[0]}
 }
