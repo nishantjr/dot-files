@@ -21,5 +21,5 @@
 
 [alias]
 	graph = log --oneline --graph --color --decorate
-	st = status --short
+	st = status --branch --short
 	vi = !vi $(find $(git status --short | cut -b 4-) -type f)
