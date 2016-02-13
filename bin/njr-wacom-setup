@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -e
+
+device='Wacom Intuos PT M 2 Pad pad'
+
+xsetwacom --set "$device" Button 8 "key +ctrl z -ctrl"
+xsetwacom --set "$device" Button 9 "key +ctrl +shift z -ctrl -shift"
+echo DONE
