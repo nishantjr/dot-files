@@ -49,6 +49,28 @@ while read path; do CHECKOUTS="$CHECKOUTS${CHECKOUTS:+:}$path"; done << ___
     $HOME/Dropbox/play/*
 ___
 
+br() {
+    local bropts grep_args=()
+    while :; do case "$1" in
+        -a) shift; bropts="-a -v";;
+        -v) shift; bropts="-v";;
+        -g) shift; grep_args+=("$1"); shift;;
+        *)  break;;
+    esac; done
+    # Using '.' as the default grep argument will remove blank lines.
+    # We can live with this here, since we expect none.
+    git branch --color $bropts "$@" \
+        | grep "${grep_args[@]:-.}" \
+        | less -E -R -S -J
+}
+bra()           { br -a "$@"; }
+brag()          { br -a -g "$@"; }
+brv()           { br -v "$@"; }
+co()            { if [ -d RCS -o "*,v" != "$(echo *,v)" ]
+                    then command co "$@"
+                    else git checkout "$@"
+                    fi
+                }
 logs () { git log --stat "$@"; }
 loga()          { local gitver=$(git --version | sed -e s/[^0-9]*//);
                   dpkg --compare-versions $gitver ge 1.7.1 \
