@@ -1,3 +1,4 @@
+map gX :!chmod +x %<CR>
 "
 " Set up swap so that it's not in git's way
 silent !mkdir -p ~/.cache/vim/swap
@@ -76,6 +77,8 @@ highlight SpellCap	ctermfg=none ctermbg=none
 highlight SpellRare	ctermfg=none ctermbg=none
 highlight SpellLocal	ctermfg=none ctermbg=none
 
+" gn - turn off search highlighting
+map gn :nohlsearch<CR>
 
 " ^N/^P - move to next/previous file
 map  :next
