@@ -78,6 +78,7 @@ loga()          { local gitver=$(git --version | sed -e s/[^0-9]*//);
                   git log --pretty=oneline --abbrev-commit $decopt "$@";
                 }
 logp()          { git log --stat -p "$@"; }
+logp1()         { logp -1 "$@"; }
 pl()            { clear; logp -1 "$@"; }
 logw()          { logp --word-diff=color "$@"; }
 logb()          { # log showing branch graph
