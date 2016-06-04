@@ -38,3 +38,7 @@ alias lf='ls -CF'
 alias ll='ls -l'
 alias commit='git commit'
 alias sp=line
+
+function re() {
+    source ~/.bashrc
+}
