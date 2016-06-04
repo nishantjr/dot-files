@@ -1,4 +1,4 @@
-c() { cd "$(find-co-dir -c "$@")"; xtitle $XTITLE; }
+c() { cd "$(find-co-dir -c "$@")"; }
 
 export CHECKOUTS
 while read path; do CHECKOUTS="$CHECKOUTS${CHECKOUTS:+:}$path"; done << ___
