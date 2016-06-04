@@ -133,5 +133,4 @@ bindsym Mod4+r mode "resize"
 # startup applications
 exec gnome-settings-daemon
 exec gnome-sound-applet
-exec gnome-panel
 exec nm-applet
