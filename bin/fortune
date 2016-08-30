@@ -9,8 +9,8 @@ cat_fortunes() {
     done
 }
 
-picked=$(cat_fortunes \
-    | grep '^%$' | cat -n | sed -e 's/ *% *//' | shuf | head -1)
+count=$(cat_fortunes | grep '^%$' | cat -n | sed -n -e 's/ *% *//' -e '$p')
+picked=$((1+$RANDOM/$((1+32768/$count))))
 
 count=1
 cat_fortunes | { while read line; do
