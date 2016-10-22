@@ -38,7 +38,7 @@ set clipboard=unnamed
 set fileformats=unix
 set encoding=utf-8 fileencoding=utf-8 termencoding=utf-8
 
-set formatoptions=""
+set nojoinspaces formatoptions=qn
 
 " Bash considers !! commands to be non-interactive shells,
 " so ensure that we get our shell functions (though not aliases).
