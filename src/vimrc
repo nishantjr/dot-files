@@ -171,3 +171,13 @@ digraph \|- 8866
 " greek ends in *: G*=Γ  g*=γ
 " s/S = superscript/subscript: 1s=₁ 2S=²
 " Also see: http://www.alecjacobson.com/weblog/?p=443
+
+" ===== LaTeX helpers ================================================
+iabbr $$a $$\begin{aligned}
+iabbr a$$ \end{aligned}$$
+iabbr bb  \mathbb
+iabbr .:  \therefore
+iabbr eps \epsilon
+iabbr PHI \varphi
+iabbr INV ^{-1}
+iabbr normgroupof \trianglelefteq
