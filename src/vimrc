@@ -173,11 +173,43 @@ digraph \|- 8866
 " Also see: http://www.alecjacobson.com/weblog/?p=443
 
 " ===== LaTeX helpers ================================================
-iabbr $$a $$\begin{aligned}
-iabbr a$$ \end{aligned}$$
+" Build a aligned environment around the cursor
+iabbr $$a $$\begin{aligned}<Return>\end{aligned}$$<Esc>k$a
+iabbr ALIGNED \begin{aligned}<Return>\end{aligned}<Esc>k$a
+iabbr CASES \begin{cases}<Return>\end{cases}<Esc>k$a
+iabbr MATRIX \begin{bmatrix}<Return>\end{bmatrix}<Esc>k$a
+
 iabbr bb  \mathbb
+iabbr tt  \text
+
 iabbr .:  \therefore
-iabbr eps \epsilon
-iabbr PHI \varphi
+
+" Use this in aligned env for typesetting the reason for a statement
+iabbr COZ &\quad\ldots&\text{
+
+iabbr IMPLIES \Longrightarrow
+iabbr IFF \Longrightleftarrow
 iabbr INV ^{-1}
 iabbr normgroupof \trianglelefteq
+
+iabbr eps \epsilon
+iabbr PHI \varphi
+iabbr ISO \cong
+
+iabbr bbC \mathbb C
+iabbr bbN \mathbb Q
+iabbr bbR \mathbb R
+iabbr bbZ \mathbb Z
+
+function! s:abbrSubscripts(letter_string)
+    let letters = split(a:letter_string, '\zs')
+    let subscripts = split("0123ijkmn", '\zs')
+    for l in letters
+	for s in subscripts
+	    execute ('iabbr '. l . s . ' a_'.s)
+	endfor
+    endfor
+endfunction
+
+call s:abbrSubscripts("abcdefghijklmnopqrstuvwxyz")
+call s:abbrSubscripts("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
