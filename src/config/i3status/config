@@ -9,6 +9,9 @@ order += "wireless wlp3s0"
 order += "ethernet eth0"
 order += "battery 0"
 order += "load"
+order += "tztime mumbai"
+order += "tztime tokyo"
+order += "tztime UTC"
 order += "time"
 
 wireless wlp3s0 {
@@ -26,9 +29,19 @@ battery 0 {
     format = "%status %percentage %remaining"
 }
 
-time {
-    format = "%a %d %b %H:%M"
+tztime mumbai {
+    format = "मुंबई %H:%M"
+    timezone = "Asia/Kolkata"
 }
+tztime tokyo {
+    format = "東京 %H:%M"
+    timezone = "Asia/Tokyo"
+}
+tztime UTC {
+    format = "UTC %H:%M"
+    timezone = "UTC"
+}
+time { format = "%a %d %b %H:%M" }
 
 load {
     format = "%1min"
