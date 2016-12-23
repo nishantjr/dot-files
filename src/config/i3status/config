@@ -3,6 +3,7 @@ general {
     interval = 5
 }
 
+order += "volume master"
 order += "wireless wlp3s0"
 order += "ethernet eth0"
 order += "battery 0"
@@ -12,7 +13,7 @@ order += "tztime UTC"
 order += "time"
 
 wireless wlp3s0 {
-    format_up = " %quality %essid (%ip)"
+    format_up = "%quality %essid (%ip)"
     format_down = ""
 }
 
@@ -45,3 +46,8 @@ tztime UTC {
     timezone = "UTC"
 }
 time { format = "%a %d %b %H:%M" }
+
+volume master {
+    format = "♬ %volume"
+    format_muted = "🚫 %volume"
+}
