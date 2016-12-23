@@ -7,10 +7,14 @@ order += "volume master"
 order += "wireless wlp3s0"
 order += "ethernet eth0"
 order += "battery 0"
+
+order += "tztime date-west"
+order += "tztime date-east"
+
+order += "tztime C-U"
+order += "tztime UTC"
 order += "tztime mumbai"
 order += "tztime tokyo"
-order += "tztime UTC"
-order += "time"
 
 wireless wlp3s0 {
     format_up = "%quality %essid (%ip)"
@@ -33,19 +37,32 @@ battery 0 {
     last_full_capacity = true
 }
 
-tztime mumbai {
-    format = "मुंबई %H:%M"
-    timezone = "Asia/Kolkata"
-}
 tztime tokyo {
     format = "東京 %H:%M"
     timezone = "Asia/Tokyo"
+}
+tztime mumbai {
+    format = "मुंबई %H:%M"
+    timezone = "Asia/Kolkata"
 }
 tztime UTC {
     format = "UTC %H:%M"
     timezone = "UTC"
 }
-time { format = "%a %d %b %H:%M" }
+tztime "C-U" {
+    format = "CU %H:%M"
+    timezone = "America/Chicago"
+}
+
+tztime date-west {
+    format = "    %a %d"
+    timezone = "America/Chicago"
+}
+
+tztime date-east {
+    format = "%a %d    "
+    timezone = "Asia/Tokyo"
+}
 
 volume master {
     format = "♬ %volume"
