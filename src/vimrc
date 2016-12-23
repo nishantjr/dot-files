@@ -206,10 +206,13 @@ function! s:abbrSubscripts(letter_string)
     let subscripts = split("0123ijkmn", '\zs')
     for l in letters
 	for s in subscripts
-	    execute ('iabbr '. l . s . ' a_'.s)
+	    execute ('iabbr '. l . s . ' ' .l. '_'.s)
 	endfor
     endfor
 endfunction
 
 call s:abbrSubscripts("abcdefghijklmnopqrstuvwxyz")
 call s:abbrSubscripts("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+unabbr an
+unabbr in
+
