@@ -213,8 +213,8 @@ function! s:abbrSubscripts(letter_string)
     endfor
 endfunction
 
-call s:abbrSubscripts("abcxyz")
-call s:abbrSubscripts("ABCGXYZ")
+call s:abbrSubscripts("bcpqrxyz")
+call s:abbrSubscripts("BCGXYZ")
 
 " Automated deduction
 iabbr TERMALG \bigunion T_{\sigma(Y)}
