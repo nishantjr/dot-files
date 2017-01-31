@@ -179,8 +179,10 @@ iabbr ALIGNED \begin{aligned}<Return>\end{aligned}<Esc>k$a
 iabbr CASES \begin{cases}<Return>\end{cases}<Esc>k$a
 iabbr MATRIX \begin{bmatrix}<Return>\end{bmatrix}<Esc>k$a
 
-iabbr bb  \mathbb
-iabbr tt  \text
+iabbr BB  \mathbb
+iabbr CAL \mathcal
+iabbr SCR \mathscr
+iabbr TT  \text
 
 iabbr .:  \therefore
 
@@ -211,8 +213,9 @@ function! s:abbrSubscripts(letter_string)
     endfor
 endfunction
 
-call s:abbrSubscripts("abcdefghijklmnopqrstuvwxyz")
-call s:abbrSubscripts("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
-unabbr an
-unabbr in
+call s:abbrSubscripts("abcxyz")
+call s:abbrSubscripts("ABCGXYZ")
 
+" Automated deduction
+iabbr TERMALG \bigunion T_{\sigma(Y)}
+iabbr REWRITESTO {\to_{R/B}^{*}}
