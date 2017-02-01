@@ -131,7 +131,7 @@ mode "resize" {
 bindsym Mod4+r mode "resize"
 
 # startup applications
-exec gnome-settings-daemon
-exec gnome-sound-applet
-exec nm-applet
+exec --no-startup-id gnome-settings-daemon
+exec --no-startup-id gnome-sound-applet
+exec --no-startup-id nm-applet
 exec --no-startup-id xrdb ~/.Xresources
