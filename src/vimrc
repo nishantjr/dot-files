@@ -194,7 +194,7 @@ iabbr COZ &\quad\ldots&\text{
 iabbr IMPLIES \Longrightarrow
 iabbr IFF \Longrightleftarrow
 iabbr INV ^{-1}
-iabbr normgroupof \trianglelefteq
+iabbr ROOT \sqrt
 
 iabbr eps \epsilon
 iabbr PHI \varphi
