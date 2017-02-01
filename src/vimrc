@@ -205,6 +205,9 @@ iabbr bbN \mathbb Q
 iabbr bbR \mathbb R
 iabbr bbZ \mathbb Z
 
+iabbr SCR \mathscr
+iabbr CAL \mathcal
+
 function! s:abbrSubscripts(letter_string)
     let letters = split(a:letter_string, '\zs')
     let subscripts = split("0123ijkmn", '\zs')
@@ -215,7 +218,7 @@ function! s:abbrSubscripts(letter_string)
     endfor
 endfunction
 
-call s:abbrSubscripts("bcpqrxyz")
+call s:abbrSubscripts("bcpqruvwxyz")
 call s:abbrSubscripts("BCGXYZ")
 
 " Automated deduction
