@@ -18,8 +18,11 @@
 
 [push]
 	default = tracking	; current branch only to tracked upstream branch
+	recurseSubmodules = check
 
 [alias]
 	graph = log --oneline --graph --color --decorate
 	st = status --branch --short
 	vi = !vi $(find $(git status --short | cut -b 4-) -type f)
+[fetch]
+	recurseSubmodules = true
