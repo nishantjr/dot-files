@@ -42,3 +42,6 @@ alias sp=line
 function re() {
     source ~/.bashrc
 }
+
+LC_COLLATE=C
+LANG=en_US.UTF-8
