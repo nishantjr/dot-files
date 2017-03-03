@@ -18,9 +18,9 @@ function link() {
 }
 
 # Copy dot-files
-for SRC in $(find src -type f)
+for SRC in $(find dot -type f)
 do
-    TARGET="$HOME/.${SRC#src/}"
+    TARGET="$HOME/.${SRC#dot/}"
     link $SRC $TARGET
 done
 
