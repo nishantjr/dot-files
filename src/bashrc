@@ -1,6 +1,6 @@
 # TODO: Merge .local, local
 PATH=$HOME/.local/bin:$PATH
-PATH=$HOME/local/bin:$PATH
+PATH=$HOME/bin:$PATH
 (type ruby && type gem) >/dev/null 2>&1 && \
     PATH=`ruby -rubygems -e "puts Gem.user_dir"`/bin:$PATH
 
