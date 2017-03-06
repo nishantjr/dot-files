@@ -1,12 +1,19 @@
-c() { cd "$(find-co-dir -c "$@")"; }
+cd() { builtin cd "$@"; term-title $PWD; }
+c() {
+    paths=(~/co/ ~/Dropbox ~/.home)
+    dirs=($(find "${paths[@]}" -type d -regex ".*/[^/]*$1[^/]*/.git"))
 
-export CHECKOUTS
-while read path; do CHECKOUTS="$CHECKOUTS${CHECKOUTS:+:}$path"; done << ___
-    $HOME/co/client/*/*
-    $HOME/co/github/*/*
-    $HOME/co/*/*
-    $HOME/Dropbox/play/*
-___
+    case ${#dirs[@]} in
+    0) echo 2>&1 "No checkout found for '$@'"; return;;
+    1) ;;
+    *) echo 2>&1 "Using first of:"
+       for dir in "${dirs[@]}"; do echo "  $(dirname $dir)"; done;;
+    esac
+
+    target=$(dirname ${dirs[0]})
+    cd "$target"
+    echo ${target##$HOME/}
+}
 
 alias st='git st'
 br() {
