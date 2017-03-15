@@ -222,5 +222,7 @@ call s:abbrSubscripts("bcpqruvwxyz")
 call s:abbrSubscripts("BCGXYZ")
 
 " Automated deduction
-iabbr TERMALG \bigunion T_{\sigma(Y)}
-iabbr REWRITESTO {\to_{R/B}^{*}}
+iabbr TERMALG T_{\sigma(X)}
+iabbr REWRITESTO \to_{R/B}
+iabbr NARROWSTO \leadsto_R
+iabbr BMATCHES \sqsupseteq_B
