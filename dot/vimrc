@@ -192,7 +192,7 @@ iabbr .:  \therefore
 iabbr COZ &\quad\ldots&\text{
 
 iabbr IMPLIES \Longrightarrow
-iabbr IFF \Longrightleftarrow
+iabbr IFF \Longleftrightarrow
 iabbr INV ^{-1}
 iabbr ROOT \sqrt
 
