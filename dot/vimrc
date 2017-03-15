@@ -45,6 +45,7 @@ set nojoinspaces formatoptions=qn
 let $BASH_ENV=$HOME . "/.bashrc"
 
 filetype plugin on
+autocmd FileType markdown source ~/.vim/latex.vim
 syntax off
 
 " ===== Colors ========================================================
@@ -173,5 +174,3 @@ digraph \|- 8866
 " greek ends in *: G*=Γ  g*=γ
 " s/S = superscript/subscript: 1s=₁ 2S=²
 " Also see: http://www.alecjacobson.com/weblog/?p=443
-
-source ~/.vim/latex.vim
