@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+set -e
+
+detect_package_manager() {
+    type pacman 2>/dev/null >/dev/null && echo pacman
+    type apt 2>/dev/null >/dev/null && echo apt
+}
+
+package_manager="$(detect_package_manager)" 
+case "$package_manager" in
+ apt) sudo apt install \
+          python3-pyqt5 python3-pyqt5.qtwebkit python3-pyqt5.qtquick \
+          python-tox python3-sip python3-dev
+      ;;
+   *) echo >&2 "Don't know how to install qutebrowser using '$package_manager'"
+      exit 1
+      ;;
+esac
+
+base="$(cd "$(dirname $0)"; pwd)"
+install_dir="$base/.build/qutebrowser"
+mkdir -p "$install_dir"
+cd "$install_dir"
+[ -e .git ] || git clone https://github.com./qutebrowser/qutebrowser .
+
+(cd "$install_dir"; tox -r -e mkvenv)
+
+cat > "$base/bin/qutebrowser" <<_
+#!/bin/bash
+"$install_dir//.venv/bin/python3" -m qutebrowser "$@"
+_
+chmod +x "$base/bin/qutebrowser"
