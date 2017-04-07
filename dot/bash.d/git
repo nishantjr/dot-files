@@ -1,7 +1,9 @@
 cd() { builtin cd "$@"; term-title $PWD; }
+
+
+cpaths=(~/co/ ~/Dropbox ~/.home)
 c() {
-    paths=(~/co/ ~/Dropbox ~/.home)
-    dirs=($(find "${paths[@]}" -type d -regex ".*/[^/]*$1[^/]*/.git"))
+    dirs=($(find "${cpaths[@]}" -type d -regex ".*/[^/]*$1[^/]*/.git"))
 
     case ${#dirs[@]} in
     0) echo 2>&1 "No checkout found for '$@'"; return;;
@@ -13,6 +15,15 @@ c() {
     target=$(dirname ${dirs[0]})
     cd "$target"
     echo ${target##$HOME/}
+}
+
+cnew() {
+    local remote="$1"
+    local no_user="${remote##*@}"
+    local target="${cpaths[0]}/${no_user/:/\/}"
+    mkdir -p "$target"
+    cd "$target"
+    git clone "$remote" .
 }
 
 br() {
