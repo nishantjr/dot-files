@@ -15,7 +15,6 @@ c() {
     echo ${target##$HOME/}
 }
 
-alias st='git st'
 br() {
     local bropts grep_args=()
     while :; do case "$1" in
