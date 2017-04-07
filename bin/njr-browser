@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
 function try() {
-    type $1 2>/dev/null && exec $1
+    type $1 2>/dev/null && exec "$@"
 }
 
+try qutebrowser --backend=webengine
 try chromium
 try chromium-browser
 try firefox
