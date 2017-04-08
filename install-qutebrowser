@@ -7,19 +7,9 @@ detect_package_manager() {
     type apt 2>/dev/null >/dev/null && echo apt
 }
 
-package_manager="$(detect_package_manager)" 
-case "$package_manager" in
- apt) 
-      sudo bash -c "cat > /etc/apt/sources.list.d/qutebrowser.list" <<_
-# We want the experimental version of Qt, so that we get QWebEngine
-deb http://ftp.debian.org/debian experimental main
-_
-
-      sudo apt update
-      sudo apt install -t experimental\
-          python3-pyqt5 python3-pyqt5.qtwebkit python3-pyqt5.qtquick \
-          python-tox python3-sip python3-dev
-      ;;
+package_manager="$(detect_package_manager)"
+type python3 2>/dev/null || case "$package_manager" in
+ apt) sudo apt install python3 ;;
    *) echo >&2 "Don't know how to install qutebrowser using '$package_manager'"
       exit 1
       ;;
@@ -31,7 +21,18 @@ mkdir -p "$install_dir"
 cd "$install_dir"
 [ -e .git ] || git clone https://github.com./qutebrowser/qutebrowser .
 
-(cd "$install_dir"; tox -r -e mkvenv)
+# XXX: The `--no-site-packages` option needs to be passed to `virtualenv` when
+# installing packages. This is to prevent using the distribution's Qt (too old
+# to support QtWebEngine on Ubuntu 16.04). I don't know how to pass this option
+# through (upstream recommeneded) `tox` when installing dependencies, so set up
+# the virtualenv manually.
+#
+(cd "$install_dir"
+ [ -f $install_dir/.venv/bin/activate ] ||
+     virtualenv --no-site-packages --python=python3 .venv
+ . .venv/bin/activate
+ pip3 install -r requirements.txt -r misc/requirements/requirements-pyqt.txt
+)
 
 cat > "$base/bin/qutebrowser" <<_
 #!/bin/bash
@@ -48,7 +49,8 @@ qute_conf="$XDG_CONFIG_DIR/qutebrowser/qutebrowser.conf"
 [ -f "\$qute_conf.template" ] &&
     cp "\$qute_conf.template" "\$qute_conf"
 
-"$install_dir/.venv/bin/python3" -m qutebrowser "$@"
+"$install_dir/.venv/bin/python3" \
+    "$install_dir/qutebrowser.py" --backend=webengine"$@"
 _
 
 chmod +x "$base/bin/qutebrowser"
