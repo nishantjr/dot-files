@@ -3,6 +3,7 @@ PATH=$HOME/.local/bin:$PATH
 PATH=$HOME/bin:$PATH
 (type ruby && type gem) >/dev/null 2>&1 && \
     PATH=`ruby -rubygems -e "puts Gem.user_dir"`/bin:$PATH
+type go >/dev/null 2>&1 && PATH=$PATH:$(go env GOPATH)/bin
 
 [[ $- != *i* ]] && return
 
@@ -45,5 +46,6 @@ function re() {
 }
 
 export \
-    LC_COLLATE=C \
-    LANG=en_US.UTF-8
+    LC_COLLATE=C        \
+    LANG=en_US.UTF-8    \
+    GOPATH=$HOME/co/go
