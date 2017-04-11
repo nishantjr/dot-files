@@ -1,10 +1,18 @@
 #!/usr/bin/env bash
 
-function try() {
-    type $1 2>/dev/null && exec "$@"
+
+private=false
+[ "$1" = --private ] && { private=true; shift; }
+
+function try() { type $1 2>/dev/null && exec "$@"; }
+
+gui_warn() { try notify-send "$@"; }
+
+
+private && { gui_warn "Only qutebrowser knows --private"; # XXX Create copy conf to /tmp;
 }
 
-try qutebrowser --backend=webengine
-try chromium
-try chromium-browser
-try firefox
+try qutebrowser --backend=webengine  "$@"
+try chromium "$@"
+try chromium-browser "$@"
+try firefox "$@"

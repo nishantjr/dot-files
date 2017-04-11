@@ -1,0 +1,14 @@
+#!/usr/bin/env
+
+fatal() {
+    echo >&2 "Usage: $0 <title> <search-url>"
+    exit 1
+}
+
+title='$1'; shift || fatal
+url='$1'; shift || fatal
+
+query=$(echo '' | dmenu -p "$title:" -b)
+if [ -n "$query" ]; then
+    njr-browser --private "$url$query"
+fi
