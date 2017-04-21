@@ -26,3 +26,5 @@
 	vi = !vi $(find $(git status --short | cut -b 4-) -type f)
 [fetch]
 	recurseSubmodules = true
+[commit]
+	verbose = true
