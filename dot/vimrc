@@ -78,6 +78,15 @@ highlight SpellCap	ctermfg=none ctermbg=none
 highlight SpellRare	ctermfg=none ctermbg=none
 highlight SpellLocal	ctermfg=none ctermbg=none
 
+" git commit messages
+autocmd FileType gitcommit syntax on
+highlight gitcommitComment ctermfg=Gray
+highlight gitcommitOnBranch ctermfg=Gray
+highlight gitcommitHeader ctermfg=Gray
+highlight gitcommitType ctermfg=Gray
+highlight link gitcommitOverflow Error
+
+
 " gn - turn off search highlighting
 map gn :nohlsearch<CR>
 
