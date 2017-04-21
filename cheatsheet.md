@@ -1,3 +1,14 @@
+### MuPDF
+
+|Key            | Command                                                      |
+|---------------|--------------------------------------------------------------|
+| W, H          | Fit to width / Height                                        |
+| 123g          | Go to page 123                                               |
+| m             | mark current page                                            |
+| t             | return to last mark                                          |
+| [0-9]m        | Save the current page number in the numbered register.       |
+| [0-9]t        | Go to the page saved in the numbered register.               |
+
 ### Tar
 
 Remove leading componnents from directory.
