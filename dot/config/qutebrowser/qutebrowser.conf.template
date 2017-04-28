@@ -1,3 +1,6 @@
 [tabs]
 show = never
 tabs-are-windows = true
+
+[ui]
+downloads-position = bottom
