@@ -1,3 +1,7 @@
+setlocal spell
+mkspell! $HOME/.vim/spell/latex.en.utf-8.add
+setlocal spellfile+=$HOME/.vim/spell/latex.en.utf-8.add
+
 " ===== LaTeX abbreviations ================================================
 " Build a aligned environment around the cursor
 iabbr <buffer> $$a $$\begin{aligned}<Return>\end{aligned}$$<Esc>k$a
