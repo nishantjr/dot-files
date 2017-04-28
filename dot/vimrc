@@ -79,6 +79,7 @@ highlight SpellRare	ctermfg=none ctermbg=none
 highlight SpellLocal	ctermfg=none ctermbg=none
 
 " git commit messages
+autocmd FileType gitcommit setlocal textwidth=70
 autocmd FileType gitcommit syntax on
 highlight gitcommitComment ctermfg=Gray
 highlight gitcommitOnBranch ctermfg=Gray
