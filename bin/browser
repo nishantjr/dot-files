@@ -1,19 +1,20 @@
 #!/usr/bin/env bash
+set -e
 
 is_in_path() {
-    type qutebrowser 2>/dev/null >/dev/null
+    type $1 2>/dev/null >/dev/null
 }
 
 try_qutebrowser() {
-    is_in_path || return
+    is_in_path qutebrowser || return
 
     # The current implementation of qutebrowser re-writes the config each run,
     # removing comment, and adding it's own. This makes it difficult to figure
     # out what's mine, and what's theirs. We get around this by copying our own
     # config each time.
     #
-    qute_conf="/qutebrowser/qutebrowser.conf"
-    [ -f "$qute_conf.template" ] && cp "$qute_conf.template" "$qute_conf"
+    qute_conf=~/.config/qutebrowser/qutebrowser.conf
+    cp "$qute_conf.template" "$qute_conf"
     exec qutebrowser "$@"
 }
 
@@ -21,7 +22,7 @@ try() {
     is_in_path $1 && exec "$@"
 }
 
-try_qutebrowser --backend=webengine --override-restore
-try chromium
-try chromium-browser
-try firefox
+   try_qutebrowser --backend=webengine --override-restore       \
+|| try chromium                                                 \
+|| try chromium-browser                                         \
+|| try firefox
