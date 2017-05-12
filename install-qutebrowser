@@ -1,23 +1,11 @@
 #!/usr/bin/env bash
-
 set -e
-
-detect_package_manager() {
-    type pacman 2>/dev/null >/dev/null && { echo pacman; return; }
-    type apt    2>/dev/null >/dev/null && { echo apt   ; return; }
-    echo unknown package manager
-}
-
-package_manager="$(detect_package_manager)"
-type python3 2>/dev/null || case "$package_manager" in
- apt) sudo apt install python3 ;;
-   *) echo >&2 "Don't know how to install qutebrowser using '$package_manager'"
-      exit 1
-      ;;
-esac
-
 base="$(cd "$(dirname $0)"; pwd)"
 clone_dir="$base/.build/qutebrowser"
+
+type pip3 2>/dev/null >/dev/null \
+    || { echo >&2 "Could not find pip3!"; exit 1; }
+
 mkdir -p "$clone_dir"
 cd "$clone_dir"
 [ -e .git ] || git clone https://github.com./qutebrowser/qutebrowser .
