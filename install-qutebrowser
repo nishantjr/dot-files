@@ -10,12 +10,6 @@ mkdir -p "$clone_dir"
 cd "$clone_dir"
 [ -e .git ] || git clone https://github.com./qutebrowser/qutebrowser .
 
-# XXX: The `--no-site-packages` option needs to be passed to `virtualenv` when
-# installing packages. This is to prevent using the distribution's Qt (too old
-# to support QtWebEngine on Ubuntu 16.04). I don't know how to pass this option
-# through (upstream recommeneded) `tox` when installing dependencies, so set up
-# the virtualenv manually.
-#
 (cd "$clone_dir"
  pip3 install --user -r requirements.txt -r misc/requirements/requirements-pyqt.txt
  python3 setup.py build
