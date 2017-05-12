@@ -4,3 +4,7 @@ tabs-are-windows = true
 
 [ui]
 downloads-position = bottom
+
+[searchengines]
+DEFAULT = https://encrypted.google.com/search?hl=en&q={}
+wolf    = http://www.wolframalpha.com/input/?i={}
