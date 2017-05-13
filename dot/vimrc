@@ -113,11 +113,8 @@ map qA :qa!
 
 " ===== s/S commands
 " By default s and S are synonyms for cl and cc.
-
-" Push to instant-markdown-d
-map s :call system("curl -X PUT -T - http://localhost:8090", join(getline(1,'$'), "\n"))<CR>
-
-" Save all
+" s/S - save and save all
+map s :w<CR>
 map S :wa<CR>
 
 " gd - enable dos mode, and reload file
