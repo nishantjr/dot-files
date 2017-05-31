@@ -1,34 +1,34 @@
 [user]
-	email = nishantjr@gmail.com
-	name = Nishant Rodrigues
+    email = nishantjr@gmail.com
+    name = Nishant Rodrigues
 
 [color]
-	ui = auto
-	whitespace = red reverse
+    ui = auto
+    whitespace = red reverse
 
 [color.diff]
-        ; plain = normal        ; context text
-        meta = green            ; meta-information
-        frag = yellow           ; hunk header
-        old = red               ; removed lines
-        new = blue              ; added lines
-        ; commit = normal       ; commit headers
-        ; whitespace = normal   ; whitespace errors
+    ; plain = normal        ; context text
+    meta = green            ; meta-information
+    frag = yellow           ; hunk header
+    old = red               ; removed lines
+    new = blue              ; added lines
+    ; commit = normal       ; commit headers
+    ; whitespace = normal   ; whitespace errors
 
 [pull]
-	rebase = true
+    rebase = true
 
 [push]
-	default = tracking	; current branch only to tracked upstream branch
-	recurseSubmodules = check
+    default = tracking  ; current branch only to tracked upstream branch
+    recurseSubmodules = check
 
 [alias]
-	graph = log --oneline --graph --color --decorate
-	st = status --branch --short
-	vi = !vi $(find $(git status --short | cut -b 4-) -type f)
+    graph = log --oneline --graph --color --decorate
+    st = status --branch --short
+    vi = !vi $(find $(git status --short | cut -b 4-) -type f)
 
 [fetch]
-	recurseSubmodules = true
+    recurseSubmodules = true
 
 [commit]
-	verbose = true
+    verbose = true
