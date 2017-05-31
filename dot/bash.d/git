@@ -1,5 +1,4 @@
-cd() { builtin cd "$@"; term-title $PWD; }
-
+cd() { builtin cd "$@" && term-title $PWD; }
 
 cpaths=(~/co/ ~/Dropbox ~/.home)
 c() {
@@ -26,66 +25,5 @@ cnew() {
     git clone "$remote" .
 }
 
-br() {
-    local bropts grep_args=()
-    while :; do case "$1" in
-        -a) shift; bropts="-a -v";;
-        -v) shift; bropts="-v";;
-        -g) shift; grep_args+=("$1"); shift;;
-        *)  break;;
-    esac; done
-    # Using '.' as the default grep argument will remove blank lines.
-    # We can live with this here, since we expect none.
-    git branch --color $bropts "$@" \
-        | grep "${grep_args[@]:-.}" \
-        | less -E -R -S -J
-}
-bra()           { br -a "$@"; }
-brag()          { br -a -g "$@"; }
-brv()           { br -v "$@"; }
-co()            { if [ -d RCS -o "*,v" != "$(echo *,v)" ]
-                    then command co "$@"
-                    else git checkout "$@"
-                    fi
-                }
-logs () { git log --stat "$@"; }
-loga()          { local gitver=$(git --version | sed -e s/[^0-9]*//);
-                  dpkg --compare-versions $gitver ge 1.7.1 \
-                      && local decopt="--decorate=no"
-                  git log --pretty=oneline --abbrev-commit $decopt "$@";
-                }
-logp()          { git log --stat -p "$@"; }
-logp1()         { logp -1 "$@"; }
-pl()            { clear; logp -1 "$@"; }
-logw()          { logp --word-diff=color "$@"; }
-logb()          { # log showing branch graph
-    local color
-    local pager="less -R"
-
-    # "no chop" option
-    if [ _"$1" = _-c ]; then shift; else pager="$pager -S"; fi
-
-    if tty -s <&1
-        then color="--color=always";
-        else color="--color=never";  pager=cat
-        fi
-    git log --graph --decorate=short --pretty=oneline --abbrev-commit \
-        $color "$@" | $pager
-}
-logba()         {
-    if [ _"$1" = _-c ]
-        then shift; logb -c --branches='*' "$@";
-        else        logb    --branches='*' "$@";
-        fi
-}
-difc()          { dif --cached "$@"; }
-difw()          { dif --word-diff "$@"; }
-difwc()         { dif --word-diff=color "$@"; }
-
-function git-tar() {
-    local name=$1
-    [ "_$name" = _ ] && { echo >&2 "Usage: git-tar <name>" && return; }
-    local version=$(git describe --always --dirty)
-    git archive --format=tar --prefix="$name-$version/" HEAD \
-        | gzip > "$name-$version.tar.gz"
-}
+alias g=git
+declare -F __git_complete > /dev/null && __git_complete g __git_main

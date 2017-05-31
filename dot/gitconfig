@@ -23,9 +23,12 @@
     recurseSubmodules = check
 
 [alias]
+    br    = branch -v
+    bra   = branch -v -a
+    c     = commit -v
     graph = log --oneline --graph --color --decorate
-    st = status --branch --short
-    vi = !vi $(find $(git status --short | cut -b 4-) -type f)
+    st    = status --branch --short
+    vi    = !vi $(find $(git status --short | cut -b 4-) -type f)
 
 [fetch]
     recurseSubmodules = true
