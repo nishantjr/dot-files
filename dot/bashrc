@@ -34,6 +34,6 @@ alias commit='git commit'
 alias sp=line
 
 function re() {
-    dot-home-setup
+    dot-home-setup "$@"
     source ~/.profile
 }
