@@ -7,4 +7,5 @@ downloads-position = bottom
 
 [searchengines]
 DEFAULT = https://encrypted.google.com/search?hl=en&q={}
-wolf    = http://www.wolframalpha.com/input/?i={}
+wolf    = https://www.wolframalpha.com/input/?i={}
+hs      = http://hoogle.haskell.org/?hoogle={}

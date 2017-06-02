@@ -31,3 +31,25 @@ service is automatically enabled at boot, serving the directory `/srv/ftp`.
 To disable this run:
 
     echo manual | sudo tee /etc/init/webfs.override
+
+
+### Login shell vs non-login shell
+
+Shell started through:
+ - `console`
+ - `ssh`
+ - `su -`
+
+| *Examples*    | Interactive      | Non-interactive    |
+|---------------|------------------|--------------------|
+| Login         | Virtual terminal | X startup, `ssh`   |
+| Non-Login     | `xterm`, `urxvt` | other scripts      |
+
+| *Config*      | Interactive   | Non-interactive       |
+|---------------|---------------|-----------------------|
+| Login         | `~/.profile`  |
+| Non-Login     |
+
+### Which package owns a file?
+
+* `dpkg -S /path/to/file`

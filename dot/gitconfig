@@ -26,9 +26,16 @@
     br    = branch -v
     bra   = branch -v -a
     c     = commit -v
-    graph = log --oneline --graph --color --decorate
+    ca    = commit -v --all
+    l     = log --pretty="format:%C(auto)%h%C(auto,red)%d\\ %Creset%s%C(auto,blue)\\ [%aN]%Creset"
+    lf    = log --pretty="format:%C(auto)%h\\ %s\\ %C(auto,blue)[%cN]%w(0,2,2)%C(auto)%n%-D%+b"
+    graph = !git l --graph  --all
     st    = status --branch --short
     vi    = !vi $(find $(git status --short | cut -b 4-) -type f)
+    pushf = push --force-with-lease
+
+[log]
+    date=short
 
 [fetch]
     recurseSubmodules = true
@@ -37,4 +44,4 @@
     verbose = true
 
 [url "git@github.com:"]
-	pushInsteadOf = https://github.com/
+    pushInsteadOf = https://github.com/
