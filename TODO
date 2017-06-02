@@ -1,0 +1,4 @@
+* LESS environment search should leave a few lines at the top (see cjs less env
+  last line of environment file)
+* VIM # is a word char
+* push force ⇒ with lease
