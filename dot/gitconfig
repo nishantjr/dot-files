@@ -27,7 +27,7 @@
     bra   = branch -v -a
     c     = commit -v
     ca    = commit -v --all
-    l     = log --pretty="format:%C(auto)%h%C(auto,red)%d\\ %Creset%s%C(auto,blue)\\ [%aN]%Creset"
+    l     = log --pretty="format:%w(80,0,8)%C(auto)%h%C(auto,red)%d\\ %Creset%s%C(auto,blue)"
     lf    = log --pretty="format:%C(auto)%h\\ %s\\ %C(auto,blue)[%cN]%w(0,2,2)%C(auto)%n%-D%+b"
     graph = !git l --graph  --all
     st    = status --branch --short
