@@ -1,9 +1,7 @@
-map gX :!chmod +x %<CR>
-"
-" Set up swap so that it's not in git's way
-silent !mkdir -p ~/.cache/vim/swap
-set dir=~/.cache/vim/swap//,/var/tmp/vim/swap//
+" Don't care much for swap files, I save often enough
 set nobackup
+set noswapfile
+set dir=
 
 " information stored in viminfo
 set viminfo=
@@ -129,6 +127,9 @@ map gW :setlocal wrap lbr spell spelllang=en_us<CR>:echo "Word Processor mode."<
 
 " go - sort (order) this paragraph
 map go {!}sort
+
+" gX - make current file executable
+map gX :!chmod +x %<CR>
 
 " esc-s: spell mode
 map gs :setlocal spell spelllang=en_us<CR>
