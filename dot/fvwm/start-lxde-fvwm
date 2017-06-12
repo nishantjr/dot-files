@@ -1,0 +1,20 @@
+#!/bin/sh -e
+#
+# XXX for some reason, can't get the lxdm to run this script, though
+# the gnome greeter runs it ok. Maybe just bail on that environment.
+#
+#
+echo "foo"
+                                                                date >> /tmp/z
+template=/usr/bin/startlubuntu
+tmpfile=/tmp/start-lxde-fvwm.$$
+
+trap "rm -f $tmpfile" 0
+err_exit() { echo "$@"; exit 1; } 1>&2
+
+
+[ -r $template ] || err_exit "Cannot read $template."
+grep -v /usr/bin/lxsession $template > $tmpfile
+                                                    tail -n 5 $tmpfile >> /tmp/z
+. $tmpfile
+exec /usr/bin/lxsession -s fvwm -e LXDE

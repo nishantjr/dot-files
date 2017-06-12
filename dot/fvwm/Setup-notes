@@ -1,0 +1,253 @@
+############################################################
+# Xfce (Ubuntu 11.10)
+
+* Fast user switching: install xfswitch-plugin (works only with gdm).
+
+############################################################
+# lightdm (Ubuntu 11.10)
+
+Edit /etc/lightdm/lightdm.conf to turn off guest login and user display:
+
+    [SeatDefaults]
+    greeter-hide-users=true
+    allow-guest=false
+    greeter-session=unity-greeter
+    user-session=xubuntu
+
+############################################################
+# Lubuntu / LXDE
+
+Add a desktop file for the display manager:
+    /usr/share/xsessions/fvwm-lxde.desktop
+
+    [Desktop Entry]
+    Name=LXDE/Fvwm
+    Comment=An LXDE session with fvwm window manager and no file manager.
+    Exec=/home/cjs/.fvwm/start-lxde-fvwm
+    Type=Application
+
+Other random notes:
+
+* Install either Lubuntu or the lubuntu-desktop package;
+  lxde packages may be weird or broken.
+* Config stuff is stored under $HOME/.config/lx{session|panel}/LXDE
+* To remove file manager (pcmanfm), from wxl on #lubuntu: "make a copy
+  of /etc/xdg/Lubuntu (obviously underr a different name) in /etc/xdg and
+  edit as you wish"
+
+Useful Links:
+    http://wiki.lxde.org/en/LXSession
+    https://wiki.archlinux.org/index.php/LXDE
+
+############################################################
+# Gnome 3
+
+Add a session file for use by Gnome Session.
+/usr/share/gnome-session/sessions/fvwm-gnome.session:
+
+    [GNOME Session]
+    Name=fvwm GNOME
+    RequiredComponents=gnome-panel;gnome-settings-daemon;
+    RequiredProviders=windowmanager;
+    DefaultProvider-windowmanager=fvwm
+    DefaultProvider-notifications=notify-osd
+    DesktopName=Fvwm-GNOME
+
+The desktop file for GDM is the same as the "Later Gnome 2" below.
+
+XXX gnome-panel seems quite broken with Gnome 3.
+
+############################################################
+# Later Gnome 2 (gnome-session 2.32.1)
+
+Add a session file for use by Gnome Session.
+/usr/share/gnome-session/sessions/fvwm-gnome.session:
+
+    [GNOME Session]
+    Name=fvwm GNOME
+    RequiredComponents=gnome-panel;gnome-settings-daemon;
+    Required=windowmanager;panel
+    Required-windowmanager=fvwm
+    Required-panel=gnome-panel
+    DefaultApps=gnome-settings-daemon;
+
+And a desktop file for GDM.
+/usr/share/xsessions/fvwm-gnome-session.desktop:
+
+    [Desktop Entry]
+    Name=Fvwm GNOME
+    Comment=A GNOME session with fvwm window manager and no file manager.
+    Exec=gnome-session --session=fvwm-gnome
+    TryExec=/usr/bin/gnome-session
+    Type=Application
+    X-Ubuntu-Gettext-Domain=gnome-session-2.0
+
+Make sure both of these are world readable.
+
+### References
+
+* http://therning.org/magnus/archives/938
+* http://spidey01.blogspot.com/2011/05/using-custom-window-manager-with-gnome.html
+* http://www.haskell.org/haskellwiki/Xmonad/Using_xmonad_in_Gnome
+
+############################################################
+# Gnome 2.24
+
+### Window Manager Setup
+
+Ensure that when you log in, the WINDOW_MANAGER environment variable is
+set to the path to your preferred window manager. gnome-wm will run this
+instead of the default (metacity).
+
+### Getting Rid of Nautilus
+
+To avoid having nautilus run above your entire desktop, remove
+"filemanager" as a required component from the session. It's probably
+safter to do this using gconf-editor, where you see the old value, since
+gconftool-2 doesn't appear to have any easy way of editing the list. But
+if you're brave, just replace the list value:
+
+    gconftool-2 --type=list --list-type=string \
+	--set /desktop/gnome/session/required_components_list \
+	'[windowmanager,panel]'
+
+This will take effect after you log out and log in.
+
+### Emacs Key Bindings
+
+If you wish to use Emacs key bindings in Gnome programs, set this
+preference:
+
+    gconftool-2 --type string \
+	--set /desktop/gnome/interface/gtk_key_theme Emacs
+
+In versions of Xfce after 4.4.0, it has its own setting separate from the
+Gnome setting, and you need:
+
+    xfconf-query -c xsettings -p /Gtk/KeyThemeName -s Emacs
+
+### Using `ssh-agent` instead of gnome-keyring-daemon
+
+XXX This doesn't work in Ubuntu 8.10; the gnome-keyring-daemon or
+seahorse or something still runs an SSH agent.
+
+gnome-keyring-daemon doesn't understand the confirmation or lifetime
+parameters (-c and -t options) of ssh-add. To use your own ssh agent
+instead:
+
+    gconftool-2 --type boolean \
+	--set /apps/gnome-keyring/daemon-components/ssh false
+
+This takes effect only when gnome-keyring-daemon is started, and in
+typical ssh startup configurations (which check for SSH_AUTH_SOCK in the
+environment) your own agent won't have started, so the easest way to
+make this take effect is to log out and log in again.
+
+############################################################
+# Scroll Wheel Emulation
+
+For laptops, the middle mouse button can emulate a wheel; hold it and
+scroll the "mouse" up and down. A short press of the middle button will
+still give you a middle button event, but it may be more comfortable to
+chord the left and right buttons.
+
+#### Ubuntu 8.04, old XOrg systems
+
+Add the following to `/etc/X11/xorg.conf`:
+
+    Section "InputDevice"
+	Identifier     "Configured Mouse"
+	Driver         "mouse"
+	Option         "EmulateWheel" "yes"
+	Option         "EmulateWheelButton" "2"
+	Option         "Emulate3Buttons" "yes"
+    EndSection
+
+#### Ubuntu 8.10 - 9.10, newer XOrg systems
+
+For systems that use evdev for input, confirm we can confirm the device
+is there and see the current settings with:
+
+    xinput list-props "TPPS/2 IBM TrackPoint"	# IBM USB Keyboards and Laptops
+    xinput list-props "DualPoint Stick"		# Dell Precision M4400
+
+To duplicate the above xorg.conf settings, edit
+`/etc/hal/fdi/policy/thinkpad.fdi` to read:
+
+  <match key="info.product" string="TPPS/2 IBM TrackPoint">
+    <merge key="input.x11_options.EmulateWheel" type="string">true</merge>
+    <merge key="input.x11_options.EmulateWheelButton" type="string">2</merge>
+    <merge key="input.x11_options.YAxisMapping" type="string">4 5</merge>
+    <merge key="input.x11_options.XAxisMapping" type="string">6 7</merge>
+    <merge key="input.x11_options.Emulate3Buttons" type="string">true</merge>
+    <merge key="input.x11_options.EmulateWheelTimeout" type="string">200</merge>
+  </match>
+
+How it's reloaded is somewhat of a mystery to me, but unloading and loading
+the psmouse module seems to do the trick:
+
+    sudo rmmod psmouse; sleep 1; sudo modprobe psmouse
+
+For other devices, create another .fdi file with an appropriate
+attributes for the <match> tag. However, if it's not a PS/2 device, you
+may have to load and unload a different driver; it may be easiest just
+to restart HAL and X11 by logging out, and in a text console running:
+
+    /etc/init.d/hal restart
+    /etc/init.d/gdm restart
+
+#### Ubuntu 10.04 and other XOrg systems using xorg.conf.d
+
+Create file /usr/share/X11/xorg.conf.d/20-thinkpad.conf
+(on 10.04 systems use, /usr/lib/... instead) with:
+
+    Section "InputClass"
+	Identifier	"Trackpoint Wheel Emulation"
+	MatchProduct	"TPPS/2 IBM TrackPoint|DualPoint Stick|Synaptics Inc. Composite TouchPad / TrackPoint|ThinkPad USB Keyboard with TrackPoint|USB Trackpoint pointing device|Composite TouchPad / TrackPoint"
+	MatchDevicePath	"/dev/input/event*"
+	Option		"EmulateWheel"		"true"
+	Option		"EmulateWheelButton"	"2"
+	Option		"Emulate3Buttons"	"false"
+	Option		"XAxisMapping"		"6 7"
+	Option		"YAxisMapping"		"4 5"
+    EndSection
+
+You'll need to restart XOrg. A login/logout won't do it; a reboot is
+probably the easiest way.
+
+#### References:
+
+* http://mvogt.wordpress.com/2008/08/15/xorg-evdev-and-emulatewheel/
+* http://blog.aliencam.net/2008/11/tpmiddlemouse-ubuntu-810/
+* http://www.thinkwiki.org/wiki/How_to_configure_the_TrackPoint#Scrolling
+* http://www.eastwoodzhao.com/thinkpad-middle-button-scroll-ubuntu-linux/
+
+### ThinkPad/Intel-specific Settings
+
+See
+
+* http://fluxcoil.net/doku.php/hardwarerelated/thinkpad_x200?s[]=modesetting#x_configuration
+
+############################################################
+# Building from CVS
+
+Packages to add. 
+
+  sudo aptitude install \
+    libgtk1.2-dev gdk-imlib11-dev \
+    libstroke0-dev libpng-dev librplay3-dev librsvg2-dev \
+    libxinerama-dev libfreetype6-dev libxrender-dev
+
+If you don't mind using an extra 400 MB for just a few more features:
+
+  sudo aptitude install libgtk2.0-dev libgnome-dev # and gnome-devel ?
+
+Instructions from http://www.fvwm.org/documentation/dev_cvs.php :
+
+   cvs -d :pserver:anonymous@cvs.fvwm.org:/home/cvs/fvwm login
+   # Password is "guest"
+   cvs -d :pserver:anonymous@cvs.fvwm.org:/home/cvs/fvwm checkout fvwm 
+
+   utils/configure_dev.sh --prefix=/usr/local --enable-htmldoc
+   make
+   make install

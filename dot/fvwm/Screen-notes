@@ -1,0 +1,34 @@
+Setting Up Dual Monitors
+------------------------
+
+Never had issues, except for having to start fvwm twice, but in case
+you need more:
+
+    https://wiki.ubuntu.com/X/Config/Resolution#How_to_setup_a_dual_monitor
+
+Changing Resolutions and Undetected Resolutions
+-----------------------------------------------
+
+If you have trouble getting a nice resolution on your display, you
+can often use xrandr between your X server and monitors to get a nice
+interactive way of playing around with mode lines and resolutions and
+whatnot on your various outputs. Just typing `xrandr` will give you
+a list of all your outputs and the current modes available for them.
+
+To add a new, unlisted mode to an output (say, 1920x1080 on a VGA output
+where the other end doesn't give you that mode line via its EDID info),
+you can calculate the VESA modeline yourself, add the mode to xrandr,
+add the newly created mode to the appropriate output, and then switch to
+it.
+
+    cvt 1920 1080
+    # Produces, e.g., 
+    # Modeline "1920x1080_60.00" \
+    #   173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
+    xrandr --newmode 1920x1080 \
+        173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
+    xrandr --addmode VGA1 1920x1080
+
+More info is at
+
+    https://wiki.ubuntu.com/X/Config/Resolution#Adding_undetected_resolutions

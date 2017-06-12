@@ -1,0 +1,133 @@
+#!/usr/bin/env ruby
+
+def menus
+    [	menu('menu-hosts-cynic', [
+	    title('Cynic Hosts'),
+	    cynicssh('&attic'),
+	    cynicssh('&beatific'),
+	    cynicssh('&critic.cjs', 'wifi.critic.cjs'),
+	    virt_host_ssh('&dyadic'),
+	    cynicssh('&epistolic'),
+	    cynicssh('&homeric.cjs', 'homeric.cjs'),
+	    cynicssh('&metric'),
+	    cynicssh('&nihilistic'),
+	    cynicssh('&pessimistic'),
+	    cynicssh('&skeptic'),
+	    nop,
+	    menu_item('Production',
+		menu("menu-Production", [
+		    title("Cynic Production"),
+		    cynicssh('&nbpkg'),
+		    cynicssh('starling &repo', 'starling.repo'),
+		    cynicssh('&staging'),
+		    cynicssh('pri&vate repo',  'repo'),
+		    ])),
+	    ]),
+	menu('menu-hosts-client', [
+	    title('Client Hosts'),
+	    menu_item('&omise',
+		menu('menu-omise', [
+		    title("Omise"),
+		    command('o&mcs1', 'omcs1'),
+		    command('&th0host0', 'omssh th0host0'),
+		    command('&xg0devcjs0', 'omssh xg0devcjs0'),
+		    ])),
+	    ]),
+    ].join("\n")
+end
+
+############################################################
+
+class Menu
+    def initialize(name, items); @name = name; @items = items; end
+    attr_reader :name, :items
+    def to_s
+	([ "DestroyMenu #{name}", "AddToMenu #{name}", ] +
+	items.collect { |i| i.to_s  }
+	).join("\n") + "\n\n" +
+	items.collect { |i| i.children }.flatten.collect { |i| i.to_s }.join
+    end
+end
+def menu(name, items); Menu.new(name, items); end
+
+############################################################
+
+class Item
+    def initialize(label)
+	@label = label
+	@children = []
+    end
+    attr_reader :label, :children
+    def to_s; "    + \"#{label}\"\t#{command}"; end
+end
+
+class Nop < Item
+    def initialize(label); super; end
+    def command; "Nop"; end
+end
+def nop(label = ''); Nop.new(label); end
+
+class Title < Item
+    def initialize(label); super; end
+    def command; "Title"; end
+end
+def title(label = ''); Title.new(label); end
+
+class MenuItem < Item
+    def initialize(label, children)
+	super(label)
+	@children = children
+	@name = label.gsub('&', '')
+    end
+    attr_reader :name
+    def command; "Popup menu-#{name}"; end
+end
+def menu_item(label, children); MenuItem.new(label, children); end
+
+class Command < Item
+    def initialize(label, command, name = label.gsub('&', ''))
+	super(label)
+	@command = command
+	@name = name
+    end
+    attr_reader :command, :name
+    def command
+	"Exec choose xterm -title '#{name}' -e #{@command}"
+    end
+end
+def command(label, command) Command.new(label, command) end
+
+class Ssh < Command
+    def initialize(label, fqdn, name = label.gsub('&', ''))
+	super(label, "cjslogin #{fqdn}", name)
+    end
+end
+def ssh(label, fqdn) Ssh.new(label, fqdn) end
+def cynicssh(label, host = label.gsub('&', ''), name = host)
+    Ssh.new(label, host + '.cynic.net.', name)
+end
+
+class VirtHostSSH < Item
+    def initialize(label)
+	super
+	@name = label.gsub('&', '')
+    end
+    attr_reader :name
+    def command; "Popup menu-hosts-xen-#{name}"; end
+    def children
+	menu("menu-hosts-xen-#{name}", [
+	    title("xen-#{name}"),
+	    cynicssh('Dom&0', name, "dom0.#{name}"),
+	    cynicssh("pri&v.#{name}"),
+	    cynicssh("&stage.#{name}"),
+	    cynicssh("&prod.#{name}"),
+	    cynicssh("t&1.#{name}"),
+	    cynicssh("t&2.#{name}"),
+	    ])
+    end
+end
+def virt_host_ssh(label); VirtHostSSH.new(label); end
+
+############################################################
+
+puts menus.to_s
