@@ -1,3 +1,5 @@
+DesktopSize 1x1
+
 # Disable changing desktop when mouse is near edge
 EdgeScroll 0 0
 
@@ -19,10 +21,48 @@ Style * FPClickToFocus, MouseFocusClickRaises, !FPEnterToFocus, !FPLeaveToUnfocu
 
 ### Window switching / resizing
 # Alt + h,j,k,l :  Move focus in direction
-Key L A M Direction East  Focus
-Key J A M Direction North Focus
-Key K A M Direction South Focus
 Key H A M Direction West  Focus
+Key K A M Direction South Focus
+Key J A M Direction North Focus
+Key L A M Direction East  Focus
+
+Key H A SM MoveToWindowWest
+Key J A SM MoveToWindowSouth
+Key K A SM MoveToWindowNorth
+Key L A SM MoveToWindowEast
+
+AddToFunc SaveWindowFrameCoords
++ I SetEnv fvwm_window_n $[w.y]
++ I SetEnv fvwm_window_s $[w.y] + $[w.height]
++ I SetEnv fvwm_window_e $[w.x] + $[w.width]
++ I SetEnv fvwm_window_w $[w.x]
+
+AddToFunc UnsetWindowFrameCoords
++ I UnsetEnv fvwm_window_n
++ I UnsetEnv fvwm_window_s
++ I UnsetEnv fvwm_window_e
++ I UnsetEnv fvwm_window_w
+
+AddToFunc MoveToWindowEast
++ I ScanForWindow East North SaveWindowFrameCoords
++ I Move $[fvwm_window_w]-$[w.width]p keep
++ I UnsetWindowFrameCoords
+
+AddToFunc MoveToWindowWest
++ I ScanForWindow West North SaveWindowFrameCoords
++ I Move $[fvwm_window_e]p keep
++ I UnsetWindowFrameCoords
+
+AddToFunc MoveToWindowSouth
++ I ScanForWindow South West SaveWindowFrameCoords
++ I Move  keep $[fvwm_window_n]-$[w.height]p
++ I UnsetWindowFrameCoords
+
+AddToFunc MoveToWindowNorth
++ I ScanForWindow North West SaveWindowFrameCoords
++ I Move keep $[fvwm_window_s]p
++ I UnsetWindowFrameCoords
+
 
 Key Space W M Maximize 0 grow
 
@@ -44,5 +84,5 @@ DestroyFunc drag-n-move
 AddToFunc drag-n-move M move 
 DestroyFunc drag-n-resize 
 AddToFunc drag-n-resize M resize 
-Mouse 1 W HM  drag-n-move 
-Mouse 1 W HMS drag-n-resize 
+Mouse 1 W M drag-n-move 
+Mouse 3 W M drag-n-resize 
