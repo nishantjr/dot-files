@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+exec git gr @ @{u} ^$(git merge-base @ @{u})^

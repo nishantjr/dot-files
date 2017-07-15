@@ -29,10 +29,12 @@
     c     = commit -v
     ca    = commit -v --all
     dif   = diff
+
     l     = log --pretty="format:%w(80,0,8)%C(auto)%h%C(auto,red)%d\\ %Creset%s%C(auto,blue)"
     lf    = log --pretty="format:%C(auto,yellow)%h%C(reset)\\ %C(auto)%ad\\ %an\\ %d%n%w(80,4,4)%s%n%+b"
 
     gr    = log --pretty="format:%C(auto)%h%C(auto)%d\\ %Creset%s%C(auto,blue)\\ [%aN]%Creset" --graph
+  # gru   = bin/git-gru
     gra   = log --pretty="format:%C(auto)%h%C(auto)%d\\ %Creset%s%C(auto,blue)\\ [%aN]%Creset" --graph --exclude refs/notes --exclude refs/stash --all
 
     st    = status --branch --short
