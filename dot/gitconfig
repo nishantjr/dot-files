@@ -39,9 +39,6 @@
     vi    = !vi $(find $(git status --short | cut -b 4-) -type f)
     pushf = push --force-with-lease
 
-[log]
-    date=short
-
 [fetch]
     recurseSubmodules = true
 
