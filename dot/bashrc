@@ -37,3 +37,8 @@ function re() {
     dot-home-setup "$@"
     source ~/.profile
 }
+
+export LC_COLLATE=C
+       LANG=en_US.UTF-8
+
+export GOPATH=$HOME/co/go/
