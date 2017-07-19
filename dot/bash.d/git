@@ -26,4 +26,5 @@ cnew() {
 }
 
 alias g=git
-declare -F __git_complete > /dev/null && __git_complete g __git_main
+_completion_loader git          # Force the git completion loader to load
+complete -o bashdefault -o default -o nospace -F _git g
