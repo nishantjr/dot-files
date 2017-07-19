@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+branch=$1
+shift || { echo >&2 "Usage: $0 <branch>"; exit 1; }
+
+echo "==== Branches merged into $branch"
+git for-each-ref 'refs/remotes/**' --merged $branch \
+                --format=$'%(authordate)\t%(refname)\t%(subject)' \
+                | column -t -s $'\t'
