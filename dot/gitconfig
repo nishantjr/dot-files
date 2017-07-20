@@ -5,6 +5,7 @@
 [color]
     ui = auto
     whitespace = red reverse
+    branch = never          ; Avoid ugly coloring of remote branches
 
 [color.diff]
     ; plain = normal        ; context text
@@ -41,6 +42,12 @@
     pushu = push --set-upstream
     st    = status --branch --short
     vi    = !vi $(find $(git status --short | cut -b 4-) -type f)
+
+[status]
+    submoduleSummary  = true
+
+[submodules]
+    fetchJobs         = 4       ; submodules to be fetched in parrallel
 
 [fetch]
     recurseSubmodules = true
