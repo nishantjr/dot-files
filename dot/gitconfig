@@ -40,7 +40,8 @@
 
     pushf = push --force-with-lease
     pushu = push --set-upstream
-    st    = status --branch --short
+
+    st    = !git status --branch --short && echo && git submodule summary
     vi    = !vi $(find $(git status --short | cut -b 4-) -type f)
 
 [status]
