@@ -27,6 +27,7 @@
     # TODO: Alias' don't reference each other since that breaks CLI completion
     br    = branch -v
     bra   = branch -v -a
+
     c     = commit -v
     ca    = commit -v --all
     dif   = diff
@@ -35,8 +36,8 @@
     lf    = log --pretty="format:%C(auto,yellow)%h%C(reset)\\ %C(auto)%ad\\ %an\\ %d%n%w(80,4,4)%s%n%+b"
 
     gr    = log --pretty="format:%C(auto)%h%C(auto)%d\\ %Creset%s%C(auto,blue)\\ [%aN]%Creset" --graph
-  # gru   = bin/git-gru
     gra   = log --pretty="format:%C(auto)%h%C(auto)%d\\ %Creset%s%C(auto,blue)\\ [%aN]%Creset" --graph --exclude refs/notes/** --exclude refs/stash --all
+  # gru   = bin/git-gru
 
     pushf = push --force-with-lease
     pushu = push --set-upstream
