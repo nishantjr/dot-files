@@ -1,0 +1,1 @@
+def -allow-override re %{ source "~/.config/kak/kakrc" }
