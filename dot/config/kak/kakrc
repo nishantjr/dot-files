@@ -5,3 +5,28 @@ def -allow-override re %{ source "~/.config/kak/kakrc" }
 #
 hook global WinCreate .* %{addhl regex ^\V{80}(\V) 1:Error}
 
+# Colors
+# for code
+face value Default
+face type Default
+face variable Default
+face module Default
+face function Default
+face string rgb:888888
+face keyword Default
+face operator Default
+face attribute Default
+face comment rgb:888888
+face meta Default
+face builtin Default
+
+# for markup
+face title Default
+face header Default
+face bold Default
+face italic Default
+face mono Default
+face block Default
+face link Default
+face bullet Default
+face list Default
