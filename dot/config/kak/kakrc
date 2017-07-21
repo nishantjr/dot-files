@@ -5,6 +5,12 @@ def -allow-override re %{ source "~/.config/kak/kakrc" }
 #
 hook global WinCreate .* %{addhl regex ^\V{80}(\V) 1:Error}
 
+# Hitting tab expands, backspace removes tabs if at beggining of line
+hook global InsertChar \t %{ exec -draft -itersel h@ }
+hook global InsertKey <backspace> %{ try %{
+    exec -draft hGh<a-k>\A\h+\Z<ret>gihyp<lt>
+}}
+
 # Colors
 # for code
 face value Default
