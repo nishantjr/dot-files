@@ -1,1 +1,7 @@
 def -allow-override re %{ source "~/.config/kak/kakrc" }
+
+# Mark the 80th character red. I'd prefer to have the 80th column
+# always show up in a more subtle color like a light gray.
+#
+hook global WinCreate .* %{addhl regex ^\V{80}(\V) 1:Error}
+
