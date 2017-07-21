@@ -11,8 +11,8 @@ hook global InsertKey <backspace> %{ try %{
     exec -draft hGh<a-k>\A\h+\Z<ret>gihyp<lt>
 }}
 
-# Colors
-# for code
+#### Colors ####
+# Code
 face value Default
 face type Default
 face variable Default
@@ -25,8 +25,7 @@ face attribute Default
 face comment rgb:888888
 face meta Default
 face builtin Default
-
-# for markup
+# Markup
 face title Default
 face header Default
 face bold Default
