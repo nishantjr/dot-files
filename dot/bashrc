@@ -44,3 +44,6 @@ export LC_COLLATE=C
        LANG=en_US.UTF-8
 
 export GOPATH=$HOME/co/go/
+
+# Support for rxvt-unicode-256color missing when ssh-ed, from sbt
+[[ $TERM = rxvt-unicode-256color ]] && TERM=xterm
