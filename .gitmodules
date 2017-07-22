@@ -1,0 +1,3 @@
+[submodule "ext/kakoune"]
+	path = ext/kakoune
+	url = https://github.com/mawww/kakoune
