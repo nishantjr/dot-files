@@ -1,3 +1,6 @@
 [submodule "ext/kakoune"]
 	path = ext/kakoune
 	url = https://github.com/mawww/kakoune
+[submodule "ext/qutebrowser"]
+	path = ext/qutebrowser
+	url = https://github.com./qutebrowser/qutebrowser

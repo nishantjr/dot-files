@@ -1,17 +1,8 @@
 #!/usr/bin/env bash
 set -e
-base="$(cd "$(dirname $0)"; pwd)"
-clone_dir="$base/.build/qutebrowser"
-
+cd "$(dirname $0)/ext/qutebrowser"
 type pip3 2>/dev/null >/dev/null \
     || { echo >&2 "Could not find pip3!"; exit 1; }
-
-mkdir -p "$clone_dir"
-cd "$clone_dir"
-[ -e .git ] || git clone https://github.com./qutebrowser/qutebrowser .
-
-(cd "$clone_dir"
- pip3 install --user -r requirements.txt -r misc/requirements/requirements-pyqt.txt
- python3 setup.py build
- python3 setup.py install --user
-)
+pip3 install --user -r requirements.txt -r misc/requirements/requirements-pyqt.txt
+python3 setup.py build
+python3 setup.py install --user
