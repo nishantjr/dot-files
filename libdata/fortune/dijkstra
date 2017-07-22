@@ -1,0 +1,135 @@
+A programmer has to be able to demonstrate that his program has the
+required properties. If this comes as an afterthought, it is all but
+certain that he won't be able to meet this obligation: only if he allows
+this obligation to influence his design, there is hope he can meet it.
+Pure a posteriori verification denies you that whole-some influence and
+is therefore putting the cart before the horse, but that is exactly
+what happens in the software houses where "programming" and "quality
+assurance" are done by different groups. [Needless to say, those houses
+deliver without warranty.]
+	-- Edsger Dijkstra
+%
+The required techniques of effective reasoning are pretty formal, but
+as long as programming is done by people that don't master them, the
+software crisis will remain with us and will be considered an incurable
+disease. And you know what incurable diseases do: they invite the
+quacks and charlatans in, who in this case take the form of Software
+Engineering gurus.
+	-- Edsger Dijkstra
+%
+A number of these phenomena have been bundled under the name "Software
+Engineering". As economics is known as "The Miserable Science", software
+engineering should be known as "The Doomed Discipline", doomed because
+it cannot even approach its goal since its goal is self-contradictory.
+Software engineering, of course, presents itself as another worthy
+cause, but that is eyewash: if you carefully read its literature and
+analyse what its devotees actually do, you will discover that software
+engineering has accepted as its charter "How to program if you cannot.".
+	-- Edsger Dijkstra, EWD1036
+%
+So much for the mathematicians.
+	-- Edsger Dijkstra, EWD1036
+%
+My point today is that, if we wish to count lines of code, we should
+not regard them as "lines produced" but as "lines spent": the
+current conventional wisdom is so foolish as to book that count on
+the wrong side of the ledger.
+	-- Edsger Dijkstra, EWD1036
+%
+In the same vein I must draw attention to the astonishing readiness
+with which the suggestion has been accepted that the pains of
+software production are largely due to a lack of appropriate
+"programming tools". (The telling "programmer's workbench" was soon
+to follow.) Again, the shallowness of the underlying analogy is
+worthy of the Middle Ages. Confrontations with insipid "tools" of
+the "algorithm-animation" variety has not mellowed my judgement;
+on the contrary, it has confirmed my initial suspicion that we are
+primarily dealing with yet another dimension of the snake oil
+business.
+	-- Edsger Dijkstra
+%
+   The introduction and use of BNF (= Backus/Naur Form) to formalize
+the syntax was a very courageous novelty, because many feared that it
+would completely put off the computing community, but the great surprise
+was that exactly the opposite happened: it was loved by programmers
+and implementers alike. It turned out to have all the properties of a
+helpful formalism, viz. compact, unambiguous and amenable to mechanical
+manipulation: before the end of decade the construction of parsers
+had been mechanized, an achievement that 10 years earlier would have
+baffled the imagination. In the case of ALGOL 60, the use of BNF has
+had one regrettable effect. Its power should have been used exclusively
+to shorten the language definition, but it made the introduction of
+new syntactical categories so easy that the final syntax became more
+elaborate and more complicated than desirable.
+	--Edgar Dijkstra, EWD1284,
+	  http://www.cs.utexas.edu/users/EWD/transcriptions/EWD12xx/EWD1284.html
+%
+  Mid 1959 I attended a preliminary meeting at which the notion of
+"scope" was still very tentative. Computing Science was really still in
+its infancy, for there was a constant confusion between the timeless
+concept of the program text and the temporal concept of the computation,
+a confusion that provoked someone to ask "Do I understand that we
+are considering scopes extending from here till then?" I remember,
+when I received the final document, the awe with which I observed
+how in the block structure the textual concept of scope had been
+related to the nested life times of incarnations. It was a beautiful
+synthesis, relating computation structure to program structure; as
+such it represented a quantum leap in our coming to grips with the
+programming task. I was deeply impressed by the block structure, but
+have never seen able to find out who in particular has been responsible
+for its invention.
+	--Edgar Dijkstra, EWD1284,
+	  http://www.cs.utexas.edu/users/EWD/transcriptions/EWD12xx/EWD1284.html
+%
+  Industry suffers from the managerial dogma that for the sake of
+stability and continuity, the company should be independent of the
+competence of individual employees. Hence industry rejects any
+methodological proposal that can be viewed as making intellectual
+demands on its work force....The moral of this sad part of the story is
+that as long as computing science is not allowed to save the computer
+industry, we had better see to it that the computer industry does not
+kill computing science.
+	--Edgar Dijkstra, EWD1284,
+	  http://www.cs.utexas.edu/users/EWD/transcriptions/EWD12xx/EWD1284.html
+%
+I mean, if ten years from now, when you are doing something quick and
+dirty, you suddenly visualize that I am looking over your shoulders and
+say to yourself, "Dijkstra would not have liked this," well, that would
+be enough immortality for me.
+	--Edgar Dijkstra
+%
+
+If debugging is the process of removing software bugs, then programming
+must be the process of putting them in.
+	--Edgar Dijkstra
+%
+It is practically impossible to teach good programming style to students
+that have had prior exposure to BASIC. As potential programmers, they
+are mentally mutilated beyond hope of regeneration.
+	--E. W. Dijkstra
+%
+The first moral of the story is that program testing can be used very
+effectively to show the presence of bugs but never to show their
+absence.
+	-- Edsger Dijkstra, EWD303 (somewhere near the beginning of 1971)
+%
+The functions I grew up with, such as the sine, the cosine, the square
+root, and the logarithm were almost exclusively real functions of a
+real argument. Sometimes, but not very explicitly, the argument could
+be allowed to be a little bit more complicated, such as the maximum of
+two values, a real function defined on a pair of real values, or on two
+values: whether the maximum was a function of one argument (which had
+to be a pair) or was a function of two arguments (each of which was a
+real number) was a question that was avoided....The nett effect was that
+I was extremely ill-equipped to appreciate functional programming when
+I encountered it: I was, for instance, totally baffled by the shocking
+suggestion that the value of a function could be another function.
+	-- Edsger Dijkstra, EWD 1213
+%
+The question of whether computers can think is like the question of
+whether submarines can swim.
+    --Edsger W. Dijkstra
+%
+The use of COBOL cripples the mind; its teaching should therefore be
+regarded as a criminal offense.
+    --E.W. Dijkstra

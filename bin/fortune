@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+FD=$HOME/.home/public/libdata/fortune
+
+cat_fortunes() {
+    for file in "$FD"/*; do
+        cat "$file"
+        echo '%'
+    done
+}
+
+count=$(cat_fortunes | grep '^%$' | cat -n | sed -n -e 's/ *% *//' -e '$p')
+picked=$((1+$RANDOM/$((1+32768/$count))))
+
+count=1
+cat_fortunes | { while read line; do
+    [ $count -eq $picked ] && { echo "$line"; break; }
+    [ $count -lt $picked -a _"$line" != _'%' ] && continue
+    count=$((count + 1))
+done
+sed -e '/^%$/,$d'
+}
