@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-FD=$HOME/.home/public/libdata/fortune
+FD=$HOME/.home/dot-files/libdata/fortune
 
 cat_fortunes() {
     for file in "$FD"/*; do
