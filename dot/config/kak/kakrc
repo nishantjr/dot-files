@@ -1,5 +1,9 @@
 def -allow-override re %{ source "~/.config/kak/kakrc" }
 
+# Mouse support is annoying, because I don't want the cursor
+# to move when I click on the window.
+set global ui_options ncurses_enable_mouse=false
+
 # Mark the 80th character red. I'd prefer to have the 80th column
 # always show up in a more subtle color like a light gray.
 #
