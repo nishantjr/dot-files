@@ -39,3 +39,5 @@ face block      Default
 face link       Default
 face bullet     Default
 face list       Default
+
+face PrimaryCursor black+r
