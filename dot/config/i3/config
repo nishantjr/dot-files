@@ -7,8 +7,8 @@ force_focus_wrapping yes             # Wrap focus within current container.
                                      # This prevents focus left/right from 
                                      # moving from one monitor to another.
 
-# pop-up windows float.
 for_window [window_role="pop-up"] floating enable
+for_window [class="keepass2"    ] floating enable
 
 bar {
     status_command i3status
