@@ -20,7 +20,9 @@ function term_title_helper() {
 
 [ "_$TERM" = "_xterm" ] && PROMPT_COMMAND=term_title_helper
 
-export EDITOR='vim'
+EDITOR=kak
+type kak >/dev/null 2>/dev/null || EDITOR='vim'
+export EDITOR
 
 for file in ~/.bash.d/*; do
     source $file
