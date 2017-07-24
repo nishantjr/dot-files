@@ -6,7 +6,6 @@ type kak 2>/dev/null >/dev/null && {
 }
 
 component="$(dirname $0)"
-PATH=":$PATH:"
-PATH="${PATH/:$component:/:}"
-PATH="${PATH%:}"; PATH="${PATH#:}"
+PATH="${PATH/$component:/}"
+PATH="${PATH/:$component/}"
 vim "$@"
