@@ -1,11 +1,8 @@
 [Default Applications]
 text/html=chromium.desktop;chromium-browser.desktop
-x-scheme-handler/http=chromium.desktop;chromium-browser.desktop
-x-scheme-handler/https=chromium.desktop;chromium-browser.desktop
-x-scheme-handler/about=chromium.desktop;chromium-browser.desktop
-x-scheme-handler/unknown=chromium.desktop;chromium-browser.desktop
-x-scheme-handler/mailto=chromium.desktop;chromium-browser.desktop
+application/pdf=zathura.desktop
 x-scheme-handler/magnet=transmission-gtk.desktop
 
 [Added Associations]
 text/html=chromium.desktop;chromium-browser.desktop
+application/pdf=zathura.desktop
