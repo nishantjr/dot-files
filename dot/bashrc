@@ -45,5 +45,9 @@ export LC_COLLATE=C
 
 export GOPATH=$HOME/co/go/
 
-# Support for rxvt-unicode-256color missing when ssh-ed, from sbt
-[[ $TERM = rxvt-unicode-256color ]] && TERM=xterm
+# TODO: Setting $TERM to xterm causes the last line on the vt to behave
+# strangely. Text is displayed out of line with the left edge, and the cursor
+# is not where it should be either. Scala, of course, wants to give us all a hard
+# time, and so SBT doesn't support urxvt even when the terminfo file is present.
+# TODO: Add urxvt's terminfo files to dot-home
+# [[ $TERM = rxvt-unicode-256color ]] && TERM=xterm
