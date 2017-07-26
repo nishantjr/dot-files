@@ -42,4 +42,4 @@ face link       Default
 face bullet     Default
 face list       Default
 
-face PrimaryCursor default,black
+face PrimaryCursor default+r
