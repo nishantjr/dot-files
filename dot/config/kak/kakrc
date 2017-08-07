@@ -17,7 +17,8 @@ hook global InsertKey <backspace> %{ try %{
 
 map global normal S :write-all<ret>
 
-#### Colors ####
+#### Colors and syntax ####
+
 # Code
 face value      Default
 face type       Default
@@ -43,3 +44,7 @@ face bullet     Default
 face list       Default
 
 face PrimaryCursor default+r
+
+# Highlight matching braces
+add-highlighter show_matching
+
