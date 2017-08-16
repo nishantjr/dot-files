@@ -46,7 +46,7 @@
 
     st    = !git status --branch --short && echo && git submodule summary
 
-    vi    = !vi $(find $(git status --short --ignore-submodules=all | cut -b 4-) -type f)
+    edit  = !$EDITOR $(find $(git status --short --ignore-submodules=all | cut -b 4-) -type f)
 
 [status]
     submoduleSummary  = true
