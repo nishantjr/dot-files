@@ -1,13 +1,14 @@
 def -allow-override re %{ source "~/.config/kak/kakrc" }
 
+# Editor behaviour
+# ================
+
 # Mouse support is annoying, because I don't want the cursor
 # to move when I click on the window.
 set global ui_options ncurses_enable_mouse=false
 
-# Mark the 80th character red. I'd prefer to have the 80th column
-# always show up in a more subtle color like a light gray.
-#
-hook global WinCreate .* %{addhl regex ^\V{80}(\V) 1:Error}
+set global autowrap_column 80
+set global tabstop 4
 
 # Hitting tab expands, backspace removes tabs if at beggining of line
 hook global InsertChar \t %{ exec -draft -itersel h@ }
@@ -15,9 +16,37 @@ hook global InsertKey <backspace> %{ try %{
     exec -draft hGh<a-k>\A\h+\Z<ret>gihyp<lt>
 }}
 
-map global normal S :write-all<ret>
 
-#### Colors and syntax ####
+# TODO: I'm not too happy about using pandoc for formatting,
+# because I may be a pain to bring in on machines I don't have
+# control of.
+# TODO: Pandoc should be available as a static binary from the next release
+# TODO: Use '%opt{textwidth}'; How do I set textwidth?
+# TODO: This should only run for markdown files?
+map global user -docstring "Format text" f \
+        %{ | pandoc --from=markdown --to=markdown --columns=80 <ret> }
+
+# Key bindings
+# ============
+map global normal S 	:write-all<ret>
+
+# TODO: I would rather have these as `gn`, `gp` to match `ga`, but mapping with
+# mode goto doesn't work as I expect (Something to do with selecting?).
+map global normal <c-n> :buffer-next<ret>
+map global normal <c-p> :buffer-previous<ret>
+
+# Appearance and highlighting
+# ===========================
+
+# Highlight matching braces
+hook global WinCreate .* %{ add-highlighter show_matching }
+
+# Highlight the 80th column
+# TODO: Use '%opt{textwidth}'; How do I set textwidth?
+hook global WinCreate .* %{ add-highlighter column '%opt{autowrap_column}' default,rgb:f8f8f8 }
+
+# Colors and syntax
+# -----------------
 
 # Code
 face value      Default
@@ -32,6 +61,7 @@ face attribute  Default
 face comment    rgb:888888
 face meta       Default
 face builtin    Default
+
 # Markup
 face title      Default
 face header     Default
@@ -44,7 +74,3 @@ face bullet     Default
 face list       Default
 
 face PrimaryCursor default+r
-
-# Highlight matching braces
-add-highlighter show_matching
-
