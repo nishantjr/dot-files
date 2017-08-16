@@ -150,6 +150,9 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+bindsym XF86MonBrightnessUp   exec xbacklight -time 1 -steps 1 -inc 10
+bindsym XF86MonBrightnessDown exec xbacklight -time 1 -steps 1 -dec 10
+
 # startup applications
 exec --no-startup-id gnome-settings-daemon
 exec --no-startup-id gnome-sound-applet
