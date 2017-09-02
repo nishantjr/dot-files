@@ -150,13 +150,12 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-bindsym XF86MonBrightnessUp   exec xbacklight -time 1 -steps 1 -inc 10
-bindsym XF86MonBrightnessDown exec xbacklight -time 1 -steps 1 -dec 10
-
-bindsym XF86AudioPlay  exec playerctl play-pause
-bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioNext  exec playerctl next
-bindsym XF86AudioPrev  exec playerctl previous
+bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight -time 1 -steps 1 -inc 10
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -time 1 -steps 1 -dec 10
+bindsym XF86AudioPlay         exec --no-startup-id playerctl play-pause
+bindsym XF86AudioPause        exec --no-startup-id playerctl pause
+bindsym XF86AudioNext         exec --no-startup-id playerctl next
+bindsym XF86AudioPrev         exec --no-startup-id playerctl previous
 
 # startup applications
 exec --no-startup-id gnome-settings-daemon
