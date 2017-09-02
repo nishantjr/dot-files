@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -e
+cd "$(dirname "$0")"
+
+cd ext/playerctl/
+./autogen.sh --prefix="$HOME/.local"
+make -j 8 -s install

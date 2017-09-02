@@ -4,3 +4,6 @@
 [submodule "ext/qutebrowser"]
 	path = ext/qutebrowser
 	url = https://github.com/qutebrowser/qutebrowser
+[submodule "ext/playerctl"]
+	path = ext/playerctl
+	url = https://github.com/acrisci/playerctl
