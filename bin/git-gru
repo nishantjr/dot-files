@@ -1,2 +1,7 @@
-#!/usr/bin/env bash
-exec git gr @ @{u} ^$(git merge-base @ @{u})^
+#!/usr/bin/bash
+
+set -e
+set -u
+
+branch=${1-}; shift
+exec git gr-mbase "$branch@" "$branch@{u}" "$@"
