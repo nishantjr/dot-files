@@ -106,6 +106,9 @@ bindsym $mod+Shift+8 move workspace number 8
 bindsym $mod+Shift+9 move workspace number 9
 bindsym $mod+Shift+0 move workspace number 10
 
+# rename workspaces
+bindsym $mod+r exec njr-i3-rename-workspace
+
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
@@ -116,39 +119,6 @@ client.unfocused        #333333 #222222 #ffffff #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
-
-# resize window (you can also use the mouse for that)
-mode "resize" {
-        bindsym j               resize shrink left 10 px or 10 ppt
-        bindsym Shift+j         resize grow   left 10 px or 10 ppt
-
-        bindsym k               resize shrink down 10 px or 10 ppt
-        bindsym Shift+k         resize grow   down 10 px or 10 ppt
-
-        bindsym l               resize shrink up 10 px or 10 ppt
-        bindsym Shift+l         resize grow   up 10 px or 10 ppt
-
-        bindsym semicolon       resize shrink right 10 px or 10 ppt
-        bindsym Shift+semicolon resize grow   right 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left        resize shrink left 10 px or 10 ppt
-        bindsym Shift+Left  resize grow   left 10 px or 10 ppt
-
-        bindsym Down        resize shrink down 10 px or 10 ppt
-        bindsym Shift+Down  resize grow   down 10 px or 10 ppt
-
-        bindsym Up          resize shrink up 10 px or 10 ppt
-        bindsym Shift+Up    resize grow   up 10 px or 10 ppt
-
-        bindsym Right       resize shrink right 10 px or 10 ppt
-        bindsym Shift+Right resize grow   right 10 px or 10 ppt
-
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-bindsym $mod+r mode "resize"
 
 bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight -time 1 -steps 1 -inc 10
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -time 1 -steps 1 -dec 10
