@@ -30,6 +30,9 @@ map global user -docstring "Format text" f \
         %{ | pandoc --from=markdown --to=markdown; echo <ret> }
 map global normal <F1> "<a-a>p,f<esc><space>k"
 
+remove-hooks global headers
+hook global NormalKey -group headers = %{ exec -draft "ghxyPHr="; exec "jo" }
+
 # Key bindings
 # ============
 map global normal S 	:write-all<ret>
@@ -38,6 +41,10 @@ map global normal S 	:write-all<ret>
 # mode goto doesn't work as I expect (Something to do with selecting?).
 map global normal <c-n> :buffer-next<ret>
 map global normal <c-p> :buffer-previous<ret>
+
+## :add-highlighter wrap -word -width 80
+define-command -allow-override wrap %{ add-highlighter wrap -word -width 80 }
+define-command -allow-override nowrap %{ remove-highlighter wrap }
 
 # Appearance and highlighting
 # ===========================
