@@ -2,5 +2,5 @@
 set -u
 set -e
 first="$1"; shift
-second="$2"; shift
+second="$1"; shift
 exec git gr "$first" "$second" ^$(git merge-base "$first" "$second")^

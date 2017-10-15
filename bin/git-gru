@@ -1,7 +1,8 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 set -e
 set -u
 
-branch=${1-}; shift
-exec git gr-mbase "$branch@" "$branch@{u}" "$@"
+branch="${1:-@}";
+exec git gr-mbase "$branch" "$branch@{u}"
+
