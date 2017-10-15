@@ -85,3 +85,7 @@ face bullet     Default
 face list       Default
 
 face PrimaryCursor default+r
+
+# Bold and underline searches
+face search +bu
+add-highlighter dynregex '%reg{/}' 0:search
