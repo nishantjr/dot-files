@@ -1,4 +1,6 @@
+# Edit and reload kakrc
 def -allow-override re %{ source "~/.config/kak/kakrc" }
+def -allow-override rc %{ e      "~/.config/kak/kakrc" }
 
 # Editor behaviour
 # ================
