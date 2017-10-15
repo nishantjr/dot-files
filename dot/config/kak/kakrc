@@ -9,13 +9,8 @@ set global ui_options ncurses_enable_mouse=false
 
 set global autowrap_column 80
 set global tabstop 4
-
-# Hitting tab expands, backspace removes tabs if at beggining of line
+# Expand tabs
 hook global InsertChar \t %{ exec -draft -itersel h@ }
-hook global InsertKey <backspace> %{ try %{
-    exec -draft hGh<a-k>\A\h+\Z<ret>gihyp<lt>
-}}
-
 
 # TODO: I'm not too happy about using pandoc for formatting,
 # because I may be a pain to bring in on machines I don't have
