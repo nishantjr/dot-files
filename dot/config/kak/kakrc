@@ -12,14 +12,23 @@ set global tabstop 4
 # Expand tabs
 hook global InsertChar \t %{ exec -draft -itersel h@ }
 
+#
+# Pandoc gripes:
+# * should output `shortcut_reference_links`.
+# * different levels of bullets should use different chars (e.g. 1st level -, second * ...).
+# * LaTeX macros shouldn't be expanded.
+#
 # TODO: I'm not too happy about using pandoc for formatting,
-# because I may be a pain to bring in on machines I don't have
-# control of.
-# TODO: Pandoc should be available as a static binary from the next release
+# because it may be a pain to bring on machines I don't have control over.
+# Pandoc markdown to mardown conversion also makes unwanted changes to some entities
+# Pandoc should be available as a static binary from the next release
+#
 # TODO: Use '%opt{textwidth}'; How do I set textwidth?
-# TODO: This should only run for markdown files?
+# TODO: This should only run for markdown files
+#
 map global user -docstring "Format text" f \
-        %{ | pandoc --from=markdown --to=markdown --columns=80 <ret> }
+        %{ | pandoc --from=markdown --to=markdown; echo <ret> }
+map global normal <F1> "<a-a>p,f<esc><space>k"
 
 # Key bindings
 # ============
