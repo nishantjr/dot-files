@@ -1,20 +1,12 @@
 cd() { builtin cd "$@" && term-title $PWD; }
 
-cpaths=(~/co/ ~/Dropbox ~/.home)
-c() {
-    dirs=($(find "${cpaths[@]}" -type d -regex ".*/[^/]*$1[^/]*/.git"))
+c() { cd "$(find-co-dir -c "$@")"; }
 
-    case ${#dirs[@]} in
-    0) echo 2>&1 "No checkout found for '$@'"; return;;
-    1) ;;
-    *) echo 2>&1 "Using first of:"
-       for dir in "${dirs[@]}"; do echo "  $(dirname $dir)"; done;;
-    esac
-
-    target=$(dirname ${dirs[0]})
-    cd "$target"
-    echo ${target##$HOME/}
-}
+export CHECKOUTS
+while read path; do CHECKOUTS="$CHECKOUTS${CHECKOUTS:+:}$path"; done << ___
+    $HOME/co/github/*/*
+    $HOME/co/*/*
+___
 
 cnew() {
     local remote="$1"
