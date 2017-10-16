@@ -26,7 +26,6 @@
 [alias]
     # TODO: Alias' don't reference each other since that breaks CLI completion
     br    = branch -v
-    bra   = branch -v -a
 
     c     = commit -v
     ca    = commit -v --all
