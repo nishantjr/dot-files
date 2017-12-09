@@ -21,7 +21,6 @@
 
 [push]
     default = tracking  ; current branch only to tracked upstream branch
-    recurseSubmodules = check
 
 [alias]
     # TODO: Alias' don't reference each other since that breaks CLI completion
