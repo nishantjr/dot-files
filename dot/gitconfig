@@ -53,9 +53,6 @@
 [submodules]
     fetchJobs         = 4       ; submodules to be fetched in parrallel
 
-[fetch]
-    recurseSubmodules = true
-
 [commit]
     verbose = true
 
