@@ -1,2 +1,4 @@
 prepath "$HOME/bin"             2>/dev/null
 prepath "$HOME/.local/bin"      2>/dev/null
+
+interactive && fortune
