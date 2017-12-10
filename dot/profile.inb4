@@ -1,0 +1,1 @@
+echo 1>&2 "WARNING: Login shell is not bash. Environment not configured."

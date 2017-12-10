@@ -37,7 +37,7 @@ alias sp=line
 
 function re() {
     dot-home-setup "$@"
-    source ~/.profile
+    source ~/.bashrc
 }
 
 export LC_COLLATE=C
