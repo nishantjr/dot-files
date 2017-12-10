@@ -10,18 +10,3 @@ if [ -n "$BASH_VERSION" ]; then
         . "$HOME/.bashrc"
     fi
 fi
-
-prepath() {
-    local component=$1; shift
-    if [ ! -d "$component" ]; then
-        echo >&2 "$1 is not a directory."
-        return 1
-    fi
-
-    dir=$(command cd "$component"; pwd -P)
-    if [[ ":$PATH:" =~ ":$dir:" ]]; then
-        echo >&2 "$dir already in path."
-    else
-        PATH="$dir:$PATH"
-    fi
-}
