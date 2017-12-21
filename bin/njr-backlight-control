@@ -1,12 +1,7 @@
 #!/usr/bin/env bash
 
-. ~/.local/lib/utils.bash
-
-#bash_enable_exit_on_error
-check_binary "dmenu"
-check_binary "xbacklight"
-
-function set_backlight() {
-    xbacklight -steps 1 -time 0 -set "$1"%
-}
-dmenu_command "Screen Brightness" print_percent_intervals set_backlight
+case $1 in
+down)   xbacklight -steps 1 -time 0 -set $(( $(xbacklight -get | cut -d. -f 1) / 2 + 1)) ;;
+up)     xbacklight -steps 1 -time 0 -set $(( ( $(xbacklight -get | cut -d. -f 1) + 1) * 2)) ;;
+*)      echo >&2 Unknown operation "$1" ;;
+esac
