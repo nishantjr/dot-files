@@ -11,7 +11,7 @@ for_window [window_role="pop-up"] floating enable
 for_window [class="keepass2"    ] floating enable
 
 bar {
-    status_command i3status
+    status_command py3status --config ~/.config/i3status/py3.config
 }
 
 # use Mouse+$mod to drag floating windows to their wanted position
