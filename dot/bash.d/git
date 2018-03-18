@@ -1,13 +1,5 @@
 cd() { builtin cd "$@" && term-title $PWD; }
 
-c() { cd "$(find-co-dir -c "$@")"; }
-
-export CHECKOUTS
-while read path; do CHECKOUTS="$CHECKOUTS${CHECKOUTS:+:}$path"; done << ___
-    $HOME/co/github/*/*
-    $HOME/co/*/*
-___
-
 cnew() {
     local remote="$1"
     local no_user="${remote##*@}"
