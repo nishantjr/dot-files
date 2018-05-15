@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-set -e
-cd "$(dirname $0)/ext/qutebrowser"
-type pip3 2>/dev/null >/dev/null \
-    || { echo >&2 "Could not find pip3!"; exit 1; }
-pip3 install --user -r requirements.txt -r misc/requirements/requirements-pyqt.txt
-python3 setup.py build
-python3 setup.py install --user
