@@ -9,12 +9,12 @@ def -allow-override rc %{ e      "~/.config/kak/kakrc" }
 # to move when I click on the window.
 set global ui_options ncurses_enable_mouse=false
 
-set global autowrap_column 80
 set global tabstop 4
-# Expand tabs
 hook global InsertChar \t %{ exec -draft -itersel h@ }
 
-#
+# Map commands
+# ============
+
 # Pandoc gripes:
 # * different levels of bullets should use different chars (e.g. 1st level -, second * ...).
 #
@@ -26,66 +26,68 @@ hook global InsertChar \t %{ exec -draft -itersel h@ }
 # TODO: Use '%opt{textwidth}'; How do I set textwidth?
 # TODO: This should only run for markdown files
 #
-map global user -docstring "Format text" f \
-        %{ | pandoc --from=markdown --to=markdown; echo <ret> }
-map global normal <F1> "<a-a>p,f<esc><space>k"
+map -docstring "Format text" global user \
+    f       %{ | pandoc --from=markdown --to=markdown; echo <ret> }
+map -docstring "Format surrounding paragraph" global normal \
+    <F1>    "<a-a>p,f<esc><space>k"
+map -docstring "Convert MD to Latex" global user \
+    l       %{ | pandoc --from=markdown --to=latex; echo <ret> }
+map -docstring "Sort lines" global user \
+    s       %{ | sort <ret> }
+map -docstring "Save all" global user \
+    <c-s>   :write-all<ret>
 
-remove-hooks global headers
-hook global NormalKey -group headers = %{ exec -draft "ghxyPHr="; exec "jo" }
-
-# Key bindings
-# ============
-map global normal S 	:write-all<ret>
-
-# TODO: I would rather have these as `gn`, `gp` to match `ga`, but mapping with
-# mode goto doesn't work as I expect (Something to do with selecting?).
 map global normal <c-n> :buffer-next<ret>
 map global normal <c-p> :buffer-previous<ret>
+map global user 'w' -docstring 'Word count' %{:echo wc: %sh{wc <lt><lt><lt> "${kak_selection}"}<ret>}
 
 ## :add-highlighter wrap -word -width 80
-define-command -allow-override wrap %{ add-highlighter wrap -word -width 80 }
+define-command -allow-override wrap %{ add-highlighter window wrap -word -width 80 }
 define-command -allow-override nowrap %{ remove-highlighter wrap }
 
 # Appearance and highlighting
 # ===========================
 
 # Highlight matching braces
-hook global WinCreate .* %{ add-highlighter show_matching }
+hook global WinCreate .* %{ add-highlighter window show_matching }
 
 # Highlight the 80th column
-# TODO: Use '%opt{textwidth}'; How do I set textwidth?
-hook global WinCreate .* %{ add-highlighter column '%opt{autowrap_column}' default,rgb:f8f8f8 }
+hook global WinCreate .* %{ add-highlighter window column 80 default,rgb:f8f8f8 }
+hook global WinCreate .* %{ add-highlighter window column 100 default,rgb:f8f8f8 }
+hook global WinCreate .* %{ add-highlighter window column 120 default,rgb:f8f8f8 }
+
+# Highlight search; Clear search register on ESC
+hook global WinCreate .*    %{ add-highlighter window dynregex '%reg{/}' 0:search }
+hook global NormalKey <esc> %{ set-register '/' '' }
 
 # Colors and syntax
 # -----------------
 
+face global search         +bu            # Bold and underline searches
+face global PrimaryCursor  +r             # Reverse
+face global MatchingChar   rgb:777777+r   # Reverse
+
 # Code
-face value      Default
-face type       Default
-face variable   Default
-face module     Default
-face function   Default
-face string     rgb:888888
-face keyword    Default
-face operator   Default
-face attribute  Default
-face comment    rgb:888888
-face meta       Default
-face builtin    Default
+face global value      Default
+face global type       Default
+face global variable   Default
+face global module     Default
+face global function   Default
+face global string     rgb:888888
+face global keyword    Default
+face global operator   Default
+face global attribute  Default
+face global comment    rgb:888888
+face global meta       Default
+face global builtin    Default
 
 # Markup
-face title      Default
-face header     Default
-face bold       Default
-face italic     Default
-face mono       Default
-face block      Default
-face link       Default
-face bullet     Default
-face list       Default
-
-face PrimaryCursor default+r
-
-# Bold and underline searches
-face search +bu
-add-highlighter dynregex '%reg{/}' 0:search
+face global title      Default
+face global header     Default
+face global bold       Default
+face global italic     Default
+face global mono       Default
+face global block      Default
+face global link       Default
+face global bullet     Default
+face global list       Default
