@@ -51,6 +51,12 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+# Resize focused (floating) window
+bindsqm $mod+Control+h resize shrink width
+bindsqm $mod+Control+l resize grow   width
+bindsqm $mod+Control+j resize shrink height
+bindsqm $mod+Control+k resize grow   width
+
 # split
 bindsym $mod+b split h
 bindsym $mod+v split v
