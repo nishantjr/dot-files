@@ -1,4 +1,7 @@
 \documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$paper,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
+
+\usepackage{enumitem}
+\setlist[description]{style=nextline}
 $if(beamerarticle)$
 \usepackage{beamerarticle} % needs to be loaded first
 $endif$
@@ -12,6 +15,8 @@ $if(linestretch)$
 \setstretch{$linestretch$}
 $endif$
 \usepackage{amssymb,amsmath}
+\usepackage{stmaryrd}
+\usepackage{bbm}  % \mathbb{1}
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
@@ -23,6 +28,7 @@ $endif$
 \else % if luatex or xelatex
   \ifxetex
     \usepackage{mathspec}
+    \usepackage{unicode-math}
   \else
     \usepackage{fontspec}
   \fi
@@ -159,6 +165,7 @@ $else$
 }
 $endif$
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
+
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 $if(numbersections)$
