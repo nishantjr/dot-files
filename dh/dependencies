@@ -1,2 +1,3 @@
-cjs0 git https://github.com/dot-home/cjs0
-cpd  git https://github.com/dot-home/cpd
+cjs0            git https://github.com/dot-home/cjs0
+cpd             git https://github.com/dot-home/cpd
+git-tools       git https://github.com/dot-home/git-tools
