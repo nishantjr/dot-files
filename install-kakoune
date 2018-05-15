@@ -4,4 +4,4 @@ set -e
 
 cd "$(dirname "$0")"
 cd ext/kakoune/src
-make -j 8 -s "PREFIX=$HOME/.local" doc install
+make -j 8 -s "PREFIX=$HOME/.local" install
