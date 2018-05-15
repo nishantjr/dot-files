@@ -42,7 +42,7 @@
     pushf = push --force-with-lease
     pushu = push --set-upstream
 
-    st    = !git status --branch --short && echo && git submodule summary
+    st    = status --branch --short 
 
     edit  = !$EDITOR $(find $(git status --short --ignore-submodules=all | cut -b 4-) -type f)
 
