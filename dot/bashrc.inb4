@@ -1,15 +1,14 @@
 [[ $- != *i* ]] && return
 
+# Basic terminal setup
+# ====================
+
 HISTCONTROL=ignoredups:ignorespace
 shopt -s histappend
 
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
-
-alias    ls='ls   --color=auto'
-alias  grep='grep --color=auto'
-alias egrep='grep --color=auto'
 
 PS1='\u@\h\$ '
 
@@ -20,34 +19,60 @@ function term_title_helper() {
 
 [ "_$TERM" = "_xterm" ] && PROMPT_COMMAND=term_title_helper
 
-EDITOR=kak
-type kak >/dev/null 2>/dev/null || EDITOR='vim'
-export EDITOR
-
-for file in ~/.bash.d/*; do
-    source $file
-done
-
-alias dev="sudo systemd-nspawn --directory /var/lib/container/trusty --bind=$HOME -b"
-
-alias lf='ls -CF'
-alias ll='ls -l'
-alias commit='git commit'
-alias sp=line
-
-function re() {
-    dot-home-setup "$@"
-    source ~/.bashrc
-}
-
-export LC_COLLATE=C
-       LANG=en_US.UTF-8
-
-export GOPATH=$HOME/co/go/
-
 # TODO: Setting $TERM to xterm causes the last line on the vt to behave
 # strangely. Text is displayed out of line with the left edge, and the cursor
 # is not where it should be either. Scala, of course, wants to give us all a hard
 # time, and so SBT doesn't support urxvt even when the terminfo file is present.
 # TODO: Add urxvt's terminfo files to dot-home
+#
 # [[ $TERM = rxvt-unicode-256color ]] && TERM=xterm
+
+export LC_COLLATE=C
+       LANG=en_US.UTF-8
+
+EDITOR=kak
+type kak >/dev/null 2>/dev/null || EDITOR='vim'
+export EDITOR
+
+# C++ Programming
+# ===============
+
+_init-ccache() {
+    [ -x /usr/lib/ccache/cc ] && {
+        export PATH=/usr/lib/ccache:$PATH
+        export CCACHE_COMPRESS=1
+    }
+}
+
+function cpp-color() {
+    line $*
+    $* 2>&1 | grep --color=always 'from here\|error\|undefined reference\|^'
+    return ${PIPESTATUS[0]}
+}
+
+# Go Programming
+# ==============
+
+export GOPATH=$HOME/co/go/
+
+# Aliases
+# =======
+
+alias lf='ls -CF'
+alias ll='ls -l'
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias commit='git commit'
+alias sp=line
+
+alias g=git
+_completion_loader git      # Force the git completion loader to load
+complete -o bashdefault -o default -o nospace -F _git g
+
+alias c=cpd
+complete -F __cpd_complete c
+
+function re() {
+    dot-home-setup "$@"
+    source ~/.bashrc
+}
