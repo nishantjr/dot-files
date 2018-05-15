@@ -16,9 +16,7 @@ hook global InsertChar \t %{ exec -draft -itersel h@ }
 
 #
 # Pandoc gripes:
-# * should output `shortcut_reference_links`.
 # * different levels of bullets should use different chars (e.g. 1st level -, second * ...).
-# * LaTeX macros shouldn't be expanded.
 #
 # TODO: I'm not too happy about using pandoc for formatting,
 # because it may be a pain to bring on machines I don't have control over.
