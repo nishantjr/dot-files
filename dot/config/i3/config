@@ -126,22 +126,33 @@ client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
 
-bindsym XF86MonBrightnessUp   exec --no-startup-id njr-backlight-control up
+# F5 and F6 correspond to brightness controls on the ThinkPad
 bindsym XF86MonBrightnessDown exec --no-startup-id njr-backlight-control down
+bindsym XF86MonBrightnessUp   exec --no-startup-id njr-backlight-control up
+bindsym $mod+F5               exec --no-startup-id njr-backlight-control down
+bindsym $mod+F6               exec --no-startup-id njr-backlight-control up
 
 bindsym XF86AudioPlay         exec --no-startup-id playerctl play-pause
 bindsym XF86AudioPause        exec --no-startup-id playerctl pause
 bindsym XF86AudioNext         exec --no-startup-id playerctl next
 bindsym XF86AudioPrev         exec --no-startup-id playerctl previous
 
-bindsym XF86AudioRaiseVolume  exec --no-startup-id pactl set-sink-volume 0 +5%
-bindsym XF86AudioLowerVolume  exec --no-startup-id pactl set-sink-volume 0 -5%
 bindsym XF86AudioMute         exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym XF86AudioLowerVolume  exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym XF86AudioRaiseVolume  exec --no-startup-id pactl set-sink-volume 0 +5%
+# Thinkpad:
+bindsym $mod+F1               exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym $mod+F2               exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym $mod+F3               exec --no-startup-id pactl set-sink-volume 0 +5%
+
+# Lock screen
+bindsym $mod+F12              exec --no-startup-id slock
 
 # startup applications
 exec --no-startup-id gnome-settings-daemon
 exec --no-startup-id gnome-sound-applet
 exec --no-startup-id nm-applet
 exec --no-startup-id xrdb ~/.Xresources
+exec --no-startup-id xmodmap ~/.Xmodmap
 
 exec --no-startup-id xautolock -locker='slock' -time 5 -notify 30 -notifier 'notify-send "locking screen..."' -detectsleep
