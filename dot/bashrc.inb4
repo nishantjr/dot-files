@@ -63,7 +63,7 @@ alias ll='ls -l'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias commit='git commit'
-alias sp=line
+alias sp='echo -e "\n\n\n\n\n\n"'
 
 alias g=git
 _completion_loader git      # Force the git completion loader to load
