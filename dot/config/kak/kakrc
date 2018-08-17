@@ -1,6 +1,6 @@
 # Edit and reload kakrc
-def -allow-override re %{ source "~/.config/kak/kakrc" }
-def -allow-override rc %{ e      "~/.config/kak/kakrc" }
+def -override re %{ source "~/.config/kak/kakrc" }
+def -override rc %{ e      "~/.config/kak/kakrc" }
 
 # Editor behaviour
 # ================
@@ -44,22 +44,22 @@ map global normal <c-p> :buffer-previous<ret>
 map global user 'w' -docstring 'Word count' %{:echo wc: %sh{wc <lt><lt><lt> "${kak_selection}"}<ret>}
 
 ## :add-highlighter wrap -word -width 80
-define-command -allow-override wrap %{ add-highlighter window wrap -word -width %kak_opt_textwidth }
-define-command -allow-override nowrap %{ remove-highlighter wrap }
+define-command -override wrap %{ add-highlighter window/wrap wrap -word -width %kak_opt_textwidth }
+define-command -override nowrap %{ remove-highlighter wrap }
 
 # Appearance and highlighting
 # ===========================
 
 # Highlight matching braces
-hook global WinCreate .* %{ add-highlighter window show_matching }
+hook global WinCreate .* %{ add-highlighter window/show-matching show-matching }
 
 # Highlight the 80th column
-hook global WinCreate .* %{ add-highlighter window column 80 default,rgb:f8f8f8 }
-hook global WinCreate .* %{ add-highlighter window column 100 default,rgb:f8f8f8 }
-hook global WinCreate .* %{ add-highlighter window column 120 default,rgb:f8f8f8 }
+hook global WinCreate .* %{ add-highlighter window/textwidth-80 column 80 default,rgb:f8f8f8 }
+hook global WinCreate .* %{ add-highlighter window/textwidth-100 column 100 default,rgb:f8f8f8 }
+hook global WinCreate .* %{ add-highlighter window/textwidth-120 column 120 default,rgb:f8f8f8 }
 
 # Highlight search; Clear search register on ESC
-hook global WinCreate .*    %{ add-highlighter window dynregex '%reg{/}' 0:search }
+hook global WinCreate .*    %{ add-highlighter window/search dynregex '%reg{/}' 0:search }
 hook global NormalKey <esc> %{ set-register '/' '' }
 
 # Colors and syntax
