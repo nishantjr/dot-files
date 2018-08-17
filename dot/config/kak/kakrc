@@ -10,6 +10,8 @@ def -allow-override rc %{ e      "~/.config/kak/kakrc" }
 set global ui_options ncurses_enable_mouse=false
 
 set global tabstop 4
+declare-option int textwidth 80
+
 hook global InsertChar \t %{ exec -draft -itersel h@ }
 
 # Map commands
@@ -27,7 +29,7 @@ hook global InsertChar \t %{ exec -draft -itersel h@ }
 # TODO: This should only run for markdown files
 #
 map -docstring "Format text" global user \
-    f       %{ | pandoc --from=markdown --to=markdown; echo <ret> }
+    f       %{ | pandoc --from=markdown --to=markdown --columns $kak_opt_textwidth; echo <ret> }
 map -docstring "Format surrounding paragraph" global normal \
     <F1>    "<a-a>p,f<esc><space>k"
 map -docstring "Convert MD to Latex" global user \
@@ -42,7 +44,7 @@ map global normal <c-p> :buffer-previous<ret>
 map global user 'w' -docstring 'Word count' %{:echo wc: %sh{wc <lt><lt><lt> "${kak_selection}"}<ret>}
 
 ## :add-highlighter wrap -word -width 80
-define-command -allow-override wrap %{ add-highlighter window wrap -word -width 80 }
+define-command -allow-override wrap %{ add-highlighter window wrap -word -width %kak_opt_textwidth }
 define-command -allow-override nowrap %{ remove-highlighter wrap }
 
 # Appearance and highlighting
