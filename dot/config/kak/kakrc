@@ -54,6 +54,9 @@ define-command -override nowrap %{ remove-highlighter wrap }
 # Appearance and highlighting
 # ===========================
 
+# Line number
+define-command -override line-numbers %{ add-highlighter global/line-numbers number-lines }
+
 # Highlight matching braces
 hook global WinCreate .* %{ add-highlighter window/show-matching show-matching }
 
