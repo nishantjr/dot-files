@@ -34,6 +34,10 @@ map -docstring "Format surrounding paragraph" global normal \
     <F1>    "<a-a>p,f<esc><space>k"
 map -docstring "Convert MD to Latex" global user \
     l       %{ | pandoc --from=markdown --to=latex; echo <ret> }
+
+map -docstring "Select All" \
+    global user a '*%s<ret>'
+
 map -docstring "Sort lines" global user \
     s       %{ | sort <ret> }
 map -docstring "Save all" global user \
