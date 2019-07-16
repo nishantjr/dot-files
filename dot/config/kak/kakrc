@@ -82,11 +82,11 @@ face global type       Default
 face global variable   Default
 face global module     Default
 face global function   Default
-face global string     rgb:888888
+face global string     rgb:333333
 face global keyword    Default
 face global operator   Default
 face global attribute  Default
-face global comment    rgb:888888
+face global comment    rgb:444444
 face global meta       Default
 face global builtin    Default
 
