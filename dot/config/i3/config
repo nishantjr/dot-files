@@ -22,11 +22,12 @@ focus_follows_mouse no
 bindsym $mod+Shift+q kill
 
 # Launchers and menus.
-bindsym $mod+d      exec dmenu_run
-bindsym $mod+Return exec dmenu-common-apps
-bindsym $mod+Delete exec dmenu-power-options
-bindsym Print       exec gnome-screenshot -i
-bindsym $mod+n      exec redshift -O 3200
+bindsym $mod+d       exec dmenu_run
+bindsym $mod+Return  exec dmenu-common-apps
+bindsym $mod+Delete  exec dmenu-power-options
+bindsym Print        exec gnome-screenshot -i
+bindsym $mod+n       exec redshift -O 3200
+bindsym $mod+Shift+n exec redshift -x
 
 # change focus
 bindsym $mod+h focus left
