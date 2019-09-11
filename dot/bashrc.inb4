@@ -55,6 +55,21 @@ function cpp-color() {
 
 export GOPATH=$HOME/co/go/
 
+# Git and check out helpers
+# =========================
+
+# Alias for git
+alias g=git
+_completion_loader git # Force the git completion loader to load
+complete -o bashdefault -o default -o nospace -F _git g
+
+# Change to project directory
+alias c=cpd
+complete -F __cpd_complete c
+
+# Make project directoty
+
+
 # Aliases
 # =======
 
@@ -65,14 +80,12 @@ alias grep='grep --color=auto'
 alias commit='git commit'
 alias sp='echo -e "\n\n\n\n\n\n"'
 
-alias g=git
-_completion_loader git      # Force the git completion loader to load
-complete -o bashdefault -o default -o nospace -F _git g
-
-alias c=cpd
-complete -F __cpd_complete c
+function findf() {
+    find "$@" -type f
+}
 
 function re() {
     dot-home-setup "$@"
     source ~/.bashrc
 }
+
