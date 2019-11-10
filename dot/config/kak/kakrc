@@ -47,6 +47,8 @@ map global normal <c-n> :buffer-next<ret>
 map global normal <c-p> :buffer-previous<ret>
 map global user 'w' -docstring 'Word count' %{:echo wc: %sh{wc <lt><lt><lt> "${kak_selection}"}<ret>}
 
+map global user 'T' -docstring 'Format a matching logic term' %{MHs\)<ret>M<a-;>lli<ret> }
+
 ## :add-highlighter wrap -word -width 80
 define-command -override wrap %{ add-highlighter window/wrap wrap -word -width %kak_opt_textwidth }
 define-command -override nowrap %{ remove-highlighter wrap }
