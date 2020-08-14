@@ -14,9 +14,14 @@ URxvt.secondaryScroll: 0
 URxvt.secondaryWheel: 1
 
 URxvt.scrollBar: false
+URxvt.letterSpace: 0
 
 ! URxvt.font: -misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso10646-1
-! URxvt.font: xft:inconsolata:pixelsize=14
+URxvt.font: xft:DejaVu Sans Mono
+! URxvt.font: xft:Dina:pixelsize=14
+! URxvt.font: xft:Dina:pixelsize=16
+
+! Rxvt.font: xft:OpenDyslexicMono:pixelsize=14
 ! URxvt.font: xft:inconsolata:pixelsize=16
 ! URxvt.font: xft:inconsolata:pixelsize=20
 ! URxvt.font: xft:inconsolata:pixelsize=24

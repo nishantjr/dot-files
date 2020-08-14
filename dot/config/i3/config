@@ -23,7 +23,7 @@ bindsym $mod+Shift+q kill
 
 # Launchers and menus.
 bindsym $mod+d       exec dmenu_run
-bindsym $mod+Return  exec dmenu-common-apps
+bindsym $mod+Return  exec termite
 bindsym $mod+Delete  exec dmenu-power-options
 bindsym Print        exec gnome-screenshot -i
 bindsym $mod+n       exec redshift -O 3200
@@ -54,10 +54,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # Resize focused (floating) window
-bindsqm $mod+Control+h resize shrink width
-bindsqm $mod+Control+l resize grow   width
-bindsqm $mod+Control+j resize shrink height
-bindsqm $mod+Control+k resize grow   width
+bindsym $mod+Control+h resize shrink width
+bindsym $mod+Control+l resize grow   width
+bindsym $mod+Control+j resize shrink height
+bindsym $mod+Control+k resize grow   height
 
 # split
 bindsym $mod+b split h

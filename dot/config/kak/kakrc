@@ -14,6 +14,23 @@ declare-option int textwidth 80
 
 hook global InsertChar \t %{ exec -draft -itersel h@ }
 
+# Line number
+define-command -override    line-numbers %{ add-highlighter global/line-numbers number-lines }
+define-command -override no-line-numbers %{ remove-highlighter global/line-numbers }
+
+# Highlight matching braces
+hook global WinCreate .* %{ add-highlighter window/show-matching show-matching }
+
+# Highlight the 80th column
+# hook global WinCreate .* %{ add-highlighter window/textwidth-80 column 80 default,rgb:ddffff }
+# hook global WinCreate .* %{ add-highlighter window/textwidth-100 column 100 default,rgb:ccffff }
+# hook global WinCreate .* %{ add-highlighter window/textwidth-120 column 120 default,rgb:bbffff }
+
+# Highlight search; Clear search register on ESC
+hook global WinCreate .*    %{ add-highlighter window/search dynregex '%reg{/}' 0:Search }
+hook global NormalKey <esc> %{ set-register '/' '' }
+
+
 # Map commands
 # ============
 
@@ -47,37 +64,15 @@ map global normal <c-n> :buffer-next<ret>
 map global normal <c-p> :buffer-previous<ret>
 map global user 'w' -docstring 'Word count' %{:echo wc: %sh{wc <lt><lt><lt> "${kak_selection}"}<ret>}
 
-map global user 'T' -docstring 'Format a matching logic term' %{MHs\)<ret>M<a-;>lli<ret> }
+map global user 'T' -docstring 'Format a matching logic term' %{MHs\)<ret>M<a-;>ll\i<ret> }
 
 ## :add-highlighter wrap -word -width 80
 define-command -override wrap %{ add-highlighter window/wrap wrap -word -width "%{kak_opt_textwidth}" }
 define-command -override wrap %{ add-highlighter window/wrap wrap -word }
 define-command -override nowrap %{ remove-highlighter wrap }
 
-# Appearance and highlighting
-# ===========================
-
-# Line number
-define-command -override line-numbers %{ add-highlighter global/line-numbers number-lines }
-
-# Highlight matching braces
-hook global WinCreate .* %{ add-highlighter window/show-matching show-matching }
-
-# Highlight the 80th column
-hook global WinCreate .* %{ add-highlighter window/textwidth-80 column 80 default,rgb:f8f8f8 }
-hook global WinCreate .* %{ add-highlighter window/textwidth-100 column 100 default,rgb:f8f8f8 }
-hook global WinCreate .* %{ add-highlighter window/textwidth-120 column 120 default,rgb:f8f8f8 }
-
-# Highlight search; Clear search register on ESC
-hook global WinCreate .*    %{ add-highlighter window/search dynregex '%reg{/}' 0:search }
-hook global NormalKey <esc> %{ set-register '/' '' }
-
-# Colors and syntax
-# -----------------
-
-face global search         +bu            # Bold and underline searches
-face global PrimaryCursor  +r             # Reverse
-face global MatchingChar   rgb:777777+r   # Reverse
+# Colors and syntax highlighting
+# ------------------------------
 
 # Code
 face global value      Default
@@ -85,11 +80,11 @@ face global type       Default
 face global variable   Default
 face global module     Default
 face global function   Default
-face global string     rgb:333333
+face global string     rgb:559955
 face global keyword    Default
 face global operator   Default
 face global attribute  Default
-face global comment    rgb:444444
+face global comment    rgb:aaaaaa
 face global meta       Default
 face global builtin    Default
 
@@ -103,3 +98,36 @@ face global block      Default
 face global link       Default
 face global bullet     Default
 face global list       Default
+
+# User Interface
+face global Search           +bu            # Bold and underline searches
+face global PrimaryCursor    +r             # Reverse
+face global PrimarySelection +r             # Reverse
+face global MatchingChar     rgb:777777+r   # Reverse
+
+# face global BufferPadding Default
+# face global CurrentWord Default
+# face global Error Default
+# face global Information Default
+# face global LineNumberCursor Default
+# face global LineNumbers Default
+# face global LineNumbersWrapped Default
+# face global MatchingChar Default
+# face global MenuBackground Default
+# face global MenuForeground Default
+# face global MenuInfo Default
+# face global PrimaryCursor Default
+# face global PrimaryCursorEol Default
+# face global PrimarySelection Default
+# face global Prompt Default
+# face global Search Default
+# face global SecondaryCursor Default
+# face global SecondaryCursorEol Default
+# face global SecondarySelection Default
+# face global StatusCursor Default
+# 1face global StatusLine Default
+# face global StatusLineInfo Default
+# face global StatusLineMode Default
+# face global StatusLineValue Default
+# face global Whitespace Default
+# face global WrapMarker Default
