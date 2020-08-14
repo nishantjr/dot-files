@@ -1,0 +1,172 @@
+set $mod Mod4
+
+# Input configuration
+# -------------------
+
+output eDP-1 pos 0 0
+output HDMI-A-2 pos 1920 0
+
+input type:keyboard {
+    xkb_options caps:escape
+}
+
+# Appearance
+# ----------
+
+font pango:Noto Sans 8
+
+# Makes the touch pad less annoying. we dont need to remember the workspace we
+# came from Wrap focus within current container. This prevents focus left/right
+# from moving from one monitor to another.
+focus_follows_mouse no               
+workspace_auto_back_and_forth yes    
+focus_wrapping yes             
+
+for_window [window_role="pop-up"] floating enable
+
+bar {
+    status_command py3status --config ~/.config/i3status/py3.config
+}
+
+# use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+focus_follows_mouse no
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# Launchers and menus.
+bindsym $mod+d       exec bemenu-run
+bindsym $mod+Return  exec termite
+bindsym $mod+Delete  exec dmenu-power-options
+bindsym Print        exec gnome-screenshot -i
+bindsym $mod+n       exec redshift -O 3200
+bindsym $mod+Shift+n exec redshift -x
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# Resize focused (floating) window
+bindsym $mod+Control+h resize shrink width
+bindsym $mod+Control+l resize grow   width
+bindsym $mod+Control+j resize shrink height
+bindsym $mod+Control+k resize grow   height
+
+# split
+bindsym $mod+b split h
+bindsym $mod+v split v
+
+# split and make tabbed
+# XXX: Ideally this would detect if the container is
+# already tabbed, and run the command for the currently focused application.
+# That would effectivly let you open new tabs for things like ranger, terminals
+# and browsers
+bindsym $mod+t  split horizontal; layout tabbed
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout (stacked, tabbed, default)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout default
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# switch to workspace
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move workspace number 1
+bindsym $mod+Shift+2 move workspace number 2
+bindsym $mod+Shift+3 move workspace number 3
+bindsym $mod+Shift+4 move workspace number 4
+bindsym $mod+Shift+5 move workspace number 5
+bindsym $mod+Shift+6 move workspace number 6
+bindsym $mod+Shift+7 move workspace number 7
+bindsym $mod+Shift+8 move workspace number 8
+bindsym $mod+Shift+9 move workspace number 9
+bindsym $mod+Shift+0 move workspace number 10
+
+# rename workspaces
+bindsym $mod+r exec njr-i3-rename-workspace
+
+bindsym $mod+Shift+r reload
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #ffffff #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+client.background       #ffffff
+
+# F5 and F6 correspond to brightness controls on the ThinkPad
+bindsym XF86MonBrightnessDown exec --no-startup-id njr-backlight-control down
+bindsym XF86MonBrightnessUp   exec --no-startup-id njr-backlight-control up
+bindsym $mod+F5               exec --no-startup-id njr-backlight-control down
+bindsym $mod+F6               exec --no-startup-id njr-backlight-control up
+
+bindsym XF86AudioPlay         exec --no-startup-id playerctl play-pause
+bindsym XF86AudioPause        exec --no-startup-id playerctl pause
+bindsym XF86AudioNext         exec --no-startup-id playerctl next
+bindsym XF86AudioPrev         exec --no-startup-id playerctl previous
+
+bindsym XF86AudioMute         exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym XF86AudioLowerVolume  exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym XF86AudioRaiseVolume  exec --no-startup-id pactl set-sink-volume 0 +5%
+# Thinkpad:
+bindsym $mod+F1               exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym $mod+F2               exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym $mod+F3               exec --no-startup-id pactl set-sink-volume 0 +5%
+
+# Lock screen
+bindsym $mod+F12              exec --no-startup-id slock
+
+# startup applications
+exec --no-startup-id gnome-settings-daemon
+exec --no-startup-id gnome-sound-applet
+exec --no-startup-id nm-applet
+exec --no-startup-id xrdb ~/.Xresources
+exec --no-startup-id xmodmap ~/.Xmodmap
+
