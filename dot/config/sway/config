@@ -5,6 +5,7 @@ set $mod Mod4
 
 output eDP-1 pos 0 0
 output HDMI-A-2 pos 1920 0
+output "*" bg ~/.config/sway/background.jpg fill
 
 input type:keyboard {
     xkb_options caps:escape
