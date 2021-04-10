@@ -22,9 +22,9 @@ define-command -override no-line-numbers %{ remove-highlighter global/line-numbe
 hook global WinCreate .* %{ add-highlighter window/show-matching show-matching }
 
 # Highlight the 80th column
-# hook global WinCreate .* %{ add-highlighter window/textwidth-80 column 80 default,rgb:ddffff }
-# hook global WinCreate .* %{ add-highlighter window/textwidth-100 column 100 default,rgb:ccffff }
-# hook global WinCreate .* %{ add-highlighter window/textwidth-120 column 120 default,rgb:bbffff }
+hook global WinCreate .* %{ add-highlighter window/textwidth-80 column 80 default,rgb:ddffff }
+hook global WinCreate .* %{ add-highlighter window/textwidth-100 column 100 default,rgb:ccffff }
+hook global WinCreate .* %{ add-highlighter window/textwidth-120 column 120 default,rgb:bbffff }
 
 # Highlight search; Clear search register on ESC
 hook global WinCreate .*    %{ add-highlighter window/search dynregex '%reg{/}' 0:Search }
