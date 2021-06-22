@@ -22,13 +22,27 @@ define-command -override no-line-numbers %{ remove-highlighter global/line-numbe
 hook global WinCreate .* %{ add-highlighter window/show-matching show-matching }
 
 # Highlight the 80th column
-hook global WinCreate .* %{ add-highlighter window/textwidth-80 column 80 default,rgb:ddffff }
-hook global WinCreate .* %{ add-highlighter window/textwidth-100 column 100 default,rgb:ccffff }
-hook global WinCreate .* %{ add-highlighter window/textwidth-120 column 120 default,rgb:bbffff }
+define-command -override columns \
+   %{   add-highlighter window/columns-80  column 80  default,rgb:ddffff
+        add-highlighter window/columns-100 column 100 default,rgb:ccffff
+        add-highlighter window/columns-120 column 120 default,rgb:bbffff
+    }
+define-command -override no-columns \
+   %{   remove-highlighter window/columns-80
+        remove-highlighter window/columns-100
+        remove-highlighter window/columns-120
+    }
+hook global WinCreate .* %{ columns }
 
 # Highlight search; Clear search register on ESC
-hook global WinCreate .*    %{ add-highlighter window/search dynregex '%reg{/}' 0:Search }
+define-command -override search-highlight    %{ add-highlighter window/search dynregex '%reg{/}' 0:Search }
+define-command -override no-search-highlight %{ remove-highlighter window/search }
+hook global WinCreate .* %{ search-highlight }
 hook global NormalKey <esc> %{ set-register '/' '' }
+
+# Remove spell
+define-command -override no-spell \
+   %{ remove-highlighter window/ranges_spell_regions }
 
 
 # Map commands
@@ -64,7 +78,7 @@ map global normal <c-n> :buffer-next<ret>
 map global normal <c-p> :buffer-previous<ret>
 map global user 'w' -docstring 'Word count' %{:echo wc: %sh{wc <lt><lt><lt> "${kak_selection}"}<ret>}
 
-map global user 'T' -docstring 'Format a matching logic term' 'MHs\)|\}<ret>M<a-;>ll\i<ret><esc>i'
+map global user 'T' -docstring 'Format a matching logic term' 'MHs\)|\}\]<ret>M<a-;>ll\i<ret><esc>i'
 
 ## :add-highlighter wrap -word -width 80
 define-command -override wrap %{ add-highlighter window/wrap wrap -word -width "%{kak_opt_textwidth}" }
