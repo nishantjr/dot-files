@@ -61,9 +61,11 @@ export GOPATH=$HOME/co/go/
 # =========================
 
 # Alias for git
+# See: https://stackoverflow.com/questions/9869227/git-autocomplete-in-bash-aliases
+# for information about bash completions.
+
 alias g=git
-_completion_loader git # Force the git completion loader to load
-complete -o bashdefault -o default -o nospace -F _git g
+__git_complete g __git_main
 
 # Change to project directory
 alias c=cpd
