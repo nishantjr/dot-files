@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+set -eu -o pipefail
+
+try() {
+    terminal="$1"; shift
+    type "$terminal" &>/dev/null \
+        && exec "$terminal"
+    echo "Failed to run: $terminal"
+}
+
+try alacritty
+try urxvt
+try xterm
