@@ -83,7 +83,7 @@ map global user 'T' -docstring 'Format a matching logic term' 'MHs\)|\}\]<ret>M<
 ## :add-highlighter wrap -word -width 80
 define-command -override wrap %{ add-highlighter window/wrap wrap -word -width "%{kak_opt_textwidth}" }
 define-command -override wrap %{ add-highlighter window/wrap wrap -word }
-define-command -override nowrap %{ remove-highlighter wrap }
+define-command -override nowrap %{ remove-highlighter window/wrap }
 
 # Colors and syntax highlighting
 # ------------------------------
