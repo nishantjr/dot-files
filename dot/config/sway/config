@@ -40,7 +40,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d       exec bemenu-run
 bindsym $mod+Return  exec njr-terminal
 bindsym $mod+Delete  exec dmenu-power-options
-bindsym Print        exec gnome-screenshot -i
+bindsym Print        exec grim -g "$(slurp)" - | wl-copy
 bindsym $mod+n       exec redshift -O 3200
 bindsym $mod+Shift+n exec redshift -x
 
