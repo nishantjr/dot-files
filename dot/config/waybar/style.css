@@ -1,0 +1,44 @@
+window#waybar {
+    background-color: #141b1e;
+    color: #dadada;
+}
+
+#workspaces {
+  margin: 10px;
+  margin-top: 4px;
+  padding: 7px;
+  padding-left: 4px;
+  background-color: #232a2d;
+  font-size: 12px;    
+}
+
+clock {
+    margin-bottom: 8px;
+}
+clock:nth-child(even) {
+    border-bottom: 1px dashed white;
+}
+
+#custom-void {
+    color: #141b1e;
+    background-color: #8ccf7e;
+    font-size: 15px;
+    border-radius: 10px;
+    margin: 0 10px;
+    margin-bottom: 5px;
+    margin-top: 8px;
+}
+
+#custom-separator {
+    color: #dadada; 
+}
+
+#memory {
+    color: #dadada;
+    font-size: 17px;
+}
+
+#cu-date {
+        font-weight: bold;
+    font-size: 1.2em;
+}
