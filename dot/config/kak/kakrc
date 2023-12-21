@@ -7,7 +7,7 @@ def -override rc %{ e      "~/.config/kak/kakrc" }
 
 # Mouse support is annoying, because I don't want the cursor
 # to move when I click on the window.
-set global ui_options ncurses_enable_mouse=false
+set global ui_options terminal_enable_mouse=false
 
 set global tabstop 4
 declare-option int textwidth 80
@@ -58,13 +58,9 @@ define-command -override no-spell \
 #
 # TODO: Use '%opt{textwidth}'; How do I set textwidth?
 # TODO: This should only run for markdown files
-#
-map -docstring "Format text" global user \
-    f       %{ | pandoc --from=markdown --to=markdown --columns $kak_opt_textwidth --markdown-headings=setext; echo <ret> }
-map -docstring "Format surrounding paragraph" global normal \
-    <F1>    "<a-a>p,f<esc><space>k"
-map -docstring "Convert MD to Latex" global user \
-    l       %{ | pandoc --from=markdown --to=latex; echo <ret> }
+
+map -docstring "Format text"                  global user  f       '|pandoc --from=markdown --to=markdown --columns $kak_opt_textwidth --markdown-headings=setext; echo <ret>'
+map -docstring "Convert MD to Latex"          global user  l       '|pandoc --from=markdown --to=latex; echo <ret>'
 
 map -docstring "Select All" \
     global user a '*%s<ret>'

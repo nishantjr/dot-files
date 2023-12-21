@@ -8,8 +8,14 @@ output HDMI-A-2 pos 1920 0
 output "*" bg ~/.config/sway/background.jpg fill
 
 input type:keyboard {
-    xkb_options caps:escape
+    xkb_options caps:none
 }
+
+# Allows using numpad numbers as workspaces immediately
+input "*" xkb_numlock enabled
+
+# Click with two fingers for right-click, three for middle.
+input "*" click_method clickfinger
 
 # Appearance
 # ----------
@@ -68,11 +74,17 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# Resize focused (floating) window
+# Resize focused window
 bindsym $mod+Control+h resize shrink width
 bindsym $mod+Control+l resize grow   width
 bindsym $mod+Control+j resize shrink height
 bindsym $mod+Control+k resize grow   height
+
+# Move workspace
+bindsym $mod+Control+Shift+h move workspace to output left
+bindsym $mod+Control+Shift+j move workspace to output down
+bindsym $mod+Control+Shift+k move workspace to output up
+bindsym $mod+Control+Shift+l move workspace to output right
 
 # split
 bindsym $mod+b split h
@@ -117,6 +129,17 @@ bindsym $mod+8 workspace number 8
 bindsym $mod+9 workspace number 9
 bindsym $mod+0 workspace number 10
 
+bindsym KP_1 workspace number 11
+bindsym KP_2 workspace number 12
+bindsym KP_3 workspace number 13
+bindsym KP_4 workspace number 14
+bindsym KP_5 workspace number 15
+bindsym KP_6 workspace number 16
+bindsym KP_7 workspace number 17
+bindsym KP_8 workspace number 18
+bindsym KP_9 workspace number 19
+bindsym KP_0 workspace number 20
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move workspace number 1
 bindsym $mod+Shift+2 move workspace number 2
@@ -129,12 +152,24 @@ bindsym $mod+Shift+8 move workspace number 8
 bindsym $mod+Shift+9 move workspace number 9
 bindsym $mod+Shift+0 move workspace number 10
 
+bindsym Shift+KP_1 move workspace number 11
+bindsym Shift+KP_2 move workspace number 12
+bindsym Shift+KP_3 move workspace number 13
+bindsym Shift+KP_4 move workspace number 14
+bindsym Shift+KP_5 move workspace number 15
+bindsym Shift+KP_6 move workspace number 16
+bindsym Shift+KP_7 move workspace number 17
+bindsym Shift+KP_8 move workspace number 18
+bindsym Shift+KP_9 move workspace number 19
+bindsym Shift+KP_0 move workspace number 20
+
 # rename workspaces
 bindsym $mod+r exec njr-i3-rename-workspace
 
 bindsym $mod+Shift+r reload
+bindsym $mod+Control+Shift+q exit
 
-gaps inner 20
+gaps inner 10
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
@@ -145,10 +180,10 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
 
 # F5 and F6 correspond to brightness controls on the ThinkPad
-bindsym XF86MonBrightnessDown exec --no-startup-id njr-backlight-control down
-bindsym XF86MonBrightnessUp   exec --no-startup-id njr-backlight-control up
-bindsym $mod+F5               exec --no-startup-id njr-backlight-control down
-bindsym $mod+F6               exec --no-startup-id njr-backlight-control up
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set -e 10-
+bindsym XF86MonBrightnessUp   exec --no-startup-id brightnessctl set -e +10
+bindsym $mod+F5               exec --no-startup-id brightnessctl set -e 10-
+bindsym $mod+F6               exec --no-startup-id brightnessctl set -e +10
 
 bindsym XF86AudioPlay         exec --no-startup-id playerctl play-pause
 bindsym XF86AudioPause        exec --no-startup-id playerctl pause
@@ -167,9 +202,11 @@ bindsym $mod+F3               exec --no-startup-id pactl set-sink-volume 0 +5%
 bindsym $mod+F12              exec --no-startup-id slock
 
 # startup applications
-exec --no-startup-id gnome-settings-daemon
-exec --no-startup-id gnome-sound-applet
-exec --no-startup-id nm-applet
-exec --no-startup-id xrdb ~/.Xresources
-exec --no-startup-id xmodmap ~/.Xmodmap
+exec --no-startup-id dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
+# Screen sharing
+exec --no-startup-id /usr/lib/xdg-desktop-portal-wlr
+exec --no-startup-id /usr/lib/xdg-desktop-portal
+
+# Redshift
+exec --no-startup-id gammastep -l 40:-88 -b 1.0:0.5 

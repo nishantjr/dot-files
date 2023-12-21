@@ -4,4 +4,4 @@ set -e
 set -u
 
 branch="${1:-@}";
-exec git gr-mbase "$branch" origin/master
+exec git gr-mbase "$branch" refs/remotes/origin/HEAD

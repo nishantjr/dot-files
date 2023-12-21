@@ -1,16 +1,17 @@
-#!/usr/bin/env python3
+#!/usr/bin/env bash
 
-import subprocess
-import i3ipc
-import os
+set -eu
 
-i3 = i3ipc.Connection()
-workspaces = i3.get_workspaces()
+focused_ws_name() {
+    swaymsg -t get_workspaces | sed 's/^Workspace (.*) \(focused\)/\1/p'
+}
 
-for workspace in workspaces:
-    if workspace.focused:
-        num = workspace.num
-        print(f"Renaming workspace number {num}")
-        assert(num > 0)
-        new_name = subprocess.check_output("bemenu -p 'Rename workspace'", shell=True, stdin=open(os.devnull, 'r')).decode()
-        i3.command(f"rename workspace to {num}:{new_name}")
+test() {
+    [[ $(parse_ws_id '123:Foooo') == "123" ]]
+    [[ $(parse_ws_id '12')        == "12"  ]]
+    [[ $(parse_ws_id 'XXX')       == ""    ]]
+}
+#test
+
+new_name="$(bemenu -p 'Rename workspace' </dev/null)"
+swaymsg rename workspace to "$new_name"

@@ -16,6 +16,11 @@ Host fslci-ews
     User        njr
     Hostname    fsl-ci.cs.illinois.edu:22
 
+Host courses-ews
+    # Port number is needed for proxycommand?
+    User        nishant2
+    Hostname    ssh.courses.grainger.illinois.edu:22
+
 # Remarkable tablet
 # -------------------------------------
 
