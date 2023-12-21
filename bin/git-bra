@@ -4,10 +4,10 @@ format_each_ref_in() {
     local strip_components=$(IFS=/ x=( $1 ); echo ${#x[@]})
 
     local track='%(if)%(upstream:track)%(then) %(upstream:track)%(end)'
-    local date='%(creatordate:short)'
+    local creation='%(align:15,left)%(authoremail:localpart)%(end) %(creatordate:short)'
     local format="%(align:40,left)%(HEAD) %(refname:lstrip=$strip_components)%(end) "
     format+='%(if)%(symref)%(then)-> %(symref)'
-    format+="%(else)%(objectname:short) $date$track %(contents:subject)"
+    format+="%(else)%(objectname:short) $creation$track %(contents:subject)"
     format+='%(end)'
 
     git for-each-ref --format="$format" "$1"'/**' --sort='-creatordate'
