@@ -1,0 +1,9 @@
+[colors.primary]
+background = "#ffffff"
+foreground = "#111111"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 9.0
