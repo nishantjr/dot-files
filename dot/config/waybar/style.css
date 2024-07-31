@@ -1,44 +1,37 @@
-window#waybar {
-    background-color: #141b1e;
-    color: #dadada;
+* {
+    font-family: Noto Sans Devanagari, Noto Sans, serif;
 }
 
-#workspaces {
-  margin: 10px;
-  margin-top: 4px;
-  padding: 7px;
-  padding-left: 4px;
-  background-color: #232a2d;
-  font-size: 12px;    
+window {
+    background: transparent;
+}
+.modules-center {
+    background-color: #f8f8f8;
+    border-radius: 10px 0 0 10px;
+    padding-bottom: 12px;
+    padding: 2px;
+    border: 2px solid lightgrey;
+    border-right: none;
 }
 
-clock {
-    margin-bottom: 8px;
-}
-clock:nth-child(even) {
-    border-bottom: 1px dashed white;
-}
-
-#custom-void {
-    color: #141b1e;
-    background-color: #8ccf7e;
-    font-size: 15px;
-    border-radius: 10px;
-    margin: 0 10px;
-    margin-bottom: 5px;
-    margin-top: 8px;
+#workspaces button { font-size: 10pt; margin: 0; padding-bottom: 0; padding-top: 3px; }
+#workspaces button.focused { background: lightgrey; }
+#mpris, #battery { min-height: 25px; }
+#wireless *, #audio * {
+    min-width: 25px;
+    font-size: 12pt;
 }
 
-#custom-separator {
-    color: #dadada; 
-}
+#wireless   { padding-top:      5px; }
+#audio      { padding-bottom:   5px; }
 
-#memory {
-    color: #dadada;
-    font-size: 17px;
+label { font-size: 10pt; }
+#clock {
+    font-size: 12pt;
+    font-weight: bold;
+    min-width: 20px;
 }
+#philly, #mumbai, #tokyo { padding: 5px }
+#philly, #mumbai, #audio, #workspaces, #mpris, #battery { border-bottom: 2px dotted lightgrey; }
 
-#cu-date {
-        font-weight: bold;
-    font-size: 1.2em;
-}
+

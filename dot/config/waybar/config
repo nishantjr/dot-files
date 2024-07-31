@@ -1,42 +1,120 @@
 {
     "layer": "top",
     "position": "right",
-    "modules-left": [ "sway/workspaces"
-                    ],
-    "modules-center": [],
-    "modules-right": [ "battery#icon", "battery#bat-text", "network", "backlight", "bluetooth"
-                     , "clock#cu-date"
-                     , "clock#cu"
-                     , "clock#philly"
-                     , "clock#mumbai"
-                     , "clock#tokyo"
-                     , "clock#tokyo-date"
-                     , "tray"
-                     ],
-    "sway/window": {
-         "max-length": 50
+    "exclusive": false,
+    "height": 1000,
+
+    "modules-left": [],
+    "modules-right": [],
+    "modules-center": [
+        "sway/workspaces",
+        "battery",
+        "mpris",
+        "group/wireless",
+        "group/audio",
+        "group/philly",
+        "group/mumbai",
+        "group/tokyo"
+    ],
+
+    "sway/workspaces" : {
+         "format": "{name}"
     },
-    "battery#bat-text": {
-        "format": ""
+
+    "battery": {
+        "rotate": 270,
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+            "format": "{icon}",
+            "format-charging": "<b>{icon} </b>",
+            "format-full": "<span color='#82A55F'><b>{icon}</b></span>",
+            "format-icons": [ "󰁻", "󰁼", "󰁾", "󰂀", "󰂂", "󰁹" ],
+            "tooltip-format": "{timeTo} {capacity} % | {power} W"
     },
-    "battery#icon": {
-        "format": "{icon}{capacity}",
-        "format-icons": ["", "", "", "", ""]
+
+    "group/wireless": {
+        "modules": [ "bluetooth", "network"]
+    },
+    "bluetooth": {
+       "format-on": "",
+       "format-off": "󰂲",
+       "format-disabled": "",
+       "format-connected": "",
+       "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+       "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+       "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+       "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
     },
     "network": {
-       "format-wifi" : "{essid}",
-       "format-ethernet" : "LAN",
-       "tooltip-format-wifi" : "{essid}: {signalStrength}%"
+        "format": "{icon}",
+        "format-icons": { "wifi": [ "󰤨" ], "ethernet": [ "󰈀" ], "disconnected": [ "󰖪" ] },
+        "format-wifi": "󰤨",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰖪",
+        "format-linked": "󰈁",
+        "tooltip-format": "{ipaddr}",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)   \n{ipaddr} | {frequency} MHz {icon}",
+        "tooltip-format-ethernet": "{ifname} 󰈀 \n{ipaddr} | {frequency} MHz {icon}",
+        "tooltip-format-disconnected": "Not Connected to any type of Network",
+        "tooltip": true,
     },
-    "clock#cu-date":     {"timezone": "America/Chicago",    "format": "{:%a, %d %b}"   } ,
-    "clock#cu":          {"timezone": "America/Chicago",    "format": "    CU {:%H:%M}"    },
-    "clock#philly":      {"timezone": "America/New_York",   "format": "Philly {:%H:%M}"    },
-    "clock#mumbai":      {"timezone": "Asia/Calcutta",      "format": "  मुंबई {:%H:%M}"   },
-    "clock#tokyo":       {"timezone": "Asia/Tokyo",         "format": " 東京 {:%H:%M}"  },
-    "clock#tokyo-date":  {"timezone": "Asia/Tokyo",         "format": "{:%a, %d %b}"   } ,
-    "backlight": {
-        "device": "intel_backlight",
-        "format": "{percent}% {icon}",
-        "format-icons": ["", ""]
-    }
+
+    "mpris": {
+        "format" : "{player_icon}{status_icon}",
+        "status-icons": {"playing": "▶", "paused": "⏸", "stopped": "⏹"},
+    },
+
+
+    "group/audio": {
+        "modules": [ "pulseaudio", "pulseaudio#mic"]
+    },
+    "pulseaudio": {
+    "format": "{icon}",
+    "format-bluetooth": "{icon}",
+    "tooltip-format": "{volume}% {icon} | {desc}",
+    "format-muted": "󰖁",
+    "format-icons": { "headphones": "󰋌", "handsfree": "󰋌", "headset": "󰋌", "phone": "", "portable": "", "car": " ", "default": [ "󰕿", "󰖀", "󰕾" ] },
+    "on-click": "volume mute",
+    "on-click-middle": "pavucontrol",
+    "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+    "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
+    "smooth-scrolling-threshold": 1
+  },
+    "pulseaudio#mic": {
+        "format": "{format_source}",
+        "format-source": "",
+        "format-source-muted": "",
+        "tooltip-format": "{volume}% {format_source} ",
+        "on-click": "pactl set-source-mute 0 toggle",
+        "on-scroll-down": "pactl set-source-volume 0 -1%",
+        "on-scroll-up": "pactl set-source-volume 0 +1%"
+    },
+
+
+    "group/philly" : { "modules" : ["custom/philly", "clock#cphilly"] },
+    "custom/philly": { "format": "Philly", "rotate": 90 },
+    "clock#cphilly": {"timezone": "America/New_York",   "format": "{:%H\n%M}",
+                      "tooltip-format": "<tt><small>{calendar}</small></tt>",
+                      "calendar": { "mode": "month", "format": { "today": "<b><u>{}</u></b>" } }
+    },
+    "group/mumbai" : { "modules" : ["custom/mumbai", "clock#cmumbai"] },
+    "custom/mumbai": { "format": "मुंबई", "rotate": 90 },
+    "clock#cmumbai": {"timezone": "Asia/Calcutta",   "format": "{:%H\n%M}",
+                      "tooltip-format": "<tt><small>{calendar}</small></tt>",
+                      "calendar": { "mode": "month", "format": { "today": "<b><u>{}</u></b>" } }
+    },
+    "group/tokyo" : { "modules" : ["custom/tokyo", "clock#ctokyo"] },
+    "custom/tokyo": { "format": "東\n京 "},
+    "clock#ctokyo": { "timezone": "Asia/Tokyo",   "format": "{:%H\n%M}",
+                      "tooltip-format": "<tt><small>{calendar}</small></tt>",
+                      "calendar": { "mode": "month", "format": { "today": "<b><u>{}</u></b>" } }
+    },
+
+
+
+
+
 }
