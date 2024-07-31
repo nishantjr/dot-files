@@ -1,11 +1,16 @@
 set $mod Mod4
 
-# Input configuration
-# -------------------
+# Display Configuration
+# ---------------------
 
-output eDP-1 pos 0 0
-output HDMI-A-2 pos 1920 0
+output eDP-1    pos 1920 0
+output HDMI-A-2 pos 0    0
+
 output "*" bg ~/.config/sway/background.jpg fill
+
+
+# Keyboard Configuration
+# ----------------------
 
 input type:keyboard {
     xkb_options caps:none
@@ -14,41 +19,74 @@ input type:keyboard {
 # Allows using numpad numbers as workspaces immediately
 input "*" xkb_numlock enabled
 
+
+# Mouse Configuration
+# -------------------
+
 # Click with two fingers for right-click, three for middle.
 input "*" click_method clickfinger
+
 
 # Appearance
 # ----------
 
 font pango:Noto Sans 8
 
-# Makes the touch pad less annoying. we dont need to remember the workspace we
-# came from Wrap focus within current container. This prevents focus left/right
-# from moving from one monitor to another.
-focus_follows_mouse no               
-workspace_auto_back_and_forth yes    
-focus_wrapping yes             
+gaps inner 10
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #ffffff #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+client.background       #ffffff
+
+
+# Window management & Input interaction
+# -------------------------------------
+
+focus_follows_mouse no
+workspace_auto_back_and_forth yes
+focus_wrapping yes
 
 for_window [window_role="pop-up"] floating enable
 
-bar {
-    status_command py3status --config ~/.config/i3status/py3.config
-}
+# Startup Applications
+# --------------------
+
+exec --no-startup-id dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec --no-startup-id pactl load-module module-switch-on-connect
+
+# Screen sharing
+exec --no-startup-id /usr/lib/xdg-desktop-portal-wlr
+exec --no-startup-id XDG_CURRENT_DESKTOP=sway /usr/lib/xdg-desktop-portal
+
+# Redshift
+exec --no-startup-id gammastep -l 40:-88 -b 1.0:0.5
+
+# Notification Daemon
+exec --no-startup-id dunst
+
+# Status bar
+exec --no-startup-id waybar
+
+# Shortcuts
+# ---------
 
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-focus_follows_mouse no
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # Launchers and menus.
-bindsym $mod+d       exec bemenu-run
-bindsym $mod+Return  exec njr-terminal
-bindsym $mod+Delete  exec dmenu-power-options
-bindsym Print        exec grim -g "$(slurp)" - | wl-copy
-bindsym $mod+n       exec redshift -O 3200
-bindsym $mod+Shift+n exec redshift -x
+bindsym $mod+d       exec dmenu_run
+bindsym $mod+return  exec njr-terminal
+bindsym $mod+delete  exec dmenu-power-options
+bindsym print        exec grim -g "$(slurp)" - | wl-copy
+bindsym $mod+n       exec redshift -o 3200
+bindsym $mod+shift+n exec redshift -x
 
 # change focus
 bindsym $mod+h focus left
@@ -118,66 +156,40 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $mod+1 workspace number 1
-bindsym $mod+2 workspace number 2
-bindsym $mod+3 workspace number 3
-bindsym $mod+4 workspace number 4
-bindsym $mod+5 workspace number 5
-bindsym $mod+6 workspace number 6
-bindsym $mod+7 workspace number 7
-bindsym $mod+8 workspace number 8
-bindsym $mod+9 workspace number 9
-bindsym $mod+0 workspace number 10
-
-bindsym KP_1 workspace number 11
-bindsym KP_2 workspace number 12
-bindsym KP_3 workspace number 13
-bindsym KP_4 workspace number 14
-bindsym KP_5 workspace number 15
-bindsym KP_6 workspace number 16
-bindsym KP_7 workspace number 17
-bindsym KP_8 workspace number 18
-bindsym KP_9 workspace number 19
-bindsym KP_0 workspace number 20
+bindsym $mod+grave              workspace number 0
+bindsym $mod+1                  workspace number 1
+bindsym $mod+2                  workspace number 2
+bindsym $mod+3                  workspace number 3
+bindsym $mod+4                  workspace number 4
+bindsym $mod+5                  workspace number 5
+bindsym $mod+6                  workspace number 6
+bindsym $mod+7                  workspace number 7
+bindsym $mod+8                  workspace number 8
+bindsym $mod+9                  workspace number 9
+bindsym $mod+0                  workspace number 10
+bindsym $mod+minus              workspace number 11
+bindsym $mod+equal              workspace number 12
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move workspace number 1
-bindsym $mod+Shift+2 move workspace number 2
-bindsym $mod+Shift+3 move workspace number 3
-bindsym $mod+Shift+4 move workspace number 4
-bindsym $mod+Shift+5 move workspace number 5
-bindsym $mod+Shift+6 move workspace number 6
-bindsym $mod+Shift+7 move workspace number 7
-bindsym $mod+Shift+8 move workspace number 8
-bindsym $mod+Shift+9 move workspace number 9
-bindsym $mod+Shift+0 move workspace number 10
-
-bindsym Shift+KP_1 move workspace number 11
-bindsym Shift+KP_2 move workspace number 12
-bindsym Shift+KP_3 move workspace number 13
-bindsym Shift+KP_4 move workspace number 14
-bindsym Shift+KP_5 move workspace number 15
-bindsym Shift+KP_6 move workspace number 16
-bindsym Shift+KP_7 move workspace number 17
-bindsym Shift+KP_8 move workspace number 18
-bindsym Shift+KP_9 move workspace number 19
-bindsym Shift+KP_0 move workspace number 20
+bindsym $mod+Shift+grave move   workspace number 0
+bindsym $mod+Shift+1     move   workspace number 1
+bindsym $mod+Shift+2     move   workspace number 2
+bindsym $mod+Shift+3     move   workspace number 3
+bindsym $mod+Shift+4     move   workspace number 4
+bindsym $mod+Shift+5     move   workspace number 5
+bindsym $mod+Shift+6     move   workspace number 6
+bindsym $mod+Shift+7     move   workspace number 7
+bindsym $mod+Shift+8     move   workspace number 8
+bindsym $mod+Shift+9     move   workspace number 9
+bindsym $mod+Shift+0     move   workspace number 10
+bindsym $mod+Shift+minus move   workspace number 11
+bindsym $mod+Shift+equal move   workspace number 12
 
 # rename workspaces
 bindsym $mod+r exec njr-i3-rename-workspace
 
 bindsym $mod+Shift+r reload
 bindsym $mod+Control+Shift+q exit
-
-gaps inner 10
-
-# class                 border  backgr. text    indicator child_border
-client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
-client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
-client.unfocused        #333333 #222222 #ffffff #292d2e   #222222
-client.urgent           #2f343a #900000 #ffffff #900000   #900000
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
-client.background       #ffffff
 
 # F5 and F6 correspond to brightness controls on the ThinkPad
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set -e 10-
@@ -201,12 +213,3 @@ bindsym $mod+F3               exec --no-startup-id pactl set-sink-volume 0 +5%
 # Lock screen
 bindsym $mod+F12              exec --no-startup-id slock
 
-# startup applications
-exec --no-startup-id dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-
-# Screen sharing
-exec --no-startup-id /usr/lib/xdg-desktop-portal-wlr
-exec --no-startup-id /usr/lib/xdg-desktop-portal
-
-# Redshift
-exec --no-startup-id gammastep -l 40:-88 -b 1.0:0.5 
