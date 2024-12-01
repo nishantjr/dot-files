@@ -36,6 +36,11 @@ EDITOR=kak
 type kak >/dev/null 2>/dev/null || EDITOR='vim'
 export EDITOR
 
+# Python Programming
+# ==================
+
+export PYTHONPYCACHEPREFIX=$HOME/.cache/pycache__
+
 # C++ Programming
 # ===============
 
