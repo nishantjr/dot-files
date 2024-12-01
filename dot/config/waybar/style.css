@@ -1,5 +1,5 @@
 * {
-    font-family: Noto Sans Devanagari, Noto Sans, serif;
+    font-family: Noto Sans Devanagari, Noto Sans, "Font Awesome 6 Free", serif;
 }
 
 window {
@@ -34,4 +34,8 @@ label { font-size: 10pt; }
 #philly, #mumbai, #tokyo { padding: 5px }
 #philly, #mumbai, #audio, #workspaces, #mpris, #battery { border-bottom: 2px dotted lightgrey; }
 
+#clock.dphilly, #clock.dtokyo {
+    font-size: 10pt;
+    font-weight: normal;
+}
 

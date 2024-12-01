@@ -12,13 +12,15 @@
         "mpris",
         "group/wireless",
         "group/audio",
+        "clock#dphilly",
         "group/philly",
         "group/mumbai",
-        "group/tokyo"
+        "group/tokyo",
+        "clock#dtokyo",
     ],
 
     "sway/workspaces" : {
-         "format": "{name}"
+         "format": "{index}:{name}",
     },
 
     "battery": {
@@ -100,6 +102,10 @@
                       "tooltip-format": "<tt><small>{calendar}</small></tt>",
                       "calendar": { "mode": "month", "format": { "today": "<b><u>{}</u></b>" } }
     },
+    "clock#dphilly": {"timezone": "America/New_York",  "format": "{:%b %d}",
+                      "tooltip-format": "<tt><small>{calendar}</small></tt>",
+                      "calendar": { "mode": "month", "format": { "today": "<b><u>{}</u></b>" } }
+    },
     "group/mumbai" : { "modules" : ["custom/mumbai", "clock#cmumbai"] },
     "custom/mumbai": { "format": "मुंबई", "rotate": 90 },
     "clock#cmumbai": {"timezone": "Asia/Calcutta",   "format": "{:%H\n%M}",
@@ -112,9 +118,8 @@
                       "tooltip-format": "<tt><small>{calendar}</small></tt>",
                       "calendar": { "mode": "month", "format": { "today": "<b><u>{}</u></b>" } }
     },
-
-
-
-
-
+    "clock#dtokyo": { "timezone": "Asia/Tokyo",  "format": "{:%b %d}",
+                      "tooltip-format": "<tt><small>{calendar}</small></tt>",
+                      "calendar": { "mode": "month", "format": { "today": "<b><u>{}</u></b>" } }
+    },
 }
