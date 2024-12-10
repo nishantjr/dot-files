@@ -3,8 +3,14 @@ set $mod Mod4
 # Display Configuration
 # ---------------------
 
-output eDP-1    pos 1920 0
-output HDMI-A-2 pos 0    0
+output eDP-1    pos 0 1480
+output HDMI-A-1 pos 1920 0
+
+output HDMI-A-1 transform 270
+
+workspace 90 output HDMI-A-1
+workspace 91 output HDMI-A-1
+workspace 92 output HDMI-A-1
 
 output "*" bg ~/.config/sway/background.jpg fill
 
@@ -81,12 +87,15 @@ floating_modifier $mod
 bindsym $mod+Shift+q kill
 
 # Launchers and menus.
-bindsym $mod+d       exec dmenu_run
-bindsym $mod+return  exec njr-terminal
-bindsym $mod+delete  exec dmenu-power-options
-bindsym $mod+print   exec grim -g "$(slurp)" - | wl-copy
-bindsym $mod+n       exec redshift -o 3200
-bindsym $mod+shift+n exec redshift -x
+bindsym $mod+d                  exec bemenu-run
+bindsym $mod+return             exec njr-terminal
+bindsym $mod+backspace          exec firefox
+bindsym $mod+shift+backspace    exec firefox --private-window
+
+bindsym $mod+delete             exec dmenu-power-options
+bindsym $mod+print              exec grim -g "$(slurp)" - | wl-copy
+bindsym $mod+n                  exec redshift -o 3200
+bindsym $mod+shift+n            exec redshift -x
 
 # change focus
 bindsym $mod+h focus left
@@ -159,44 +168,48 @@ bindsym $mod+a focus parent
 # -----------------------
 
 # We group workspaces into groups of six workrooms.
-# grave through 6 selects the workspace, while 7 through - selects the workroom.
+# grave through 6 selects the workspace, while 7 through 0 selects the workroom.
+# - and = are special workspaces for comms and settings.
 # (Stolen from https://www.reddit.com/r/swaywm/)
 
+set $workspace 0
 set $workroom  1
-set $workspace 7
-workspace $$workspace$$workroom
+workspace number 90
+
+# Constants to allow juxtaposing numbers with variable names.
+set $w0 0; set $w1 1; set $w2 2; set $w3 3; set $w4 4; set $w5 5; set $w6 6
 
 # switch to workspace
-bindsym $mod+grave      set $$workspace 0; workspace number $$workspace$$workroom
-bindsym $mod+1          set $$workspace 1; workspace number $$workspace$$workroom
-bindsym $mod+2          set $$workspace 2; workspace number $$workspace$$workroom
-bindsym $mod+3          set $$workspace 3; workspace number $$workspace$$workroom
-bindsym $mod+4          set $$workspace 4; workspace number $$workspace$$workroom
-bindsym $mod+5          set $$workspace 5; workspace number $$workspace$$workroom
-bindsym $mod+6          set $$workspace 6; workspace number $$workspace$$workroom
+bindsym $mod+grave      set $$workspace 0; workspace --no-auto-back-and-forth number $$workroom$$workspace
+bindsym $mod+1          set $$workspace 1; workspace --no-auto-back-and-forth number $$workroom$$workspace
+bindsym $mod+2          set $$workspace 2; workspace --no-auto-back-and-forth number $$workroom$$workspace
+bindsym $mod+3          set $$workspace 3; workspace --no-auto-back-and-forth number $$workroom$$workspace
+bindsym $mod+4          set $$workspace 4; workspace --no-auto-back-and-forth number $$workroom$$workspace
+bindsym $mod+5          set $$workspace 5; workspace --no-auto-back-and-forth number $$workroom$$workspace
+bindsym $mod+6          set $$workspace 6; workspace --no-auto-back-and-forth number $$workroom$$workspace
 
 # switch to workroom
-bindsym $mod+7          set $$workroom  7; workspace number $$workspace$$workroom
-bindsym $mod+8          set $$workroom  8; workspace number $$workspace$$workroom
-bindsym $mod+9          set $$workroom  9; workspace number $$workspace$$workroom
-bindsym $mod+0          set $$workroom  0; workspace number $$workspace$$workroom
-bindsym $mod+minus      set $$workroom  1; workspace number $$workspace$$workroom
-bindsym $mod+equal      set $$workroom  2; workspace number $$workspace$$workroom
+bindsym $mod+7          set $$workroom  1; workspace --no-auto-back-and-forth number $$workroom$$workspace
+bindsym $mod+8          set $$workroom  2; workspace --no-auto-back-and-forth number $$workroom$$workspace
+bindsym $mod+9          set $$workroom  3; workspace --no-auto-back-and-forth number $$workroom$$workspace
+bindsym $mod+0                             workspace number 90
+bindsym $mod+minus                         workspace number 91
+bindsym $mod+equal                         workspace number 92
 
 # Movement
-bindsym $mod+Shift+grave move workspace number 0$$workroom
-bindsym $mod+Shift+1     move workspace number 1$$workroom
-bindsym $mod+Shift+2     move workspace number 2$$workroom
-bindsym $mod+Shift+3     move workspace number 3$$workroom
-bindsym $mod+Shift+4     move workspace number 4$$workroom
-bindsym $mod+Shift+5     move workspace number 5$$workroom
-bindsym $mod+Shift+6     move workspace number $$workspace6
-bindsym $mod+Shift+7     move workspace number $$workspace7
-bindsym $mod+Shift+8     move workspace number $$workspace8
-bindsym $mod+Shift+9     move workspace number $$workspace9
-bindsym $mod+Shift+0     move workspace number $$workspace0
-bindsym $mod+Shift+minus move workspace number $$workspace1
-bindsym $mod+Shift+equal move workspace number $$workspace2
+bindsym $mod+Shift+grave move workspace number $$workroom$w0
+bindsym $mod+Shift+1     move workspace number $$workroom$w1
+bindsym $mod+Shift+2     move workspace number $$workroom$w2
+bindsym $mod+Shift+3     move workspace number $$workroom$w3
+bindsym $mod+Shift+4     move workspace number $$workroom$w4
+bindsym $mod+Shift+5     move workspace number $$workroom$w5
+bindsym $mod+Shift+6     move workspace number $$workroom$w6
+bindsym $mod+Shift+7     move workspace number 1$$workspace
+bindsym $mod+Shift+8     move workspace number 2$$workspace
+bindsym $mod+Shift+9     move workspace number 3$$workspace
+bindsym $mod+Shift+0     move workspace number 90
+bindsym $mod+Shift+minus move workspace number 91
+bindsym $mod+Shift+equal move workspace number 92
 
 # rename workspaces
 bindsym $mod+r exec njr-i3-rename-workspace

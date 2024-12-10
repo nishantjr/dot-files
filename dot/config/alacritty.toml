@@ -6,4 +6,5 @@ foreground = "#111111"
 TERM = "xterm-256color"
 
 [font]
-size = 9.0
+normal = { family = "dina" }
+size = 8.0

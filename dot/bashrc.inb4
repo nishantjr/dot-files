@@ -65,12 +65,8 @@ export GOPATH=$HOME/co/go/
 # Git and check out helpers
 # =========================
 
-# Alias for git
-# See: https://stackoverflow.com/questions/9869227/git-autocomplete-in-bash-aliases
-# for information about bash completions.
-
-alias g=git
-__git_complete g __git_main
+# We should be using gitcmd-abbrev instead
+alias g=gitcmd-abbrev
 
 # Change to project directory
 alias c=cpd
