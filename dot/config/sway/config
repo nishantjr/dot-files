@@ -6,8 +6,6 @@ set $mod Mod4
 output eDP-1    pos 0 1480
 output HDMI-A-1 pos 1920 0
 
-output HDMI-A-1 transform 270
-
 workspace 90 output HDMI-A-1
 workspace 91 output HDMI-A-1
 workspace 92 output HDMI-A-1
@@ -63,6 +61,7 @@ for_window [window_role="pop-up"] floating enable
 
 exec --no-startup-id dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec --no-startup-id pactl load-module module-switch-on-connect
+exec --no-startup-id mako
 
 # Screen sharing
 exec --no-startup-id /usr/lib/xdg-desktop-portal-wlr
