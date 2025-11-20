@@ -1,10 +1,18 @@
 * {
     font-family: Noto Sans Devanagari, Noto Sans, "Font Awesome 6 Free", serif;
+    color: black;
+}
+
+tooltip {
+  color: black;
+  background-color: white;
+  text-shadow: none;
 }
 
 window {
     background: transparent;
 }
+
 .modules-center {
     background-color: #f8f8f8;
     border-radius: 10px 0 0 10px;
