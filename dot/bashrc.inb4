@@ -40,6 +40,7 @@ export EDITOR
 # ==================
 
 export PYTHONPYCACHEPREFIX=$HOME/.cache/pycache__
+export PYTHON_KEYRING_BACKEND=keyring.backends.fail.Keyring
 
 # C++ Programming
 # ===============
