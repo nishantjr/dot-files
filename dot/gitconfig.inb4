@@ -7,7 +7,7 @@
     whitespace = red reverse
     branch = never          ; Avoid ugly coloring of remote branches
 
-[color.diff]
+[color "diff"]
     ; plain = normal        ; context text
     meta = green            ; meta-information
     frag = yellow           ; hunk header
