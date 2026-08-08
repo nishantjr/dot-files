@@ -93,6 +93,7 @@ bindsym $mod+shift+backspace    exec firefox --private-window
 
 bindsym $mod+delete             exec dmenu-power-options
 bindsym $mod+print              exec grim -g "$(slurp)" - | wl-copy
+bindsym $mod+shift+print        exec grim -g "$(slurp)" ~/screenshot.png
 bindsym $mod+n                  exec redshift -o 3200
 bindsym $mod+shift+n            exec redshift -x
 
