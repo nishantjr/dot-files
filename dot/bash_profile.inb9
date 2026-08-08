@@ -1,4 +1,2 @@
 prepath -q "$HOME/bin"
 prepath -q "$HOME/.local/bin"
-
-interactive && fortune
