@@ -215,7 +215,6 @@ bindsym $mod+Shift+equal move workspace number 92
 bindsym $mod+r exec njr-i3-rename-workspace
 
 bindsym $mod+Shift+r reload
-bindsym $mod+Control+Shift+q exit
 
 # F5 and F6 correspond to brightness controls on the ThinkPad
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set -e 10-

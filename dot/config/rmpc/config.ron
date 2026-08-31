@@ -2,7 +2,7 @@
 #![enable(unwrap_newtypes)]
 #![enable(unwrap_variant_newtypes)]
 (
-    address: "/run/user/1000/mpd/socket",
+    address: "/run/user/1000/mpd.socket",
     theme: "~/.config/rmpc/config.ron",
 
     layout: Split(

@@ -2,17 +2,26 @@
 def -override re %{ source "~/.config/kak/kakrc" }
 def -override rc %{ e      "~/.config/kak/kakrc" }
 
-# Editor behaviour
-# ================
+# General options
+# ----------------
 
 # Mouse support is annoying, because I don't want the cursor
 # to move when I click on the window.
 set global ui_options terminal_enable_mouse=false
 
+# Reduce visual pop-up
+set-option -add global ui_options terminal_assistant=none # Turn off clippy
+set-option global autoinfo ''      # Turn off info boxes
+# No autocomplete unless explicitly requested
+set-option global autocomplete ''
+hook global ModeChange push:.*:insert %{ execute-keys <c-o> }
+map global prompt <c-n> '<tab>'    # Use same completion trigger as insert mode
+
 set global tabstop 4
 declare-option int textwidth 80
 
-hook global InsertChar \t %{ exec -draft -itersel h@ }
+# Highlighters
+# ------------
 
 # Line number
 define-command -override    line-numbers %{ add-highlighter global/line-numbers number-lines }
@@ -23,9 +32,9 @@ hook global WinCreate .* %{ add-highlighter window/show-matching show-matching }
 
 # Highlight the 80th column
 define-command -override columns \
-   %{   add-highlighter window/columns-80  column 80  default,rgb:ddffff
-        add-highlighter window/columns-100 column 100 default,rgb:ccffff
-        add-highlighter window/columns-120 column 120 default,rgb:bbffff
+   %{   add-highlighter window/columns-80  column  81 default,rgb:dddddd
+        add-highlighter window/columns-100 column 101 default,rgb:cccccc
+        add-highlighter window/columns-120 column 121 default,rgb:bbbbbb
     }
 define-command -override no-columns \
    %{   remove-highlighter window/columns-80
@@ -40,46 +49,30 @@ define-command -override no-search-highlight %{ remove-highlighter window/search
 hook global WinCreate .* %{ search-highlight }
 hook global NormalKey <esc> %{ set-register '/' '' }
 
-# Remove spell
+# Wrapping
+define-command -override wrap 	 %{ add-highlighter window/wrap wrap -word }
+define-command -override wrap-80 %{ add-highlighter window/wrap wrap -word -width 80 }
+define-command -override nowrap %{ remove-highlighter window/wrap }
+
 define-command -override no-spell \
    %{ remove-highlighter window/ranges_spell_regions }
 
+# File Navigation
+# ---------------
+
+map global normal <c-n> :buffer-next<ret>
+map global normal <c-p> :buffer-previous<ret>
+
+
+# Select all: space; a
+map global user a '*%s<ret>' 	# Search for selection and select all
+
+# Format: space; f
+map global user f '|pandoc --from=markdown --to=markdown --columns $kak_opt_textwidth --markdown-headings=setext; echo <ret>'
 
 # Map commands
 # ============
 
-# Pandoc gripes:
-# * different levels of bullets should use different chars (e.g. 1st level -, second * ...).
-#
-# TODO: I'm not too happy about using pandoc for formatting,
-# because it may be a pain to bring on machines I don't have control over.
-# Pandoc markdown to mardown conversion also makes unwanted changes to some entities
-# Pandoc should be available as a static binary from the next release
-#
-# TODO: Use '%opt{textwidth}'; How do I set textwidth?
-# TODO: This should only run for markdown files
-
-map -docstring "Format text"                  global user  f       '|pandoc --from=markdown --to=markdown --columns $kak_opt_textwidth --markdown-headings=setext; echo <ret>'
-map -docstring "Convert MD to Latex"          global user  l       '|pandoc --from=markdown --to=latex; echo <ret>'
-
-map -docstring "Select All" \
-    global user a '*%s<ret>'
-
-map -docstring "Sort lines" global user \
-    s       %{ | sort <ret> }
-map -docstring "Save all" global user \
-    <c-s>   :write-all<ret>
-
-map global normal <c-n> :buffer-next<ret>
-map global normal <c-p> :buffer-previous<ret>
-map global user 'w' -docstring 'Word count' %{:echo wc: %sh{wc <lt><lt><lt> "${kak_selection}"}<ret>}
-
-map global user 'T' -docstring 'Format a matching logic term' 'MHs\)|\}\]<ret>M<a-;>ll\i<ret><esc>i'
-
-## :add-highlighter wrap -word -width 80
-define-command -override wrap %{ add-highlighter window/wrap wrap -word -width "%{kak_opt_textwidth}" }
-define-command -override wrap %{ add-highlighter window/wrap wrap -word }
-define-command -override nowrap %{ remove-highlighter window/wrap }
 
 # Colors and syntax highlighting
 # ------------------------------
@@ -110,10 +103,14 @@ face global bullet     Default
 face global list       Default
 
 # User Interface
-face global Search           +bu            # Bold and underline searches
-face global PrimaryCursor    +r             # Reverse
-face global PrimarySelection +r             # Reverse
-face global MatchingChar     rgb:777777+r   # Reverse
+face global Search              +bu
+face global MatchingChar        rgb:777777+r
+
+face global PrimaryCursor       black+r
+face global PrimarySelection    rgb:992222+r
+face global SecondaryCursor     rgb:225522+r
+face global SecondarySelection  rgb:228822+r
+
 
 # face global BufferPadding Default
 # face global CurrentWord Default
