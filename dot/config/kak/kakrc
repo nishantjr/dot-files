@@ -17,7 +17,9 @@ set-option global autocomplete ''
 hook global ModeChange push:.*:insert %{ execute-keys <c-o> }
 map global prompt <c-n> '<tab>'    # Use same completion trigger as insert mode
 
+# Hitting the tab key produces 4 space
 set global tabstop 4
+hook global InsertChar \t %{ exec -draft -itersel h@ }
 
 # Highlighters
 # ------------
