@@ -18,7 +18,6 @@ hook global ModeChange push:.*:insert %{ execute-keys <c-o> }
 map global prompt <c-n> '<tab>'    # Use same completion trigger as insert mode
 
 set global tabstop 4
-declare-option int textwidth 80
 
 # Highlighters
 # ------------
