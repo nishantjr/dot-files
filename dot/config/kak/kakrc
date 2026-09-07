@@ -43,12 +43,6 @@ define-command -override no-columns \
     }
 hook global WinCreate .* %{ columns }
 
-# Highlight search; Clear search register on ESC
-define-command -override search-highlight    %{ add-highlighter window/search dynregex '%reg{/}' 0:Search }
-define-command -override no-search-highlight %{ remove-highlighter window/search }
-hook global WinCreate .* %{ search-highlight }
-hook global NormalKey <esc> %{ set-register '/' '' }
-
 # Wrapping
 define-command -override wrap 	 %{ add-highlighter window/wrap wrap -word }
 define-command -override wrap-80 %{ add-highlighter window/wrap wrap -word -width 80 }
@@ -57,18 +51,53 @@ define-command -override nowrap %{ remove-highlighter window/wrap }
 define-command -override no-spell \
    %{ remove-highlighter window/ranges_spell_regions }
 
-# File Navigation
-# ---------------
+# Buffer and Pane Navigation
+# --------------------------
 
 map global normal <c-n> :buffer-next<ret>
 map global normal <c-p> :buffer-previous<ret>
 
+# Use tmux for splits
+define-command -override split %{ tmux-terminal-vertical kak -c %val{session} }
+
+# Focus
+map global normal <c-h> ':nop %sh{ tmux select-pane -L }<ret>'
+map global normal <c-k> ':nop %sh{ tmux select-pane -U }<ret>'
+map global normal <c-j> ':nop %sh{ tmux select-pane -D }<ret>'
+map global normal <c-r> ':nop %sh{ tmux select-pane -R }<ret>'
+
+# Resize by 1
+map global normal <a-h> ':nop %sh{ tmux resize-pane -L }<ret>'
+map global normal <a-k> ':nop %sh{ tmux resize-pane -U }<ret>'
+map global normal <a-j> ':nop %sh{ tmux resize-pane -D }<ret>'
+map global normal <a-r> ':nop %sh{ tmux resize-pane -R }<ret>'
+
+# Resize by 10
+map global normal <c-a-h> ':nop %sh{ tmux resize-pane -L 10 }<ret>'
+map global normal <c-a-k> ':nop %sh{ tmux resize-pane -U 10 }<ret>'
+map global normal <c-a-j> ':nop %sh{ tmux resize-pane -D 10 }<ret>'
+map global normal <c-a-r> ':nop %sh{ tmux resize-pane -R 10 }<ret>'
+
+
+# Search
+# ------
 
 # Select all: space; a
 map global user a '*%s<ret>' 	# Search for selection and select all
 
+# Highlight search; Clear search register on ESC
+define-command -override search-highlight    %{ add-highlighter window/search dynregex '%reg{/}' 0:Search }
+define-command -override no-search-highlight %{ remove-highlighter window/search }
+hook global WinCreate .* %{ search-highlight }
+hook global NormalKey <esc> %{ set-register '/' '' }
+
+# Formatting
+# ----------
+
 # Format: space; f
-map global user f '|pandoc --from=markdown --to=markdown --columns $kak_opt_textwidth --markdown-headings=setext; echo <ret>'
+map global user f '|pandoc --from=markdown --to=markdown --columns 75 --markdown-headings=setext; echo <ret>'
+
+
 
 # Map commands
 # ============
