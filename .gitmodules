@@ -1,6 +1,0 @@
-[submodule "ext/kakoune"]
-	path = ext/kakoune
-	url = https://github.com/mawww/kakoune
-[submodule "ext/playerctl"]
-	path = ext/playerctl
-	url = https://github.com/acrisci/playerctl
