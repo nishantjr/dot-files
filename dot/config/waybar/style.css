@@ -1,7 +1,4 @@
-* {
-    font-family: Noto Sans Devanagari, Noto Sans, "Font Awesome 6 Free", serif;
-    color: black;
-}
+* { font-family: Noto Sans Devanagari, Noto Sans, "Font Awesome 6 Free", serif; }
 
 tooltip {
   color: black;
@@ -14,16 +11,27 @@ window {
 }
 
 .modules-center {
-    background-color: #f8f8f8;
-    border-radius: 10px 0 0 10px;
+    color: white;
+    background-color: black;
     padding-bottom: 12px;
     padding: 2px;
-    border: 2px solid lightgrey;
+    border: 1px solid lightgrey;
     border-right: none;
 }
 
-#workspaces button { font-size: 10pt; margin: 0; padding-bottom: 0; padding-top: 3px; }
-#workspaces button.focused { background: lightgrey; }
+#workspaces button {
+    color: white;
+    min-width: 12px;
+    min-height: 12px;
+    font-size: 1px; margin: 0; padding-bottom: 0;
+    border-radius: 0px;
+}
+
+#ws button:not(:first-child) { border-top:  1px solid #666666; }
+#ws > :not(:first-child)     { border-left: 1px solid #666666; }
+#ws button.focused { background: #888888; }
+#ws * { padding: 0px; margin: 0px; }
+
 #mpris, #battery { min-height: 25px; }
 #wireless *, #audio * {
     min-width: 25px;
@@ -39,11 +47,10 @@ label { font-size: 10pt; }
     font-weight: bold;
     min-width: 20px;
 }
-#philly, #mumbai, #tokyo { padding: 5px }
-#philly, #mumbai, #audio, #workspaces, #mpris, #battery { border-bottom: 2px dotted lightgrey; }
+#philly, #mumbai, #tokyo { padding-left: 2px; }
+#philly, #mumbai, #audio, #workspaces, #mpris, #battery { border-bottom: 1px dotted lightgrey; }
 
 #clock.dphilly, #clock.dtokyo {
     font-size: 10pt;
     font-weight: normal;
 }
-
