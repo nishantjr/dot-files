@@ -65,10 +65,12 @@ exec --no-startup-id mako
 
 # Screen sharing
 exec --no-startup-id /usr/lib/xdg-desktop-portal-wlr
+exec --no-startup-id /usr/lib/xdg-desktop-portal-gtk
 exec --no-startup-id XDG_CURRENT_DESKTOP=sway /usr/lib/xdg-desktop-portal
 
 # Notification Daemon
 exec --no-startup-id dunst
+for_window [class="Dunst"] floating enable
 
 # Status bar
 exec --no-startup-id waybar
@@ -119,16 +121,24 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # Resize focused window
-bindsym $mod+Control+h resize shrink width
-bindsym $mod+Control+l resize grow   width
-bindsym $mod+Control+j resize shrink height
-bindsym $mod+Control+k resize grow   height
+bindsym $mod+r mode resize
+mode resize {
+    bindsym h       resize grow left  8px
+    bindsym l       resize grow right 8px
+    bindsym j       resize grow up    8px
+    bindsym k       resize grow down  8px
 
-# Move workspace
-bindsym $mod+Control+Shift+h move workspace to output left
-bindsym $mod+Control+Shift+j move workspace to output down
-bindsym $mod+Control+Shift+k move workspace to output up
-bindsym $mod+Control+Shift+l move workspace to output right
+    bindsym Shift+h resize shrink left  8px
+    bindsym Shift+l resize shrink right 8px
+    bindsym Shift+j resize shrink up    8px
+    bindsym Shift+k resize shrink down  8px
+
+    # Unfortunately, modes drop other bindings, so we must duplicate.
+    bindsym $mod+h focus left
+    bindsym $mod+j focus down
+    bindsym $mod+k focus up
+    bindsym $mod+l focus right
+}
 
 # split
 bindsym $mod+b split h
@@ -209,7 +219,7 @@ bindsym $mod+Shift+minus move workspace number 91
 bindsym $mod+Shift+equal move workspace number 92
 
 # rename workspaces
-bindsym $mod+r exec njr-i3-rename-workspace
+# bindsym $mod+r exec njr-i3-rename-workspace
 
 bindsym $mod+Shift+r reload
 
